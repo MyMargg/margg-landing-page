@@ -10,15 +10,33 @@ const NavbarContainer = styled.div`
   position: sticky;
   top: 0;
   z-index: 50;
+  isolation: isolate;
   display: flex;
   justify-content: center;
   padding-top: 36px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 140px;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgba(9, 2, 21, 0.98) 0%,
+      rgba(9, 2, 21, 0.7) 55%,
+      rgba(9, 2, 21, 0) 100%
+    );
+  }
 `;
 
 const NavbarContent = styled.nav`
   display: flex;
   width: 85%;
-  margin-top: 
+  margin-top: 0;
   height: 72px;
   padding: 16px 32px;
   flex-direction: column;

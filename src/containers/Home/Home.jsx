@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Navbar from "./Navbar";
 import Hero from "./Hero";
+import Analytics from "./Analytics";
+import Supercharge from "./Supercharge";
 
 // Styled Components
 const HomeContainer = styled.div`
-  background: #0d0217;
+  background: #090215;
   background: linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%);
   min-height: 100vh;
   position: relative;
@@ -14,6 +16,7 @@ const HomeContainer = styled.div`
 const SectionsContainer = styled.div`
   position: relative;
   z-index: 1;
+  width: 100%;
 `;
 
 const Home = () => {
@@ -22,6 +25,8 @@ const Home = () => {
       <Navbar />
       <SectionsContainer>
         <Hero />
+        <Analytics />
+        <Supercharge />
         {/* Other sections will go here */}
       </SectionsContainer>
     </HomeContainer>
