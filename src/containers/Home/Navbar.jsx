@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import SkillLogo from "../../assets/Skill.svg";
-import GigLogo from "../../assets/Gig.svg";
-import VectorLogo from "../../assets/Vector.svg";
-import "../../styles/NavBar.css";
+import MarggLogo from "@assets/Margg.png";
+import "@styles/NavBar.css";
+import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
 
 // Styled Components
 const NavbarContainer = styled.div`
@@ -36,6 +35,7 @@ const NavbarContainer = styled.div`
 const NavbarContent = styled.nav`
   display: flex;
   width: 85%;
+  max-width: ${MAX_CONTENT_WIDTH};
   margin-top: 0;
   height: 72px;
   padding: 16px 32px;
@@ -56,7 +56,6 @@ const NavbarContent = styled.nav`
 
   @media (max-width: 1024px) {
     width: 90%;
-    max-width: 960px;
   }
 
   @media (max-width: 768px) {
@@ -86,8 +85,8 @@ const LogoTop = styled.div`
 `;
 
 const SkillImage = styled.img`
-  width: 57.156px;
-  height: 21.141px;
+  width: 132.156px;
+  height: 40.141px;
   flex-shrink: 0;
 `;
 
@@ -119,7 +118,7 @@ const MenuList = styled.div`
 
 const MenuLink = styled.a`
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: ${FONTS.body};
   font-size: 16px;
   font-weight: ${(props) => (props.primary ? "600" : "300")};
   line-height: normal;
@@ -141,11 +140,12 @@ const Navbar = () => {
         <NavbarInner>
           {/* Logo Section */}
           <LogoSection>
-            <LogoTop>
+            {/* <LogoTop>
               <SkillImage src={SkillLogo} alt="Skill" />
               <GigImage src={GigLogo} alt="Gig" />
-            </LogoTop>
-            <VectorImage src={VectorLogo} alt="Vector" />
+            </LogoTop> */}
+            {/* <VectorImage src={VectorLogo} alt="Vector" /> */}
+            <SkillImage src={MarggLogo} alt="Margg" />
           </LogoSection>
 
           <NavigationMenu>

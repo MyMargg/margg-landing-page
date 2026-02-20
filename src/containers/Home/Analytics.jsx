@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import StatsCards from "../../components/StatsCards";
+import StatsCards from "@components/StatsCards";
+import { MAX_CONTENT_WIDTH } from "@constants";
 
 const AnalyticsSection = styled.section`
   position: relative;
@@ -29,10 +30,10 @@ const AnalyticsSection = styled.section`
 
 const Inner = styled.div`
   width: 100%;
-  max-width: 1200px;
+  max-width: ${MAX_CONTENT_WIDTH};
   margin: 0 auto;
 
-  /* Don’t hard-center the whole page; this only limits the stats row width for readability */
+  /* Limit content width on large screens while keeping background full-width */
 `;
 
 export default function Analytics() {

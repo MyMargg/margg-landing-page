@@ -105,7 +105,7 @@ export function ParallaxSection({
 
   const contextValue = useMemo(
     () => ({ registerLayer, disabled: isDisabled }),
-    [registerLayer, isDisabled]
+    [registerLayer, isDisabled],
   );
 
   useEffect(() => {
@@ -237,10 +237,7 @@ export function ParallaxLayer({
 
   const Component = as;
 
-  const id = useMemo(
-    () => `layer_${Math.random().toString(16).slice(2)}`,
-    []
-  );
+  const id = useMemo(() => `layer_${Math.random().toString(16).slice(2)}`, []);
 
   useEffect(() => {
     if (!ctx) return;
@@ -264,6 +261,6 @@ export function ParallaxLayer({
       className: "parallaxLayer" + (className ? ` ${className}` : ""),
       style,
     },
-    children
+    children,
   );
 }

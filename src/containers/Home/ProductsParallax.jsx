@@ -1,7 +1,8 @@
 import React, { useEffect, useMemo, useRef } from "react";
 import styled from "styled-components";
 
-import { ParallaxLayer, ParallaxSection } from "../../components/ParallaxSection";
+import { ParallaxLayer, ParallaxSection } from "@components/ParallaxSection";
+import { FONTS } from "@constants";
 
 const clamp01 = (n) => Math.min(1, Math.max(0, n));
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -26,7 +27,8 @@ const BackgroundWash = styled.div`
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%),
+  background:
+    linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%),
     radial-gradient(
       740px circle at 16% 6%,
       rgba(176, 149, 227, 0.22),
@@ -90,7 +92,7 @@ const StickyCol = styled.div`
 
 const LeftTitle = styled.h2`
   margin: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: ${FONTS.heading};
   color: #ffffff;
   font-weight: 400;
   font-size: clamp(40px, 5.4vw, 62px);
@@ -172,25 +174,61 @@ const Screen = styled.div`
 
 const ScreenOne = styled(Screen)`
   background:
-    radial-gradient(820px circle at 55% 8%, rgba(255, 255, 255, 0.16), transparent 55%),
-    radial-gradient(720px circle at 82% 74%, rgba(176, 149, 227, 0.28), transparent 60%),
-    radial-gradient(680px circle at 38% 92%, rgba(80, 19, 192, 0.24), transparent 60%),
+    radial-gradient(
+      820px circle at 55% 8%,
+      rgba(255, 255, 255, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      720px circle at 82% 74%,
+      rgba(176, 149, 227, 0.28),
+      transparent 60%
+    ),
+    radial-gradient(
+      680px circle at 38% 92%,
+      rgba(80, 19, 192, 0.24),
+      transparent 60%
+    ),
     linear-gradient(180deg, rgba(14, 4, 26, 0.82) 0%, rgba(7, 1, 16, 1) 100%);
 `;
 
 const ScreenTwo = styled(Screen)`
   background:
-    radial-gradient(780px circle at 40% 16%, rgba(255, 255, 255, 0.14), transparent 56%),
-    radial-gradient(720px circle at 68% 74%, rgba(80, 19, 192, 0.28), transparent 62%),
-    radial-gradient(540px circle at 30% 92%, rgba(176, 149, 227, 0.22), transparent 60%),
+    radial-gradient(
+      780px circle at 40% 16%,
+      rgba(255, 255, 255, 0.14),
+      transparent 56%
+    ),
+    radial-gradient(
+      720px circle at 68% 74%,
+      rgba(80, 19, 192, 0.28),
+      transparent 62%
+    ),
+    radial-gradient(
+      540px circle at 30% 92%,
+      rgba(176, 149, 227, 0.22),
+      transparent 60%
+    ),
     linear-gradient(180deg, rgba(10, 2, 22, 0.86) 0%, rgba(7, 1, 16, 1) 100%);
 `;
 
 const ScreenThree = styled(Screen)`
   background:
-    radial-gradient(820px circle at 62% 12%, rgba(255, 255, 255, 0.15), transparent 56%),
-    radial-gradient(720px circle at 78% 64%, rgba(176, 149, 227, 0.24), transparent 62%),
-    radial-gradient(560px circle at 26% 86%, rgba(80, 19, 192, 0.26), transparent 60%),
+    radial-gradient(
+      820px circle at 62% 12%,
+      rgba(255, 255, 255, 0.15),
+      transparent 56%
+    ),
+    radial-gradient(
+      720px circle at 78% 64%,
+      rgba(176, 149, 227, 0.24),
+      transparent 62%
+    ),
+    radial-gradient(
+      560px circle at 26% 86%,
+      rgba(80, 19, 192, 0.26),
+      transparent 60%
+    ),
     linear-gradient(180deg, rgba(10, 2, 22, 0.86) 0%, rgba(7, 1, 16, 1) 100%);
 `;
 
@@ -230,7 +268,7 @@ const Step = styled.div`
 
 const FeatureTitle = styled.h3`
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: ${FONTS.body};
   font-size: clamp(16px, 2.4vw, 20px);
   font-weight: 700;
   color: #ffffff;
@@ -238,7 +276,7 @@ const FeatureTitle = styled.h3`
 
 const FeatureDesc = styled.p`
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: ${FONTS.body};
   font-size: clamp(13px, 1.7vw, 14px);
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.75);
@@ -261,7 +299,7 @@ export default function ProductsParallax() {
         desc: "Connect with mentors on video calls and get personalised coaching & doubt clearing sessions",
       },
     ],
-    []
+    [],
   );
 
   const sectionRef = useRef(null);

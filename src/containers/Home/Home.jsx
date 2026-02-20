@@ -4,6 +4,10 @@ import Navbar from "./Navbar";
 import Hero from "./Hero";
 import Analytics from "./Analytics";
 import Supercharge from "./Supercharge";
+import Contact from "./Contact";
+import Footer from "./Footer";
+import JoinWaitList from "@/components/JoinWaitlist";
+import GridSection from "@/components/blocks/GridSection";
 
 // Styled Components
 const HomeContainer = styled.div`
@@ -17,6 +21,9 @@ const SectionsContainer = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const Home = () => {
@@ -27,7 +34,10 @@ const Home = () => {
         <Hero />
         <Analytics />
         <Supercharge />
-        {/* Other sections will go here */}
+        {/* <Contact /> */}
+        <GridSection />
+        <JoinWaitList />
+        <Footer />
       </SectionsContainer>
     </HomeContainer>
   );

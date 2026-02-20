@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
 
 const Section = styled.section`
   position: relative;
@@ -9,7 +10,8 @@ const Section = styled.section`
   --pad: clamp(24px, 7vw, 120px);
   padding: 140px var(--pad) 0;
 
-  background: linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%),
+  background:
+    linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%),
     radial-gradient(
       740px circle at 16% 6%,
       rgba(176, 149, 227, 0.22),
@@ -38,6 +40,8 @@ const Section = styled.section`
 
 const Inner = styled.div`
   width: 100%;
+  max-width: ${MAX_CONTENT_WIDTH};
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +50,7 @@ const Inner = styled.div`
 
 const Title = styled.h2`
   margin: 0;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: ${FONTS.heading};
   color: #ffffff;
   font-weight: 400;
   font-size: clamp(42px, 5.4vw, 64px);
@@ -58,7 +62,7 @@ const Description = styled.p`
   margin: 18px 0 0;
   max-width: 760px;
 
-  font-family: "Inter", sans-serif;
+  font-family: ${FONTS.body};
   color: rgba(255, 255, 255, 0.82);
   font-weight: 400;
   font-size: clamp(14px, 1.8vw, 18px);
@@ -107,8 +111,16 @@ const PhoneScreen = styled.div`
   border-radius: 40px;
   overflow: hidden;
   background:
-    radial-gradient(1200px circle at 30% 20%, rgba(255, 255, 255, 0.08), transparent 55%),
-    radial-gradient(900px circle at 70% 75%, rgba(176, 149, 227, 0.16), transparent 60%),
+    radial-gradient(
+      1200px circle at 30% 20%,
+      rgba(255, 255, 255, 0.08),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px circle at 70% 75%,
+      rgba(176, 149, 227, 0.16),
+      transparent 60%
+    ),
     #070110;
 
   position: relative;
@@ -133,9 +145,21 @@ const PhoneMock = styled.div`
 
   /* Dummy "screen" (no copyrighted wallpaper/video) */
   background:
-    radial-gradient(640px circle at 35% 18%, rgba(255, 255, 255, 0.16), transparent 55%),
-    radial-gradient(560px circle at 78% 72%, rgba(176, 149, 227, 0.28), transparent 60%),
-    radial-gradient(520px circle at 52% 92%, rgba(80, 19, 192, 0.22), transparent 60%),
+    radial-gradient(
+      640px circle at 35% 18%,
+      rgba(255, 255, 255, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(
+      560px circle at 78% 72%,
+      rgba(176, 149, 227, 0.28),
+      transparent 60%
+    ),
+    radial-gradient(
+      520px circle at 52% 92%,
+      rgba(80, 19, 192, 0.22),
+      transparent 60%
+    ),
     linear-gradient(180deg, rgba(7, 1, 16, 0.86) 0%, rgba(7, 1, 16, 1) 100%);
 
   &::after {
@@ -155,7 +179,6 @@ const PhoneMock = styled.div`
   }
 `;
 
-
 export default function Supercharge() {
   return (
     <Section aria-label="supercharge">
@@ -167,18 +190,18 @@ export default function Supercharge() {
             YOUR LEARNING POTENTIAL
           </Title>
           <Description>
-            Escape the Ordinary &amp; enter a place where roadmaps are
-            personalised &amp; interview material is just a click away
+            Step out of the ordinary and into a place where roadmaps are
+            designed for you, and interview prep is just a click away
           </Description>
 
-          <PhoneWrap>
+          {/* <PhoneWrap>
             <PhoneFrame>
               <PhoneScreen>
                 <PhoneMock />
               </PhoneScreen>
             </PhoneFrame>
-          </PhoneWrap>
-        </Stack>
+          </PhoneWrap> */}
+        </Stack> 
       </Inner>
     </Section>
   );

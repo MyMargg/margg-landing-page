@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import "../../styles/Hero.css";
+import "@styles/Hero.css";
 
-import SubtractSvg from "../../assets/figma/intro/subtract.svg";
-
+import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
 import HeroTiles from "./hero/HeroTiles";
+import Input1 from "@components/Input1";
 
 // Styled Components
 const IntroSection = styled.section`
@@ -29,7 +29,8 @@ const BackgroundWash = styled.div`
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%),
+  background:
+    linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%),
     radial-gradient(
       700px circle at 14% 2%,
       rgba(176, 149, 227, 0.22),
@@ -117,21 +118,33 @@ const TopGrid = styled.div`
   width: 100%;
   padding: 98px 5vw 98px 5vw;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
-  gap: clamp(32px, 5vw, 88px);
   box-sizing: border-box;
 
   @media (max-width: 1024px) {
     padding-top: 168px;
-    gap: 48px;
-    align-items: start;
-    min-height: auto;
   }
 
   @media (max-width: 480px) {
     padding: 152px 20px 0;
+  }
+`;
+
+const ContentWrapper = styled.div`
+  width: 100%;
+  max-width: ${MAX_CONTENT_WIDTH};
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(32px, 5vw, 88px);
+
+  @media (max-width: 1024px) {
+    gap: 48px;
+    align-items: start;
+  }
+
+  @media (max-width: 480px) {
     gap: 32px;
   }
 `;
@@ -154,7 +167,7 @@ const HeroTitle = styled.h1`
   letter-spacing: -0.3937px;
   margin: 0;
   text-transform: uppercase;
-  font-family: "Bebas Neue", sans-serif;
+  font-family: ${FONTS.heading};
 
   text-wrap: balance;
 `;
@@ -164,10 +177,14 @@ const HeroDescription = styled.p`
   font-weight: 400;
   font-size: clamp(16px, 2.1vw, 24px);
   line-height: 1.35;
-  font-family: "Inter", sans-serif;
-  margin: 0;
+  font-family: ${FONTS.body};
+  margin: 0 0 32px 0;
   max-width: 425px;
   opacity: 0.95;
+
+  @media (max-width: 768px) {
+    margin-bottom: 24px;
+  }
 `;
 
 const Caption = styled.div`
@@ -177,7 +194,7 @@ const Caption = styled.div`
   transform: translateX(-50%);
   width: 315px;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: ${FONTS.body};
   font-size: 14px;
   letter-spacing: -0.3937px;
   color: #000;
@@ -220,18 +237,21 @@ const Hero = () => {
       <GlowFour />
 
       <TopGrid>
-        <TextSection>
-          <HeroTitle>
-            BRING OUT YOUR
-            <br />
-            BEST POTENTIAL
-          </HeroTitle>
-          <HeroDescription>
-            Learn from the best mentors from all around the world, Save notes
-            &amp; Prep for interviews with best interviewers from the industry
-          </HeroDescription>
-        </TextSection>
-        <HeroTiles tileColor={tileColor} />
+        <ContentWrapper>
+          <TextSection>
+            <HeroTitle>
+              BRING OUT YOUR
+              <br />
+              BEST POTENTIAL
+            </HeroTitle>
+            <HeroDescription>
+              Learn from the best mentors from all around the world, Save notes
+              &amp; Prep for interviews with best interviewers from the industry
+            </HeroDescription>
+            <Input1 />
+          </TextSection>
+          <HeroTiles tileColor={tileColor} />
+        </ContentWrapper>
       </TopGrid>
     </IntroSection>
   );

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import {
   CloudConnectionIcon,
@@ -10,58 +11,64 @@ import {
   PenToolIcon,
   ScrollIcon,
 } from "./HeroIcons";
+import { row1Tiles, row2Tiles, row3Tiles } from "./heroTilesData";
+import { FONTS } from "@constants";
 
+// Import grid utilities
+import {
+  calculateInitialLayout,
+  applyHover,
+} from "@components/blocks/grid/calculateLayout";
+
+/**
+ * Auto-cycle configuration
+ */
+const AUTO_CYCLE_INTERVAL = 3000; // 3 seconds between tile changes
+const DEFAULT_TILE_ID = 1; // Default tile to show when not hovering
+const MIN_TILE_ID = 1;
+const MAX_TILE_ID = 11;
+
+/**
+ * Grid Container - CSS Grid with 3 rows x 4 columns
+ * Uses CSS Grid for deterministic positioning
+ */
 const TilePanel = styled.div`
-  width: min(576px, 100%);
-  flex: 1 1 576px;
-  display: flex;
-  flex-direction: column;
-  gap: clamp(18px, 2.8vw, 32px);
+  width: min(576px, 50%);
+  // flex: 1 1 576px;
+
+  /* CSS Grid setup */
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 120px);
+  gap: 32px;
 
   align-self: flex-start;
 
   @media (max-width: 1024px) {
     flex-basis: 100%;
   }
-`;
-
-const TileRow = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(104px, 120px));
-  gap: clamp(16px, 2.8vw, 32px);
-  align-items: center;
-  justify-content: end;
-
-  @media (max-width: 1024px) {
-    justify-content: start;
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-    justify-content: stretch;
-  }
-`;
-
-const TileRowFour = styled(TileRow)`
-  grid-template-columns: repeat(4, minmax(104px, 120px));
 
   @media (max-width: 640px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
+    width: 476px;
+    grid-template-rows: repeat(3, 104px);
   }
 
   @media (max-width: 480px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    grid-template-rows: auto;
+    gap: 14px;
   }
 `;
 
-const TileButton = styled.button`
+/**
+ * Grid Item - Uses Framer Motion for layout animations
+ * Positioning controlled via inline gridRow and gridColumn
+ */
+const TileButton = styled(motion.div)`
   appearance: none;
   border: 0;
   background: transparent;
   border-radius: 12px;
-  width: 120px;
-  height: 120px;
   padding: 0;
   display: flex;
   align-items: center;
@@ -69,62 +76,65 @@ const TileButton = styled.button`
   cursor: pointer;
   overflow: visible;
   position: relative;
-  z-index: 1;
 
-  transition: transform 220ms ease;
+  /* Fill the grid cell completely - width auto-adjusts based on column span */
+  width: 100%;
+  height: 100%;
+
+  /* Grid positioning applied via inline styles */
 
   &::before {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1);
+    background: ${(props) =>
+      props.$isExpanded
+        ? "rgba(255, 255, 255, 0.2)"
+        : "rgba(255, 255, 255, 0.1)"};
     backdrop-filter: blur(10px);
-    box-shadow: none;
+    box-shadow: ${(props) =>
+      props.$isExpanded
+        ? "0px 4px 32px 0px rgba(176, 149, 227, 0.25)"
+        : "none"};
     transform: scale(1);
-    transition: background 220ms ease, box-shadow 220ms ease;
+    transition:
+      background 220ms ease,
+      box-shadow 220ms ease;
   }
 
-  &:hover,
-  &:focus-visible,
-  &:focus {
-    outline: none;
-    z-index: 10;
-    transform: translateY(-2px);
+  &:hover {
+    z-index: 100;
   }
 
-  &:hover::before,
-  &:focus-visible::before,
-  &:focus::before {
+  &:hover::before {
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0px 4px 32px 0px rgba(176, 149, 227, 0.25);
   }
 
-  &:focus-visible::before {
-    box-shadow: 0px 4px 32px 0px rgba(176, 149, 227, 0.25),
-      0 0 0 2px rgba(211, 196, 239, 0.55);
-  }
-
-  @media (max-width: 640px) {
-    width: 104px;
-    height: 104px;
+  @media (max-width: 480px) {
+    cursor: default;
   }
 `;
 
-const IconOnlyTile = styled(TileButton)`
-  &::before {
-    transform: scale(1) !important;
-  }
+const TileContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
 `;
 
-const FlexIconOnlyTile = styled(IconOnlyTile)`
-  flex: 1 0 0;
-  height: 120px;
-  min-width: 0;
-
-  @media (max-width: 640px) {
-    height: 104px;
-  }
+const InnerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: ${(props) => (props.$isExpanded ? "flex-start" : "center")};
+  gap: ${(props) => (props.$isExpanded ? "16px" : "0")};
+  width: ${(props) => (props.$isExpanded ? "100%" : "auto")};
+  padding: ${(props) => (props.$isExpanded ? "0 20px" : "0")};
+  transition: none;
 `;
 
 const IconWrap = styled.div`
@@ -134,6 +144,7 @@ const IconWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 
   svg {
     width: 64px;
@@ -152,169 +163,184 @@ const IconWrap = styled.div`
   }
 `;
 
-const TileIconSlot = styled.div`
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition: transform 220ms ease;
-  z-index: 1;
-
-  ${TileButton}:hover &,
-  ${TileButton}:focus-visible &,
-  ${TileButton}:focus & {
-    transform: translate(-50%, -50%) scale(1.03);
-  }
-`;
-
-const TilePopover = styled.div`
-  position: absolute;
-  left: 50%;
-  top: calc(100% + 12px);
-  transform: translate(-50%, -6px);
-
-  width: 260px;
-  max-width: min(280px, calc(100vw - 40px));
-  padding: 14px 16px;
-  border-radius: 16px;
-
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(211, 196, 239, 0.22);
-  backdrop-filter: blur(14px);
-  box-shadow: 0px 24px 70px rgba(0, 0, 0, 0.45);
-
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 180ms ease, transform 180ms ease;
-  z-index: 25;
-
-  ${TileButton}:hover &,
-  ${TileButton}:focus-visible &,
-  ${TileButton}:focus & {
-    opacity: 1;
-    transform: translate(-50%, 0);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    transition: none;
-    transform: translate(-50%, 0);
-  }
-`;
-
-const TilePopoverTitle = styled.div`
-  font-family: "Inter", sans-serif;
+const TileTitle = styled.div`
+  font-family: ${FONTS.body};
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.3;
   color: #ffffff;
+  display: ${(props) => (props.$isExpanded ? "block" : "none")};
+  opacity: ${(props) => (props.$isExpanded ? "1" : "0")};
+  transform: translateX(${(props) => (props.$isExpanded ? "0" : "20px")});
+  max-width: 140px;
+  overflow: hidden;
+  transition:
+    opacity 250ms ease,
+    transform 250ms ease;
+  white-space: normal;
+  word-wrap: break-word;
+
+  @media (max-width: 640px) {
+    font-size: 12px;
+    max-width: 120px;
+  }
 `;
 
-const TilePopoverDesc = styled.div`
-  margin-top: 6px;
-  font-family: "Inter", sans-serif;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.78);
-`;
-
-function Tile({ ariaLabel, title, description, icon, isFlex = false }) {
-  const Comp = isFlex ? FlexIconOnlyTile : TileButton;
-
+/**
+ * Individual Tile Component
+ * Renders with grid positioning from layout state
+ */
+function Tile({
+  ariaLabel,
+  title,
+  icon,
+  gridRow,
+  gridColumn,
+  isExpanded,
+  onMouseEnter,
+  onMouseLeave,
+  tileId,
+}) {
   return (
-    <Comp aria-label={ariaLabel}>
-      <TileIconSlot>
-        <IconWrap>{icon}</IconWrap>
-      </TileIconSlot>
-      <TilePopover>
-        <TilePopoverTitle>{title}</TilePopoverTitle>
-        <TilePopoverDesc>{description}</TilePopoverDesc>
-      </TilePopover>
-    </Comp>
+    <TileButton
+      aria-label={ariaLabel}
+      $isExpanded={isExpanded}
+      layout // Framer Motion magic
+      transition={{
+        layout: {
+          duration: 0.25,
+          ease: "easeInOut",
+        },
+      }}
+      style={{
+        gridRow: gridRow,
+        gridColumn: gridColumn,
+      }}
+      onMouseEnter={() => onMouseEnter(tileId)}
+      onMouseLeave={onMouseLeave}
+    >
+      <TileContent>
+        <InnerWrapper $isExpanded={isExpanded}>
+          <IconWrap>{icon}</IconWrap>
+          <TileTitle $isExpanded={isExpanded}>{title}</TileTitle>
+        </InnerWrapper>
+      </TileContent>
+    </TileButton>
   );
 }
 
+const iconComponents = {
+  ScrollIcon,
+  MessageProgrammingIcon,
+  PenToolIcon,
+  DriverIcon,
+  CloudConnectionIcon,
+  FavoriteChartIcon,
+  LockIcon,
+};
+
+/**
+ * Enhanced HeroTiles with CSS Grid + Framer Motion
+ * Uses precomputed layout states for deterministic positioning
+ */
 export default function HeroTiles({ tileColor }) {
+  const [hoveredId, setHoveredId] = useState(DEFAULT_TILE_ID);
+  const [isUserHovering, setIsUserHovering] = useState(false);
+  const intervalRef = useRef(null);
+
+  // Combine all tiles data
+  const allTilesData = useMemo(() => {
+    return [...row1Tiles, ...row2Tiles, ...row3Tiles];
+  }, []);
+
+  // Auto-cycle through random tiles
+  useEffect(() => {
+    const startAutoCycle = () => {
+      intervalRef.current = setInterval(() => {
+        if (!isUserHovering) {
+          const randomId =
+            Math.floor(Math.random() * (MAX_TILE_ID - MIN_TILE_ID + 1)) +
+            MIN_TILE_ID;
+          setHoveredId(randomId);
+        }
+      }, AUTO_CYCLE_INTERVAL);
+    };
+
+    // Start auto-cycling if user is not hovering
+    if (!isUserHovering) {
+      startAutoCycle();
+    }
+
+    // Cleanup interval on unmount or when user starts hovering
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isUserHovering]);
+
+  // Precompute all possible layouts once
+  const precomputedLayouts = useMemo(() => {
+    const itemIds = allTilesData.map((tile) => tile.id);
+    const layouts = {};
+
+    // Default layout (no hover)
+    const baseLayout = calculateInitialLayout(itemIds);
+    layouts["default"] = baseLayout;
+
+    // Compute layout for each possible hover
+    itemIds.forEach((itemId) => {
+      layouts[itemId] = applyHover(baseLayout, itemId);
+    });
+
+    return layouts;
+  }, [allTilesData]);
+
+  // Get current layout based on hover state
+  const currentLayout = useMemo(() => {
+    const key = hoveredId || "default";
+    return precomputedLayouts[key] || precomputedLayouts["default"];
+  }, [precomputedLayouts, hoveredId]);
+
+  const handleMouseEnter = (tileId) => {
+    setIsUserHovering(true);
+    setHoveredId(tileId);
+    // Clear auto-cycle interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredId(DEFAULT_TILE_ID);
+    setIsUserHovering(false);
+    // Auto-cycle will restart via useEffect
+  };
+
   return (
     <TilePanel aria-label="intro tiles">
-      <TileRow>
-        <Tile
-          ariaLabel="Frontend Developer"
-          title="Frontend Developer"
-          description="Build modern UI with React, component systems, and responsive layouts."
-          icon={<ScrollIcon color={tileColor} />}
-        />
+      {currentLayout.map((layoutItem) => {
+        const tileData = allTilesData.find((t) => t.id === layoutItem.id);
+        if (!tileData) return null;
 
-        <Tile
-          ariaLabel="Programming Essentials"
-          title="Programming Essentials"
-          description="Learn core concepts, clean code, and problem-solving techniques."
-          icon={<MessageProgrammingIcon color={tileColor} />}
-          isFlex
-        />
+        const IconComponent = iconComponents[tileData.icon];
+        const isExpanded = layoutItem.span === 2;
 
-        <Tile
-          ariaLabel="UI Design Fundamentals"
-          title="UI Design Fundamentals"
-          description="Design trends, spacing systems, and accessible UI patterns."
-          icon={<PenToolIcon color={tileColor} />}
-          isFlex
-        />
-      </TileRow>
-
-      <TileRowFour>
-        <Tile
-          ariaLabel="Driver"
-          title="Driver"
-          description="Start strong with fundamentals and hands-on practice."
-          icon={<DriverIcon color={tileColor} />}
-        />
-        <Tile
-          ariaLabel="Cloud Connection"
-          title="Cloud Connection"
-          description="Deploy apps, understand environments, and ship confidently."
-          icon={<CloudConnectionIcon color={tileColor} />}
-        />
-        <Tile
-          ariaLabel="Analytics"
-          title="Analytics"
-          description="Track progress, measure outcomes, and improve faster."
-          icon={<FavoriteChartIcon color={tileColor} />}
-        />
-        <Tile
-          ariaLabel="Security"
-          title="Security"
-          description="Learn safe patterns, auth basics, and secure-by-default UI."
-          icon={<LockIcon color={tileColor} />}
-        />
-      </TileRowFour>
-
-      <TileRowFour>
-        <Tile
-          ariaLabel="Analytics"
-          title="Analytics"
-          description="Track progress, measure outcomes, and improve faster."
-          icon={<FavoriteChartIcon color={tileColor} />}
-        />
-        <Tile
-          ariaLabel="Driver"
-          title="Driver"
-          description="Start strong with fundamentals and hands-on practice."
-          icon={<DriverIcon color={tileColor} />}
-        />
-        <Tile
-          ariaLabel="Security"
-          title="Security"
-          description="Learn safe patterns, auth basics, and secure-by-default UI."
-          icon={<LockIcon color={tileColor} />}
-        />
-        <Tile
-          ariaLabel="Cloud Connection"
-          title="Cloud Connection"
-          description="Deploy apps, understand environments, and ship confidently."
-          icon={<CloudConnectionIcon color={tileColor} />}
-        />
-      </TileRowFour>
+        return (
+          <Tile
+            key={layoutItem.id}
+            tileId={layoutItem.id}
+            ariaLabel={tileData.ariaLabel}
+            title={tileData.title}
+            icon={<IconComponent color={tileColor} />}
+            gridRow={layoutItem.row}
+            gridColumn={`${layoutItem.col} / span ${layoutItem.span}`}
+            isExpanded={isExpanded}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          />
+        );
+      })}
     </TilePanel>
   );
 }

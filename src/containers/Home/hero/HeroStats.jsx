@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { FONTS } from "@constants";
 
 const StatsRow = styled.div`
   position: absolute;
@@ -45,10 +46,13 @@ const StatCard = styled.div`
   padding: 32px;
   overflow: hidden;
   background: #eee7f9;
-  box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.25),
+  box-shadow:
+    0px 4px 32px 0px rgba(0, 0, 0, 0.25),
     0px 4px 32px 0px rgba(255, 255, 255, 0.25);
 
-  transition: transform 240ms ease, box-shadow 240ms ease;
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease;
 
   &:hover {
     transform: translateY(-2px);
@@ -59,7 +63,9 @@ const StatCard = styled.div`
     position: absolute;
     inset: 0;
     pointer-events: none;
-    box-shadow: inset 0px -8px 60px 0px #b095e3, inset 0px 12px 40px 0px #d3c4ef;
+    box-shadow:
+      inset 0px -8px 60px 0px #b095e3,
+      inset 0px 12px 40px 0px #d3c4ef;
   }
 
   @media (max-width: 480px) {
@@ -70,7 +76,7 @@ const StatCard = styled.div`
 `;
 
 const StatValue = styled.div`
-  font-family: "Bebas Neue", sans-serif;
+  font-family: ${FONTS.heading};
   font-size: 80px;
   line-height: 1;
   color: #5013c0;
@@ -78,7 +84,7 @@ const StatValue = styled.div`
 
 const StatLabel = styled.div`
   margin-top: 8px;
-  font-family: "Inter", sans-serif;
+  font-family: ${FONTS.body};
   font-size: 20px;
   font-weight: 600;
   line-height: 1.5;
