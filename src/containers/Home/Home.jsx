@@ -6,7 +6,7 @@ import Analytics from "./Analytics";
 import Supercharge from "./Supercharge";
 import Contact from "./Contact";
 import Footer from "./Footer";
-import JoinWaitList from "@/components/JoinWaitlist";
+import JoinWaitList from "@/components/JoinWaitList";
 import GridSection from "@/components/blocks/GridSection";
 
 // Styled Components
