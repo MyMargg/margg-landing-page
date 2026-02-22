@@ -1,24 +1,42 @@
 import React from "react";
 import styled from "styled-components";
-import SkillLogo from "../../assets/Skill.svg";
-import GigLogo from "../../assets/Gig.svg";
-import VectorLogo from "../../assets/Vector.svg";
-import "../../styles/NavBar.css";
+import MarggLogo from "@assets/Margg.png";
+import "@styles/NavBar.css";
+import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
 
 // Styled Components
 const NavbarContainer = styled.div`
   position: sticky;
   top: 0;
   z-index: 50;
+  isolation: isolate;
   display: flex;
   justify-content: center;
   padding-top: 36px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 140px;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgba(9, 2, 21, 0.98) 0%,
+      rgba(9, 2, 21, 0.7) 55%,
+      rgba(9, 2, 21, 0) 100%
+    );
+  }
 `;
 
 const NavbarContent = styled.nav`
   display: flex;
   width: 85%;
-  margin-top: 
+  max-width: ${MAX_CONTENT_WIDTH};
+  margin-top: 0;
   height: 72px;
   padding: 16px 32px;
   flex-direction: column;
@@ -38,7 +56,6 @@ const NavbarContent = styled.nav`
 
   @media (max-width: 1024px) {
     width: 90%;
-    max-width: 960px;
   }
 
   @media (max-width: 768px) {
@@ -68,8 +85,8 @@ const LogoTop = styled.div`
 `;
 
 const SkillImage = styled.img`
-  width: 57.156px;
-  height: 21.141px;
+  width: 132.156px;
+  height: 40.141px;
   flex-shrink: 0;
 `;
 
@@ -101,7 +118,7 @@ const MenuList = styled.div`
 
 const MenuLink = styled.a`
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: ${FONTS.body};
   font-size: 16px;
   font-weight: ${(props) => (props.primary ? "600" : "300")};
   line-height: normal;
@@ -123,11 +140,12 @@ const Navbar = () => {
         <NavbarInner>
           {/* Logo Section */}
           <LogoSection>
-            <LogoTop>
+            {/* <LogoTop>
               <SkillImage src={SkillLogo} alt="Skill" />
               <GigImage src={GigLogo} alt="Gig" />
-            </LogoTop>
-            <VectorImage src={VectorLogo} alt="Vector" />
+            </LogoTop> */}
+            {/* <VectorImage src={VectorLogo} alt="Vector" /> */}
+            <SkillImage src={MarggLogo} alt="Margg" />
           </LogoSection>
 
           <NavigationMenu>

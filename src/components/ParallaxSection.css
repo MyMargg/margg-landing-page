@@ -1,0 +1,24 @@
+.parallaxSection {
+  position: relative;
+  width: 100%;
+}
+
+/* Sticky viewport: each section feels like a premium "scene" */
+.parallaxSticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Layers are typically full-bleed and GPU-transformed */
+.parallaxLayer {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+}
+
+/* Convenience: full-bleed layer inside sticky viewport */
+.parallaxFill {
+  position: absolute;
+  inset: 0;
+}
