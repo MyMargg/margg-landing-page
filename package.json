@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "build": "vite build",
     "lint": "eslint .",
     "deploy:stage": "cross-env VITE_APP_ENV=staging vite build && node deploy.js",
     "deploy:uat": "cross-env VITE_APP_ENV=uat vite build && node deploy.js",
