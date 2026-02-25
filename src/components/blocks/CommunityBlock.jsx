@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Title } from "./style";
+import { useContent } from "@content/ContentContext";
 import Community from "@assets/grid/community.png";
 
 const Container = styled.div`
@@ -20,9 +21,10 @@ const Image = styled.img`
   transform: scale(1.4);
 `;
 const CommunityBlock = () => {
+  const { community } = useContent("blocks");
   return (
     <Container>
-      <Title>Community</Title>
+      <Title>{community.title}</Title>
       <Image src={Community} alt="community" />
     </Container>
   );

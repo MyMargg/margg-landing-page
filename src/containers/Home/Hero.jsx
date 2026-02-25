@@ -3,6 +3,7 @@ import styled from "styled-components";
 import "@styles/Hero.css";
 
 import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
+import { useContent } from "@content/ContentContext";
 import HeroTiles from "./hero/HeroTiles";
 import Input1 from "@components/Input1";
 
@@ -227,6 +228,13 @@ const Wave = styled.img`
 
 const Hero = () => {
   const tileColor = "rgba(176, 149, 227, 1)";
+  const {
+    titleLine1,
+    titleLine2,
+    description,
+    inputPlaceholder,
+    inputButtonText,
+  } = useContent("hero");
 
   return (
     <IntroSection>
@@ -240,15 +248,15 @@ const Hero = () => {
         <ContentWrapper>
           <TextSection>
             <HeroTitle>
-              BRING OUT YOUR
+              {titleLine1}
               <br />
-              BEST POTENTIAL
+              {titleLine2}
             </HeroTitle>
-            <HeroDescription>
-              Learn from the best mentors from all around the world, Save notes
-              &amp; Prep for interviews with best interviewers from the industry
-            </HeroDescription>
-            <Input1 />
+            <HeroDescription>{description}</HeroDescription>
+            <Input1
+              placeholder={inputPlaceholder}
+              buttonText={inputButtonText}
+            />
           </TextSection>
           <HeroTiles tileColor={tileColor} />
         </ContentWrapper>

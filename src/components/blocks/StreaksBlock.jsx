@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // components
 import { Title as _Title } from "./style";
+import { useContent } from "@content/ContentContext";
 
 import Flame from "@assets/grid/flame.png";
 import Streak from "@assets/grid/streak.png";
@@ -38,9 +39,10 @@ const Image2 = styled.img`
 `;
 
 const StreaksBlock = () => {
+  const { streaks } = useContent("blocks");
   return (
     <Container>
-      <Title>Streaks</Title>
+      <Title>{streaks.title}</Title>
       <Image2 src={Streak} alt="streak" />
     </Container>
   );

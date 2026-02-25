@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { Subtext as _Subtext, Title as _Title } from "./style";
+import { useContent } from "@content/ContentContext";
 
 import FocusTimer from "@assets/grid/focus-timer.png";
 
@@ -38,10 +39,11 @@ const Title = styled(_Title)`
 `;
 
 const FocusTimerBlock = () => {
+  const { focusTimer } = useContent("blocks");
   return (
     <Container>
       <TextContainer>
-        <Title>Focus Timer</Title>
+        <Title>{focusTimer.title}</Title>
       </TextContainer>
       <Image src={FocusTimer} alt="focus timer" />
     </Container>

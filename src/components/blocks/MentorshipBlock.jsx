@@ -1,6 +1,7 @@
 import React from "react";
 import { Title } from "./style";
 import styled from "styled-components";
+import { useContent } from "@content/ContentContext";
 
 import Mentorship from "@assets/grid/mentor.png";
 
@@ -21,9 +22,10 @@ const Image = styled.img`
   width: 52%;
 `;
 const MentorshipBlock = () => {
+  const { mentorship } = useContent("blocks");
   return (
     <Container>
-      <Title>One-on-One Mentorship</Title>
+      <Title>{mentorship.title}</Title>
       <Image src={Mentorship} alt="mentorship" />
     </Container>
   );

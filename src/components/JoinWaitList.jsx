@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // constants
 import { FONTS, MEDIA_QUERIES } from "@constants";
+import { useContent } from "@content/ContentContext";
 
 // components
 import Input1 from "./Input1";
@@ -112,14 +113,17 @@ const PhoneImage = styled.img`
 `;
 
 const JoinWaitList = ({ onSubmit }) => {
+  const { title, subtitle, inputPlaceholder, buttonText } =
+    useContent("joinWaitlist");
+
   return (
     <WaitlistContainer>
       <LeftColumn>
-        <Title>JOIN WAITLIST</Title>
-        <Subtitle>First step towards your dream career</Subtitle>
+        <Title>{title}</Title>
+        <Subtitle>{subtitle}</Subtitle>
         <Input1
-          placeholder="Enter Email"
-          buttonText="Notify Me"
+          placeholder={inputPlaceholder}
+          buttonText={buttonText}
           onSubmit={onSubmit}
         />
       </LeftColumn>

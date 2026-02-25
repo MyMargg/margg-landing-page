@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
+import { useContent } from "@content/ContentContext";
 
 const Section = styled.section`
   position: relative;
@@ -180,28 +181,19 @@ const PhoneMock = styled.div`
 `;
 
 export default function Supercharge() {
+  const { titleLine1, titleLine2, description } = useContent("supercharge");
+
   return (
     <Section aria-label="supercharge">
       <Inner>
         <Stack>
           <Title>
-            SUPERCHARGE
+            {titleLine1}
             <br />
-            YOUR LEARNING POTENTIAL
+            {titleLine2}
           </Title>
-          <Description>
-            Step out of the ordinary and into a place where roadmaps are
-            designed for you, and interview prep is just a click away
-          </Description>
-
-          {/* <PhoneWrap>
-            <PhoneFrame>
-              <PhoneScreen>
-                <PhoneMock />
-              </PhoneScreen>
-            </PhoneFrame>
-          </PhoneWrap> */}
-        </Stack> 
+          <Description>{description}</Description>
+        </Stack>
       </Inner>
     </Section>
   );

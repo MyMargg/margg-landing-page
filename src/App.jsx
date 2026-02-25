@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 
 import Home from "@containers/Home/Home";
-
-// import Container from "./containers/Container";
+import { ContentLoader } from "@content/ContentLoader";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <ContentLoader>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </ContentLoader>
   );
 }
 

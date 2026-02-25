@@ -1,0 +1,168 @@
+{
+  "navbar": {
+    "logoAlt": "Margg",
+    "links": [
+      { "label": "Home", "href": "#", "primary": true },
+      { "label": "Our Products", "href": "#" },
+      { "label": "Contact Us", "href": "#" }
+    ]
+  },
+
+  "hero": {
+    "titleLine1": "BRING OUT YOUR",
+    "titleLine2": "BEST POTENTIAL",
+    "description": "Learn from the best mentors from all around the world, Save notes & Prep for interviews with best interviewers from the industry",
+    "inputPlaceholder": "Enter Email",
+    "inputButtonText": "Join the waitlist",
+    "tiles": {
+      "autoCycleIntervalMs": 3000,
+      "defaultTileId": 1,
+      "row1": [
+        {
+          "id": 1,
+          "ariaLabel": "Frontend Developer",
+          "title": "Frontend Developer",
+          "description": "Build modern UI with React, component systems, and responsive layouts.",
+          "icon": "ScrollIcon"
+        },
+        {
+          "id": 2,
+          "ariaLabel": "Programming Essentials",
+          "title": "Programming Essentials",
+          "description": "Learn core concepts, clean code, and problem-solving techniques.",
+          "icon": "MessageProgrammingIcon"
+        },
+        {
+          "id": 3,
+          "ariaLabel": "UI Design Fundamentals",
+          "title": "UI Design Fundamentals",
+          "description": "Design trends, spacing systems, and accessible UI patterns.",
+          "icon": "PenToolIcon"
+        }
+      ],
+      "row2": [
+        {
+          "id": 4,
+          "ariaLabel": "Backend Development",
+          "title": "Backend Development",
+          "description": "Server-side logic, APIs, and database management.",
+          "icon": "DriverIcon"
+        },
+        {
+          "id": 5,
+          "ariaLabel": "Database Design",
+          "title": "Database Design",
+          "description": "Data modeling, SQL, and database optimization.",
+          "icon": "FavoriteChartIcon"
+        },
+        {
+          "id": 6,
+          "ariaLabel": "Cloud & DevOps",
+          "title": "Cloud & DevOps",
+          "description": "Deploy apps, understand environments, and ship confidently.",
+          "icon": "CloudConnectionIcon"
+        },
+        {
+          "id": 7,
+          "ariaLabel": "Testing & QA",
+          "title": "Testing & QA",
+          "description": "Write quality tests and ensure reliable applications.",
+          "icon": "LockIcon"
+        }
+      ],
+      "row3": [
+        {
+          "id": 8,
+          "ariaLabel": "Security",
+          "title": "Security",
+          "description": "Learn safe patterns, auth basics, and secure-by-default UI.",
+          "icon": "MessageProgrammingIcon"
+        },
+        {
+          "id": 9,
+          "ariaLabel": "Algorithms",
+          "title": "Algorithms",
+          "description": "Problem-solving patterns and data structures.",
+          "icon": "PenToolIcon"
+        },
+        {
+          "id": 10,
+          "ariaLabel": "System Design",
+          "title": "System Design",
+          "description": "Architecture, scalability, and distributed systems.",
+          "icon": "FavoriteChartIcon"
+        },
+        {
+          "id": 11,
+          "ariaLabel": "Performance",
+          "title": "Performance",
+          "description": "Optimize load times, rendering, and user experience.",
+          "icon": "DriverIcon"
+        }
+      ]
+    }
+  },
+
+  "analytics": {
+    "stats": [
+      { "value": "43+", "label": "University\nPartners" },
+      { "value": "12K+", "label": "Students\nEnrolled" },
+      { "value": "35", "label": "Outstanding\nMentors" },
+      { "value": "7.5K", "label": "Student\nPlacements" }
+    ]
+  },
+
+  "supercharge": {
+    "titleLine1": "SUPERCHARGE",
+    "titleLine2": "YOUR LEARNING POTENTIAL",
+    "description": "Step out of the ordinary and into a place where roadmaps are designed for you, and interview prep is just a click away"
+  },
+
+  "joinWaitlist": {
+    "title": "JOIN WAITLIST",
+    "subtitle": "First step towards your dream career",
+    "inputPlaceholder": "Enter Email",
+    "buttonText": "Notify Me"
+  },
+
+  "footer": {
+    "contactTitle": "GET IN TOUCH WITH US",
+    "location": "Bangalore | Tirupati",
+    "phone": "+91 7993559974",
+    "email": "info@margg.in",
+    "tagline": "Unlock the Road to Successful Career",
+    "companyName": "Margg Private Limited",
+    "logoAlt": "Margg Logo",
+    "socialLinks": [
+      {
+        "name": "Facebook",
+        "icon": "FacebookIcon",
+        "url": "https://facebook.com"
+      },
+      {
+        "name": "X (Twitter)",
+        "icon": "TwitterIcon",
+        "url": "https://twitter.com"
+      },
+      {
+        "name": "LinkedIn",
+        "icon": "LinkedInIcon",
+        "url": "https://linkedin.com"
+      }
+    ]
+  },
+
+  "blocks": {
+    "roadmap": { "title": "Roadmap Based Learning" },
+    "community": { "title": "Community" },
+    "focusTimer": { "title": "Focus Timer" },
+    "interviewPrep": { "title": "Interview Prep Materials" },
+    "jobBoard": { "title": "Job Board" },
+    "mentorship": { "title": "One-on-One Mentorship" },
+    "projects": { "title": "Projects" },
+    "resume": { "title": "Resume Builder" },
+    "skills": { "title": "Skills Assessment" },
+    "streaks": { "title": "Streaks" },
+    "certifications": { "title": "Certifications" }
+  }
+}

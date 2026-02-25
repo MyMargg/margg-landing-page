@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import StatsCards from "@components/StatsCards";
 import { MAX_CONTENT_WIDTH } from "@constants";
+import { useContent } from "@content/ContentContext";
 
 const AnalyticsSection = styled.section`
   position: relative;
@@ -37,17 +38,12 @@ const Inner = styled.div`
 `;
 
 export default function Analytics() {
-  const items = [
-    { value: "43+", label: "University\nPartners" },
-    { value: "12K+", label: "Students\nEnrolled" },
-    { value: "35", label: "Outstanding\nMentors" },
-    { value: "7.5K", label: "Student\nPlacements" },
-  ];
+  const { stats } = useContent("analytics");
 
   return (
     <AnalyticsSection aria-label="analytics">
       <Inner>
-        <StatsCards items={items} />
+        <StatsCards items={stats} />
       </Inner>
     </AnalyticsSection>
   );

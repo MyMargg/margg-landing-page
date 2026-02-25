@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // styles
 import { Title, Subtext } from "./style";
+import { useContent } from "@content/ContentContext";
 
 // images
 import Roadmap from "@assets/grid/roadmap.png";
@@ -25,9 +26,10 @@ const Image = styled.img`
 `;
 
 const RoadmapBlock = () => {
+  const { roadmap } = useContent("blocks");
   return (
     <Container>
-      <Title>Roadmap Based Learning</Title>
+      <Title>{roadmap.title}</Title>
       <Image src={Roadmap} alt="roadmap" />
     </Container>
   );

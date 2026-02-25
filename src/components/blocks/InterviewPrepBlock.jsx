@@ -3,12 +3,9 @@ import styled from "styled-components";
 
 // components
 import { Title } from "./style";
+import { useContent } from "@content/ContentContext";
 
 // images
-// import screenLeft from "@assets/grid/screen-left.png";
-// import screenRight from "@assets/grid/screen-right.png";
-// import Card1 from "@assets/grid/card-1.png";
-// import Card2 from "@assets/grid/card-2.png";
 import InterviewPrep from "@assets/grid/interview-prep.png";
 
 const Container = styled.div`
@@ -31,9 +28,10 @@ const Image = styled.img`
 `;
 
 const InterviewPrepBlock = () => {
+  const { interviewPrep } = useContent("blocks");
   return (
     <Container>
-      <Title>Interview Prep Materials</Title>;
+      <Title>{interviewPrep.title}</Title>;
       <Image src={InterviewPrep} alt="screen left" />
     </Container>
   );

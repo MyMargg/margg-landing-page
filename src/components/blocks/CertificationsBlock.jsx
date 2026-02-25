@@ -1,8 +1,10 @@
 import React from "react";
 import { Title } from "./style";
+import { useContent } from "@content/ContentContext";
 
 const CertificationsBlock = () => {
-  return <Title>Certifications</Title>;
+  const { certifications } = useContent("blocks");
+  return <Title>{certifications.title}</Title>;
 };
 
 export default CertificationsBlock;

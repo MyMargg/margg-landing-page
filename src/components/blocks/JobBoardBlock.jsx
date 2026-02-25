@@ -1,8 +1,10 @@
 import React from "react";
 import { Title } from "./style";
+import { useContent } from "@content/ContentContext";
 
 const JobBoardBlock = () => {
-  return <Title>Job Board</Title>;
+  const { jobBoard } = useContent("blocks");
+  return <Title>{jobBoard.title}</Title>;
 };
 
 export default JobBoardBlock;

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 // constants
 import { MAX_CONTENT_WIDTH, MEDIA_QUERIES, FONTS } from "@constants";
+import { useContent } from "@content/ContentContext";
 
 // images
 import MarggLogo from "@assets/Margg.png";
@@ -12,6 +13,12 @@ import LinkedInIcon from "@assets/footer/LinkedInIcon";
 import LocationIcon from "@assets/footer/LocationIcon";
 import PhoneIcon from "@assets/footer/PhoneIcon";
 import MailIcon from "@assets/footer/MailIcon";
+
+const iconComponents = {
+  FacebookIcon,
+  TwitterIcon,
+  LinkedInIcon,
+};
 
 const FooterSection = styled.footer`
   position: relative;
@@ -246,63 +253,57 @@ const SocialIcon = styled.a`
 
 const currentYear = new Date().getFullYear();
 
-const socialLinks = [
-  {
-    name: "Facebook",
-    url: "https://facebook.com",
-    icon: FacebookIcon,
-  },
-  {
-    name: "X (Twitter)",
-    url: "https://twitter.com",
-    icon: TwitterIcon,
-  },
-  {
-    name: "LinkedIn",
-    url: "https://linkedin.com",
-    icon: LinkedInIcon,
-  },
-];
 const Footer = () => {
+  const {
+    contactTitle,
+    location,
+    phone,
+    email,
+    tagline,
+    companyName,
+    logoAlt,
+    socialLinks,
+  } = useContent("footer");
+
   return (
     <FooterSection>
       <Inner>
         <Box>
           <LeftColumn>
-            <ContactTitle>GET IN TOUCH WITH US</ContactTitle>
+            <ContactTitle>{contactTitle}</ContactTitle>
             <ContactInfo>
               <ContactItem>
                 <IconWrapper>
                   <LocationIcon width={15} height={20} color="#B095E3" />
                 </IconWrapper>
-                Bangalore | Tirupati
+                {location}
               </ContactItem>
               <ContactItem>
                 <IconWrapper>
                   <PhoneIcon width={18} height={18} color="#B095E3" />
                 </IconWrapper>
-                +91 7993559974
+                {phone}
               </ContactItem>
               <ContactItem>
                 <IconWrapper>
                   <MailIcon width={18} height={18} color="#B095E3" />
                 </IconWrapper>
-                info@margg.in
+                {email}
               </ContactItem>
             </ContactInfo>
           </LeftColumn>
           <RightColumn>
-            <Logo src={MarggLogo} alt="Margg Logo" />
-            <Tagline>Unlock the Road to Successful Career</Tagline>
+            <Logo src={MarggLogo} alt={logoAlt} />
+            <Tagline>{tagline}</Tagline>
           </RightColumn>
         </Box>
         <CopyrightBox>
           <CopyrightText>
-            © {currentYear} Margg Private Limited. All Rights Reserved.
+            &copy; {currentYear} {companyName}. All Rights Reserved.
           </CopyrightText>
           <SocialIcons>
             {socialLinks.map((social) => {
-              const IconComponent = social.icon;
+              const IconComponent = iconComponents[social.icon];
               return (
                 <SocialIcon
                   key={social.name}

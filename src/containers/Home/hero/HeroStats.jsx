@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FONTS } from "@constants";
+import { useContent } from "@content/ContentContext";
 
 const StatsRow = styled.div`
   position: absolute;
@@ -96,24 +97,16 @@ const StatLabelTwoLine = styled(StatLabel)`
 `;
 
 export default function HeroStats() {
+  const { stats } = useContent("analytics");
+
   return (
     <StatsRow aria-label="stats">
-      <StatCard>
-        <StatValue>43+</StatValue>
-        <StatLabel>University Partners</StatLabel>
-      </StatCard>
-      <StatCard>
-        <StatValue>12K+</StatValue>
-        <StatLabel>Students Enrolled</StatLabel>
-      </StatCard>
-      <StatCard>
-        <StatValue>35</StatValue>
-        <StatLabel>Outstanding Mentors</StatLabel>
-      </StatCard>
-      <StatCard>
-        <StatValue>7.5K</StatValue>
-        <StatLabelTwoLine>{`Student\nPlacements`}</StatLabelTwoLine>
-      </StatCard>
+      {stats.map((item) => (
+        <StatCard key={item.value + item.label}>
+          <StatValue>{item.value}</StatValue>
+          <StatLabelTwoLine>{item.label}</StatLabelTwoLine>
+        </StatCard>
+      ))}
     </StatsRow>
   );
 }

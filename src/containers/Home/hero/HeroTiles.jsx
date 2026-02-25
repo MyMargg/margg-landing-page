@@ -11,8 +11,8 @@ import {
   PenToolIcon,
   ScrollIcon,
 } from "./HeroIcons";
-import { row1Tiles, row2Tiles, row3Tiles } from "./heroTilesData";
 import { FONTS } from "@constants";
+import { useContent } from "@content/ContentContext";
 
 // Import grid utilities
 import {
@@ -21,12 +21,10 @@ import {
 } from "@components/blocks/grid/calculateLayout";
 
 /**
- * Auto-cycle configuration
+ * Auto-cycle configuration – defaults used when content is not yet loaded
  */
-const AUTO_CYCLE_INTERVAL = 3000; // 3 seconds between tile changes
-const DEFAULT_TILE_ID = 1; // Default tile to show when not hovering
-const MIN_TILE_ID = 1;
-const MAX_TILE_ID = 11;
+const FALLBACK_CYCLE_INTERVAL = 3000;
+const FALLBACK_DEFAULT_TILE_ID = 1;
 
 /**
  * Grid Container - CSS Grid with 3 rows x 4 columns
@@ -244,14 +242,35 @@ const iconComponents = {
  * Uses precomputed layout states for deterministic positioning
  */
 export default function HeroTiles({ tileColor }) {
+  const tilesConfig = useContent("hero").tiles ?? {};
+  const AUTO_CYCLE_INTERVAL =
+    tilesConfig.autoCycleIntervalMs ?? FALLBACK_CYCLE_INTERVAL;
+  const DEFAULT_TILE_ID = tilesConfig.defaultTileId ?? FALLBACK_DEFAULT_TILE_ID;
+
+  const allTilesData = useMemo(() => {
+    const row1 = tilesConfig.row1 ?? [];
+    const row2 = tilesConfig.row2 ?? [];
+    const row3 = tilesConfig.row3 ?? [];
+    return [...row1, ...row2, ...row3];
+  }, [tilesConfig]);
+
+  const MIN_TILE_ID = useMemo(
+    () =>
+      allTilesData.length ? Math.min(...allTilesData.map((t) => t.id)) : 1,
+    [allTilesData],
+  );
+  const MAX_TILE_ID = useMemo(
+    () =>
+      allTilesData.length ? Math.max(...allTilesData.map((t) => t.id)) : 1,
+    [allTilesData],
+  );
+
   const [hoveredId, setHoveredId] = useState(DEFAULT_TILE_ID);
   const [isUserHovering, setIsUserHovering] = useState(false);
   const intervalRef = useRef(null);
 
   // Combine all tiles data
-  const allTilesData = useMemo(() => {
-    return [...row1Tiles, ...row2Tiles, ...row3Tiles];
-  }, []);
+  // (now derived from content context above)
 
   // Auto-cycle through random tiles
   useEffect(() => {

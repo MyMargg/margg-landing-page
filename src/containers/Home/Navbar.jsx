@@ -3,6 +3,7 @@ import styled from "styled-components";
 import MarggLogo from "@assets/Margg.png";
 import "@styles/NavBar.css";
 import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
+import { useContent } from "@content/ContentContext";
 
 // Styled Components
 const NavbarContainer = styled.div`
@@ -134,27 +135,28 @@ const MenuLink = styled.a`
 `;
 
 const Navbar = () => {
+  const { logoAlt, links } = useContent("navbar");
+
   return (
     <NavbarContainer>
       <NavbarContent>
         <NavbarInner>
           {/* Logo Section */}
           <LogoSection>
-            {/* <LogoTop>
-              <SkillImage src={SkillLogo} alt="Skill" />
-              <GigImage src={GigLogo} alt="Gig" />
-            </LogoTop> */}
-            {/* <VectorImage src={VectorLogo} alt="Vector" /> */}
-            <SkillImage src={MarggLogo} alt="Margg" />
+            <SkillImage src={MarggLogo} alt={logoAlt} />
           </LogoSection>
 
           <NavigationMenu>
             <MenuList>
-              <MenuLink href="#" primary={true}>
-                Home
-              </MenuLink>
-              <MenuLink href="#">Our Products</MenuLink>
-              <MenuLink href="#">Contact Us</MenuLink>
+              {links.map((link) => (
+                <MenuLink
+                  key={link.label}
+                  href={link.href}
+                  primary={link.primary ? true : undefined}
+                >
+                  {link.label}
+                </MenuLink>
+              ))}
             </MenuList>
           </NavigationMenu>
         </NavbarInner>

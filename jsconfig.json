@@ -12,7 +12,9 @@
       "@services/*": ["src/services/*"],
       "@store/*": ["src/store/*"],
       "@styles/*": ["src/styles/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@content": ["src/content"],
+      "@content/*": ["src/content/*"]
     }
   },
   "include": ["src/**/*"],

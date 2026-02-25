@@ -1,8 +1,10 @@
 import React from "react";
 import { Title } from "./style";
+import { useContent } from "@content/ContentContext";
 
 const ResumeBlock = () => {
-  return <Title>Resume Builder</Title>;
+  const { resume } = useContent("blocks");
+  return <Title>{resume.title}</Title>;
 };
 
 export default ResumeBlock;
