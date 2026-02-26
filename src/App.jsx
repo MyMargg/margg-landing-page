@@ -1,15 +1,15 @@
 import { Route, Routes } from "react-router-dom";
 
 import Home from "@containers/Home/Home";
-import { ContentLoader } from "@content/ContentLoader";
 
+// ContentLoader is no longer needed here –
+// the Express server fetches content before rendering and pre-populates
+// the Redux store (window.__PRELOADED_STATE__) on every request.
 function App() {
   return (
-    <ContentLoader>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </ContentLoader>
+    <Routes>
+      <Route path="/" element={<Home />} />
+    </Routes>
   );
 }
 

@@ -130,7 +130,7 @@
     "location": "Bangalore | Tirupati",
     "phone": "+91 7993559974",
     "email": "info@margg.in",
-    "tagline": "Unlock the Road to Successful Career",
+    "tagline": "Curated routes for curious minds",
     "companyName": "Margg Private Limited",
     "logoAlt": "Margg Logo",
     "socialLinks": [
@@ -164,5 +164,20 @@
     "skills": { "title": "Skills Assessment" },
     "streaks": { "title": "Streaks" },
     "certifications": { "title": "Certifications" }
+  },
+
+  "seo": {
+    "title": "Margg – Curated Routes for Curious Minds",
+    "description": "Margg is an LMS built for college students — structured roadmaps, one-on-one mentorship, interview prep, streaks, certifications, and career placement support all in one platform.",
+    "keywords": "LMS for college students, learning management system, mentorship platform, interview prep, career placement, roadmap learning, college learning app, online education India, skill development",
+    "author": "Margg Private Limited",
+    "robots": "index, follow",
+    "locale": "en_IN",
+    "url": "https://margg.in",
+    "ogImage": "https://margg.in/og-cover.png",
+    "twitterHandle": "@margg",
+    "themeColor": "#090215",
+    "foundingYear": "2023",
+    "appCategory": "EducationApplication"
   }
 }

@@ -389,7 +389,7 @@ export default function ProductsParallax() {
           <Layout>
             <StickyCol>
               <LeftTitle>
-                WHY SKILLGIG IS
+                WHY MARGG IS
                 <br />
                 BETTER THAN OTHER
                 <br />

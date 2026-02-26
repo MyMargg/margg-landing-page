@@ -7,8 +7,9 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: "./",
+export default defineConfig(({ isSsrBuild }) => ({
+  // Must be "/" for SSR – relative paths break server-rendered asset URLs
+  base: "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
@@ -25,7 +26,18 @@ export default defineConfig({
       "@content": path.resolve(__dirname, "./src/content"),
     },
   },
-  server: {
-    port: 9000, // Change port here
+  build: {
+    // Client → dist/client/   Server → dist/server/
+    outDir: isSsrBuild ? "dist/server" : "dist/client",
+    // Emit manifest so the server can reference hashed asset filenames if needed
+    ssrManifest: !isSsrBuild,
   },
-});
+  ssr: {
+    // styled-components ships CJS; force Vite to bundle + ESM-ify it in SSR
+    // so `styled.div`, `styled.section`, etc. resolve correctly server-side
+    noExternal: ["styled-components"],
+  },
+  server: {
+    port: 9000,
+  },
+}));
