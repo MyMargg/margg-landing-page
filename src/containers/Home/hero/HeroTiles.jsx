@@ -46,15 +46,17 @@ const TilePanel = styled.div`
     flex-basis: 100%;
   }
 
-  @media (max-width: 640px) {
-    width: 476px;
-    grid-template-rows: repeat(3, 104px);
+  @media (max-width: 1000px) {
+    width: 100%;
+    flex-basis: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 96px);
+    gap: 14px;
   }
 
   @media (max-width: 480px) {
-    width: 100%;
-    grid-template-rows: auto;
-    gap: 14px;
+    grid-template-rows: repeat(3, 80px);
+    gap: 10px;
   }
 `;
 

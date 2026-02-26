@@ -2,9 +2,9 @@
   "navbar": {
     "logoAlt": "Margg",
     "links": [
-      { "label": "Home", "href": "#", "primary": true },
-      { "label": "Our Products", "href": "#" },
-      { "label": "Contact Us", "href": "#" }
+      { "label": "Home", "href": "#home", "primary": true },
+      { "label": "Our Products", "href": "#product" },
+      { "label": "Contact Us", "href": "#contact-us" }
     ]
   },
 
@@ -104,6 +104,7 @@
   },
 
   "analytics": {
+    "waitList": true,
     "stats": [
       { "value": "43+", "label": "University\nPartners" },
       { "value": "12K+", "label": "Students\nEnrolled" },

@@ -7,6 +7,7 @@ import { useContent } from "@content/ContentContext";
 
 // components
 import Input1 from "./Input1";
+import { submitWaitlistEmail } from "@services/waitlist";
 
 // images
 import PhoneScreenImg from "@assets/figma/phone-screen.png";
@@ -36,8 +37,11 @@ const WaitlistContainer = styled.div`
   ${MEDIA_QUERIES.mobile} {
     flex-direction: column;
     height: auto;
-    padding: 32px 24px;
-    gap: 24px;
+    padding: 40px 24px;
+    gap: 20px;
+    margin-left: 16px;
+    margin-right: 16px;
+    width: calc(100% - 32px);
   }
 `;
 
@@ -50,6 +54,7 @@ const LeftColumn = styled.div`
   align-items: flex-start;
 
   ${MEDIA_QUERIES.mobile} {
+    width: 100%;
     align-items: center;
     text-align: center;
   }
@@ -82,6 +87,7 @@ const Subtitle = styled.p`
   ${MEDIA_QUERIES.mobile} {
     font-size: 16px;
     text-align: center;
+    margin-bottom: 8px;
   }
 `;
 
@@ -112,12 +118,12 @@ const PhoneImage = styled.img`
   display: block;
 `;
 
-const JoinWaitList = ({ onSubmit }) => {
+const JoinWaitList = ({ onSubmit = submitWaitlistEmail, id }) => {
   const { title, subtitle, inputPlaceholder, buttonText } =
     useContent("joinWaitlist");
 
   return (
-    <WaitlistContainer>
+    <WaitlistContainer id={id}>
       <LeftColumn>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>

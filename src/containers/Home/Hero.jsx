@@ -6,6 +6,7 @@ import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
 import { useContent } from "@content/ContentContext";
 import HeroTiles from "./hero/HeroTiles";
 import Input1 from "@components/Input1";
+import { submitWaitlistEmail } from "@services/waitlist";
 
 // Styled Components
 const IntroSection = styled.section`
@@ -126,8 +127,8 @@ const TopGrid = styled.div`
     padding-top: 168px;
   }
 
-  @media (max-width: 480px) {
-    padding: 152px 20px 0;
+  @media (max-width: 1000px) {
+    padding: 152px 20px 60px;
   }
 `;
 
@@ -226,7 +227,7 @@ const Wave = styled.img`
   }
 `;
 
-const Hero = () => {
+const Hero = ({ id }) => {
   const tileColor = "rgba(176, 149, 227, 1)";
   const {
     titleLine1,
@@ -237,7 +238,7 @@ const Hero = () => {
   } = useContent("hero");
 
   return (
-    <IntroSection>
+    <IntroSection id={id}>
       <BackgroundWash />
       <GlowOne />
       <GlowTwo />
@@ -256,6 +257,7 @@ const Hero = () => {
             <Input1
               placeholder={inputPlaceholder}
               buttonText={inputButtonText}
+              onSubmit={submitWaitlistEmail}
             />
           </TextSection>
           <HeroTiles tileColor={tileColor} />

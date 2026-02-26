@@ -18,10 +18,23 @@ const GridContainer = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto auto;
   gap: 32px;
-  width: 800px;
+  width: 100%;
+  max-width: 800px;
   height: 512px;
   opacity: 1;
   padding: 0;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+    gap: 16px;
+
+    & > * {
+      grid-column: span 1 !important;
+      grid-row: auto !important;
+      min-height: 140px;
+    }
+  }
 `;
 
 const GridBlock = styled(Block)`

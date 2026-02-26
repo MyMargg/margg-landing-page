@@ -34,7 +34,7 @@ const Section = styled.section`
       transparent 60%
     );
 
-  @media (max-width: 480px) {
+  @media (max-width: 1000px) {
     padding: 124px 20px 0;
   }
 `;
@@ -180,11 +180,11 @@ const PhoneMock = styled.div`
   }
 `;
 
-export default function Supercharge() {
+export default function Supercharge({ id }) {
   const { titleLine1, titleLine2, description } = useContent("supercharge");
 
   return (
-    <Section aria-label="supercharge">
+    <Section id={id} aria-label="supercharge">
       <Inner>
         <Stack>
           <Title>

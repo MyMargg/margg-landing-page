@@ -4,11 +4,15 @@ import styled from "styled-components";
 const FormWrapper = styled.div`
   width: 100%;
   max-width: 520px;
+
+  @media (max-width: 640px) {
+    max-width: 100%;
+  }
 `;
 
 const InputWrapper = styled.div`
   position: relative;
-  width: 440px;
+  width: 100%;
   height: 56px;
 `;
 
@@ -48,7 +52,7 @@ const StyledInput = styled.input`
   }
 
   @media (max-width: 640px) {
-    padding: 14px 160px 14px 20px;
+    padding: 14px 120px 14px 16px;
     font-size: 14px;
   }
 `;

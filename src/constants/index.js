@@ -4,8 +4,8 @@ export const MAX_CONTENT_WIDTH = "1920px";
 
 // Media Query Breakpoints
 export const BREAKPOINTS = {
-  mobile: "768px",
-  tablet: "1024px",
+  mobile: "1000px",
+  tablet: "1200px",
   desktop: "1920px",
 };
 

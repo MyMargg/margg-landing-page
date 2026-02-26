@@ -21,13 +21,21 @@ const SectionContainer = styled.div`
   justify-content: center;
 
   ${MEDIA_QUERIES.mobile} {
-    padding: 0 24px;
+    flex-direction: column;
+    padding: 0 20px;
     gap: 24px;
+    align-items: stretch;
   }
 `;
 
 const PhoneWrapper = styled.div`
   flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+
+  ${MEDIA_QUERIES.mobile} {
+    display: none;
+  }
 `;
 
 const PhoneImage = styled.img`
@@ -35,15 +43,11 @@ const PhoneImage = styled.img`
   height: 576px;
   object-fit: contain;
   display: block;
-
-  ${MEDIA_QUERIES.mobile} {
-    width: 200px;
-    height: auto;
-  }
 `;
 
 const GridWrapper = styled.div`
   min-width: 0;
+  flex: 1;
 `;
 
 const GridSection = () => {

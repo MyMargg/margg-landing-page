@@ -31,12 +31,12 @@ const Home = () => {
     <HomeContainer>
       <Navbar />
       <SectionsContainer>
-        <Hero />
+        <Hero id="home" />
         <Analytics />
-        <Supercharge />
+        <Supercharge id="products" />
         {/* <Contact /> */}
         <GridSection />
-        <JoinWaitList />
+        <JoinWaitList id="contact-us" />
         <Footer />
       </SectionsContainer>
     </HomeContainer>
