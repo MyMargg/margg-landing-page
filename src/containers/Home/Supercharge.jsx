@@ -1,15 +1,58 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useRef, useEffect, useState } from "react";
+import styled, { keyframes, css } from "styled-components";
 import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
 import { useContent } from "@content/ContentContext";
+
+/* ── scroll-triggered slide-up ─────────────────────────── */
+
+const fadeUp = keyframes`
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+`;
+
+function useInView(threshold = 0.15) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return [ref, inView];
+}
 
 const Section = styled.section`
   position: relative;
   width: 100%;
   overflow: hidden;
+  z-index: 2;
+
+  /* Match Hero's bottom corner radius */
+  border-top-left-radius: 72px;
+  border-top-right-radius: 72px;
+
+  /* Pull up over Analytics so rounded corners are visible against its purple bg */
+  margin-top: -72px;
 
   --pad: clamp(24px, 7vw, 120px);
-  padding: 140px var(--pad) 0;
+  padding: calc(140px + 72px) var(--pad) 0;
 
   background:
     linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%),
@@ -35,7 +78,11 @@ const Section = styled.section`
     );
 
   @media (max-width: 1000px) {
-    padding: 124px 20px 0;
+    padding: calc(100px + 72px) 20px 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: calc(80px + 72px) 16px 0;
   }
 `;
 
@@ -57,6 +104,18 @@ const Title = styled.h2`
   font-size: clamp(42px, 5.4vw, 64px);
   line-height: 1.05;
   text-transform: uppercase;
+  opacity: 0;
+
+  ${(p) =>
+    p.$inView &&
+    css`
+      animation: ${fadeUp} 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    `}
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none !important;
+  }
 `;
 
 const Description = styled.p`
@@ -68,6 +127,18 @@ const Description = styled.p`
   font-weight: 400;
   font-size: clamp(14px, 1.8vw, 18px);
   line-height: 1.6;
+  opacity: 0;
+
+  ${(p) =>
+    p.$inView &&
+    css`
+      animation: ${fadeUp} 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    `}
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none !important;
+  }
 `;
 
 const Stack = styled.div`
@@ -182,17 +253,18 @@ const PhoneMock = styled.div`
 
 export default function Supercharge({ id }) {
   const { titleLine1, titleLine2, description } = useContent("supercharge");
+  const [viewRef, inView] = useInView(0.15);
 
   return (
-    <Section id={id} aria-label="supercharge">
+    <Section id={id} aria-label="supercharge" ref={viewRef}>
       <Inner>
         <Stack>
-          <Title>
+          <Title $inView={inView}>
             {titleLine1}
             <br />
             {titleLine2}
           </Title>
-          <Description>{description}</Description>
+          <Description $inView={inView}>{description}</Description>
         </Stack>
       </Inner>
     </Section>

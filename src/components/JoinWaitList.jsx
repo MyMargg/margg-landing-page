@@ -1,13 +1,48 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useRef, useEffect, useState } from "react";
+import styled, { keyframes, css } from "styled-components";
 
 // constants
 import { FONTS, MEDIA_QUERIES } from "@constants";
 import { useContent } from "@content/ContentContext";
 
+/* ── scroll-triggered slide-up ─────────────────────────── */
+
+const fadeUp = keyframes`
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+`;
+
+function useInView(threshold = 0.15) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return [ref, inView];
+}
+
 // components
 import Input1 from "./Input1";
-import { submitWaitlistEmail } from "@services/waitlist";
+import { submitWaitlist } from "@services/contactApi";
 
 // images
 import PhoneScreenImg from "@assets/figma/phone-screen.png";
@@ -28,6 +63,18 @@ const WaitlistContainer = styled.div`
   margin: 0 auto;
   margin-bottom: 80px;
   margin-top: 160px;
+  opacity: 0;
+
+  ${(p) =>
+    p.$inView &&
+    css`
+      animation: ${fadeUp} 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    `}
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none !important;
+  }
 
   ${MEDIA_QUERIES.tablet} {
     width: 100%;
@@ -118,19 +165,23 @@ const PhoneImage = styled.img`
   display: block;
 `;
 
-const JoinWaitList = ({ onSubmit = submitWaitlistEmail, id }) => {
+const JoinWaitList = ({ onSubmit, id }) => {
   const { title, subtitle, inputPlaceholder, buttonText } =
     useContent("joinWaitlist");
+  const apiConfig = useContent("api");
+  const [viewRef, inView] = useInView(0.15);
+
+  const handleSubmit = onSubmit || ((email) => submitWaitlist(apiConfig, email));
 
   return (
-    <WaitlistContainer id={id}>
+    <WaitlistContainer id={id} ref={viewRef} $inView={inView}>
       <LeftColumn>
         <Title>{title}</Title>
         <Subtitle>{subtitle}</Subtitle>
         <Input1
           placeholder={inputPlaceholder}
           buttonText={buttonText}
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
         />
       </LeftColumn>
       <RightColumn>

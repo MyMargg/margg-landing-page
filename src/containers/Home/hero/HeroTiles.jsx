@@ -1,6 +1,5 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 
 import {
   CloudConnectionIcon,
@@ -64,7 +63,7 @@ const TilePanel = styled.div`
  * Grid Item - Uses Framer Motion for layout animations
  * Positioning controlled via inline gridRow and gridColumn
  */
-const TileButton = styled(motion.div)`
+const TileButton = styled.div`
   appearance: none;
   border: 0;
   background: transparent;
@@ -113,7 +112,9 @@ const TileButton = styled(motion.div)`
   }
 
   @media (max-width: 480px) {
-    cursor: default;
+    cursor: pointer;
+    /* Tap feedback */
+    -webkit-tap-highlight-color: transparent;
   }
 `;
 
@@ -199,25 +200,20 @@ function Tile({
   isExpanded,
   onMouseEnter,
   onMouseLeave,
+  onClick,
   tileId,
 }) {
   return (
     <TileButton
       aria-label={ariaLabel}
       $isExpanded={isExpanded}
-      layout // Framer Motion magic
-      transition={{
-        layout: {
-          duration: 0.25,
-          ease: "easeInOut",
-        },
-      }}
       style={{
         gridRow: gridRow,
         gridColumn: gridColumn,
       }}
       onMouseEnter={() => onMouseEnter(tileId)}
       onMouseLeave={onMouseLeave}
+      onClick={() => onClick(tileId)}
     >
       <TileContent>
         <InnerWrapper $isExpanded={isExpanded}>
@@ -269,13 +265,24 @@ export default function HeroTiles({ tileColor }) {
 
   const [hoveredId, setHoveredId] = useState(DEFAULT_TILE_ID);
   const [isUserHovering, setIsUserHovering] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const intervalRef = useRef(null);
+  const clickTimeoutRef = useRef(null);
 
-  // Combine all tiles data
-  // (now derived from content context above)
-
-  // Auto-cycle through random tiles
+  // Detect mobile once on mount
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const checkMobile = () => setIsMobile(window.innerWidth <= 1000);
+      checkMobile();
+      window.addEventListener("resize", checkMobile);
+      return () => window.removeEventListener("resize", checkMobile);
+    }
+  }, []);
+
+  // Auto-cycle through random tiles (desktop only)
+  useEffect(() => {
+    if (isMobile) return; // No auto-cycle on mobile
+
     const startAutoCycle = () => {
       intervalRef.current = setInterval(() => {
         if (!isUserHovering) {
@@ -287,18 +294,16 @@ export default function HeroTiles({ tileColor }) {
       }, AUTO_CYCLE_INTERVAL);
     };
 
-    // Start auto-cycling if user is not hovering
     if (!isUserHovering) {
       startAutoCycle();
     }
 
-    // Cleanup interval on unmount or when user starts hovering
     return () => {
       if (intervalRef.current) {
         clearInterval(intervalRef.current);
       }
     };
-  }, [isUserHovering]);
+  }, [isUserHovering, isMobile]);
 
   // Precompute all possible layouts once
   const precomputedLayouts = useMemo(() => {
@@ -338,6 +343,33 @@ export default function HeroTiles({ tileColor }) {
     // Auto-cycle will restart via useEffect
   };
 
+  // Handle tap/click for mobile
+  const handleClick = (tileId) => {
+    if (!isMobile) return; // Desktop uses hover only
+    // Clear any pending timeout
+    if (clickTimeoutRef.current) {
+      clearTimeout(clickTimeoutRef.current);
+    }
+    if (hoveredId === tileId) {
+      setHoveredId(DEFAULT_TILE_ID);
+    } else {
+      setHoveredId(tileId);
+      // Auto-deselect after 4 seconds
+      clickTimeoutRef.current = setTimeout(() => {
+        setHoveredId(DEFAULT_TILE_ID);
+      }, 4000);
+    }
+  };
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (clickTimeoutRef.current) {
+        clearTimeout(clickTimeoutRef.current);
+      }
+    };
+  }, []);
+
   return (
     <TilePanel aria-label="intro tiles">
       {currentLayout.map((layoutItem) => {
@@ -359,6 +391,7 @@ export default function HeroTiles({ tileColor }) {
             isExpanded={isExpanded}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onClick={handleClick}
           />
         );
       })}

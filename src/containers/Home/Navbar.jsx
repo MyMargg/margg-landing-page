@@ -1,9 +1,21 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useCallback, useState, useEffect, useRef } from "react";
+import styled, { keyframes, css } from "styled-components";
 import MarggLogo from "@assets/Margg.png";
 import "@styles/NavBar.css";
 import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
 import { useContent } from "@content/ContentContext";
+
+/* ━━ animations ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+`;
+
+const slideIn = keyframes`
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+`;
 
 // Styled Components
 const NavbarContainer = styled.div`
@@ -14,6 +26,10 @@ const NavbarContainer = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 36px;
+
+  @media (max-width: 768px) {
+    padding-top: 16px;
+  }
 
   &::before {
     content: "";
@@ -49,7 +65,6 @@ const NavbarContent = styled.nav`
   box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
 
-  /* Enhanced support for wide gamut displays */
   @supports (color: color(display-p3 1 1 1)) {
     background: color(display-p3 1 1 1 / 0.1);
     box-shadow: 0 4px 24px 0 color(display-p3 0 0 0 / 0.25);
@@ -60,9 +75,10 @@ const NavbarContent = styled.nav`
   }
 
   @media (max-width: 768px) {
-    width: 95%;
-    padding: 0.75rem 1rem;
+    width: calc(100% - 32px);
+    padding: 14px 20px;
     height: auto;
+    border-radius: 18px;
   }
 `;
 
@@ -89,6 +105,11 @@ const SkillImage = styled.img`
   width: 132.156px;
   height: 40.141px;
   flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: auto;
+  }
 `;
 
 const GigImage = styled.img`
@@ -103,10 +124,12 @@ const VectorImage = styled.img`
   flex-shrink: 0;
 `;
 
+/* ── desktop nav ── */
+
 const NavigationMenu = styled.div`
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: block;
   }
 `;
@@ -134,34 +157,302 @@ const MenuLink = styled.a`
   }
 `;
 
+/* ── hamburger button ── */
+
+const HamburgerBtn = styled.button`
+  all: unset;
+  display: none;
+  cursor: pointer;
+  position: relative;
+  width: 28px;
+  height: 20px;
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`;
+
+const HamburgerLine = styled.span`
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: #fff;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:nth-child(1) {
+    top: ${(p) => (p.$open ? "50%" : "0")};
+    transform: ${(p) => (p.$open ? "translateY(-50%) rotate(45deg)" : "none")};
+  }
+  &:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: ${(p) => (p.$open ? 0 : 1)};
+  }
+  &:nth-child(3) {
+    bottom: ${(p) => (p.$open ? "auto" : "0")};
+    top: ${(p) => (p.$open ? "50%" : "auto")};
+    transform: ${(p) => (p.$open ? "translateY(-50%) rotate(-45deg)" : "none")};
+  }
+`;
+
+/* ── mobile drawer ── */
+
+const MobileOverlay = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 49;
+    background: rgba(9, 2, 21, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    opacity: ${(p) => (p.$open ? 1 : 0)};
+    pointer-events: ${(p) => (p.$open ? "auto" : "none")};
+    transition: opacity 0.3s ease;
+  }
+`;
+
+const MobileDrawer = styled.div`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 50;
+    width: min(320px, 80vw);
+    height: 100dvh;
+    padding: 80px 32px 40px;
+    box-sizing: border-box;
+    background: linear-gradient(
+      170deg,
+      rgba(30, 15, 55, 0.98) 0%,
+      rgba(13, 2, 23, 0.99) 100%
+    );
+    border-left: 1px solid rgba(176, 149, 227, 0.15);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
+    transform: translateX(${(p) => (p.$open ? "0" : "100%")});
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
+  }
+`;
+
+const DrawerCloseBtn = styled.button`
+  all: unset;
+  cursor: pointer;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(176, 149, 227, 0.1);
+  transition: background 0.2s;
+
+  &:hover {
+    background: rgba(176, 149, 227, 0.2);
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+  }
+`;
+
+const DrawerNav = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+const DrawerLink = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-family: ${FONTS.body};
+  font-size: 18px;
+  font-weight: ${(p) => (p.$primary ? "600" : "400")};
+  color: #fff;
+  opacity: ${(p) => (p.$primary ? 1 : 0.7)};
+  transition: all 0.2s ease;
+  background: ${(p) => (p.$primary ? "rgba(80, 19, 192, 0.15)" : "transparent")};
+
+  ${(p) =>
+    p.$show &&
+    css`
+      animation: ${slideIn} 0.4s ease forwards;
+      animation-delay: ${p.$delay || "0s"};
+      opacity: 0;
+    `}
+
+  &:hover, &:active {
+    background: rgba(176, 149, 227, 0.12);
+    opacity: 1;
+  }
+`;
+
+const DrawerLinkIcon = styled.span`
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(176, 149, 227, 0.1);
+  flex-shrink: 0;
+`;
+
+const DrawerDivider = styled.div`
+  height: 1px;
+  background: rgba(176, 149, 227, 0.12);
+  margin: 12px 0 16px;
+`;
+
+/* ── drawer link icons ── */
+
+const NAV_ICONS = {
+  Home: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z" stroke="#B095E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+  "Our Products": (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke="#B095E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+  "Contact Us": (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+      <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#B095E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+  ),
+};
+
 const Navbar = () => {
   const { logoAlt, links } = useContent("navbar");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const drawerRef = useRef(null);
+
+  /* lock body scroll when drawer is open */
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [menuOpen]);
+
+  /* close on Escape */
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") setMenuOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  const handleClick = useCallback((e) => {
+    const href = e.currentTarget.getAttribute("href");
+    if (href?.startsWith("#")) {
+      e.preventDefault();
+      setMenuOpen(false);
+      /* small delay so the drawer closes smoothly before scroll */
+      setTimeout(() => {
+        const el = document.getElementById(href.slice(1));
+        if (el) {
+          const navHeight = document.querySelector("nav")?.offsetHeight || 72;
+          const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+          window.scrollTo({ top, behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, []);
 
   return (
-    <NavbarContainer>
-      <NavbarContent>
-        <NavbarInner>
-          {/* Logo Section */}
-          <LogoSection>
-            <SkillImage src={MarggLogo} alt={logoAlt} />
-          </LogoSection>
+    <>
+      <NavbarContainer>
+        <NavbarContent>
+          <NavbarInner>
+            {/* Logo */}
+            <LogoSection>
+              <SkillImage src={MarggLogo} alt={logoAlt} />
+            </LogoSection>
 
-          <NavigationMenu>
-            <MenuList>
-              {links.map((link) => (
-                <MenuLink
-                  key={link.label}
-                  href={link.href}
-                  primary={link.primary ? true : undefined}
-                >
-                  {link.label}
-                </MenuLink>
-              ))}
-            </MenuList>
-          </NavigationMenu>
-        </NavbarInner>
-      </NavbarContent>
-    </NavbarContainer>
+            {/* Desktop nav */}
+            <NavigationMenu>
+              <MenuList>
+                {links.map((link) => (
+                  <MenuLink
+                    key={link.label}
+                    href={link.href}
+                    primary={link.primary ? true : undefined}
+                    onClick={handleClick}
+                  >
+                    {link.label}
+                  </MenuLink>
+                ))}
+              </MenuList>
+            </NavigationMenu>
+
+            {/* Hamburger (mobile only) */}
+            <HamburgerBtn
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+            >
+              <HamburgerLine $open={menuOpen} />
+              <HamburgerLine $open={menuOpen} />
+              <HamburgerLine $open={menuOpen} />
+            </HamburgerBtn>
+          </NavbarInner>
+        </NavbarContent>
+      </NavbarContainer>
+
+      {/* Mobile overlay + drawer */}
+      <MobileOverlay $open={menuOpen} onClick={() => setMenuOpen(false)} />
+      <MobileDrawer $open={menuOpen} ref={drawerRef}>
+        <DrawerCloseBtn onClick={() => setMenuOpen(false)} aria-label="Close menu">
+          <svg viewBox="0 0 16 16" fill="none">
+            <path d="M12 4L4 12M4 4l8 8" stroke="#B095E3" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+        </DrawerCloseBtn>
+
+        <DrawerNav>
+          {links.map((link, i) => (
+            <DrawerLink
+              key={link.label}
+              href={link.href}
+              $primary={link.primary}
+              $show={menuOpen}
+              $delay={`${0.1 + i * 0.07}s`}
+              onClick={handleClick}
+            >
+              <DrawerLinkIcon>
+                {NAV_ICONS[link.label] || NAV_ICONS.Home}
+              </DrawerLinkIcon>
+              {link.label}
+            </DrawerLink>
+          ))}
+        </DrawerNav>
+
+        <DrawerDivider />
+      </MobileDrawer>
+    </>
   );
 };
 

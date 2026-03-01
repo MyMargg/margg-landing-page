@@ -17,6 +17,11 @@ const Container = styled.div`
   padding-left: 20px;
   justify-content: center;
   overflow: hidden;
+
+  @media (max-width: 1000px) {
+    padding: 20px 16px;
+    justify-content: flex-start;
+  }
 `;
 
 const Image = styled.img`
@@ -24,6 +29,15 @@ const Image = styled.img`
   left: 30%;
   bottom: 0%;
   width: 50%;
+
+  @media (max-width: 1000px) {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    width: 60px;
+    margin-top: auto;
+    margin-bottom: 16px;
+  }
 `;
 
 const Title = styled(_Title)`
@@ -36,6 +50,14 @@ const Image2 = styled.img`
   right: -30px;
   top: 0;
   z-index: -1;
+
+  @media (max-width: 1000px) {
+    position: relative;
+    right: auto;
+    top: auto;
+    width: 100%;
+    margin-top: auto;
+  }
 `;
 
 const StreaksBlock = () => {

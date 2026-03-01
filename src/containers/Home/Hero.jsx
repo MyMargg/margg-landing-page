@@ -6,7 +6,7 @@ import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
 import { useContent } from "@content/ContentContext";
 import HeroTiles from "./hero/HeroTiles";
 import Input1 from "@components/Input1";
-import { submitWaitlistEmail } from "@services/waitlist";
+import { submitWaitlist } from "@services/contactApi";
 
 // Styled Components
 const IntroSection = styled.section`
@@ -236,6 +236,9 @@ const Hero = ({ id }) => {
     inputPlaceholder,
     inputButtonText,
   } = useContent("hero");
+  const apiConfig = useContent("api");
+
+  const handleWaitlistSubmit = (email) => submitWaitlist(apiConfig, email);
 
   return (
     <IntroSection id={id}>
@@ -257,7 +260,7 @@ const Hero = ({ id }) => {
             <Input1
               placeholder={inputPlaceholder}
               buttonText={inputButtonText}
-              onSubmit={submitWaitlistEmail}
+              onSubmit={handleWaitlistSubmit}
             />
           </TextSection>
           <HeroTiles tileColor={tileColor} />

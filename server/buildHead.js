@@ -53,7 +53,7 @@ export function buildHead(
     "@context": "https://schema.org",
     "@type": ["Organization", "EducationalOrganization"],
     name: "Margg",
-    alternateName: "Margg Private Limited",
+    alternateName: ["Margg Private Limited", "MarggLive", "Gagan's Application"],
     url,
     logo: {
       "@type": "ImageObject",
@@ -61,20 +61,29 @@ export function buildHead(
       width: 200,
       height: 60,
     },
+    image: ogImage,
     description,
     slogan: "Curated routes for curious minds",
     foundingDate: foundingYear,
-    areaServed: {
-      "@type": "Country",
-      name: "India",
-    },
+    areaServed: [
+      { "@type": "Country", name: "India" },
+      { "@type": "State", name: "Karnataka" },
+      { "@type": "State", name: "Andhra Pradesh" },
+      { "@type": "State", name: "Tamil Nadu" },
+      { "@type": "State", name: "Telangana" },
+      { "@type": "State", name: "Kerala" },
+    ],
     knowsAbout: [
       "Learning Management System",
+      "Roadmap Based Courses",
       "Career Mentorship",
       "Interview Preparation",
       "Roadmap Based Learning",
       "Skill Development",
       "College Student Education",
+      "Best LMS in South India",
+      "Online Education India",
+      "Structured Learning Paths",
     ],
     contactPoint: {
       "@type": "ContactPoint",
@@ -172,6 +181,16 @@ export function buildHead(
     <meta name="theme-color"        content="${esc(themeColor)}" />
     <link rel="canonical"           href="${esc(url)}" />
 
+    <!-- Geo targeting for South India -->
+    <meta name="geo.region"         content="IN-KA" />
+    <meta name="geo.placename"      content="Bangalore, South India" />
+    <meta name="geo.position"       content="12.9716;77.5946" />
+    <meta name="ICBM"              content="12.9716, 77.5946" />
+    <meta name="distribution"       content="India" />
+    <meta name="language"           content="en-IN" />
+    <meta name="rating"             content="general" />
+    <meta name="revisit-after"      content="7 days" />
+
     <!-- Open Graph -->
     <meta property="og:type"        content="website" />
     <meta property="og:locale"      content="${esc(locale)}" />
@@ -182,13 +201,16 @@ export function buildHead(
     <meta property="og:image"       content="${esc(ogImage)}" />
     <meta property="og:image:width"  content="1200" />
     <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"   content="Margg – Roadmap Based Courses & Best LMS Platform in South India" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image" />
     <meta name="twitter:site"        content="${esc(twitterHandle)}" />
+    <meta name="twitter:creator"     content="${esc(twitterHandle)}" />
     <meta name="twitter:title"       content="${esc(title)}" />
     <meta name="twitter:description" content="${esc(description)}" />
     <meta name="twitter:image"       content="${esc(ogImage)}" />
+    <meta name="twitter:image:alt"   content="Margg – Roadmap Based Courses & Best LMS Platform" />
 
     <!-- JSON-LD -->
     <script type="application/ld+json">${escJson(orgSchema)}</script>

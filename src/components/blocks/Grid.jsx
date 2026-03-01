@@ -1,5 +1,5 @@
 // libs
-import React from "react";
+import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 
 // styles
@@ -32,7 +32,15 @@ const GridContainer = styled.div`
     & > * {
       grid-column: span 1 !important;
       grid-row: auto !important;
-      min-height: 140px;
+      min-height: 200px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+
+    & > * {
+      min-height: 180px;
     }
   }
 `;
@@ -43,6 +51,36 @@ const GridBlock = styled(Block)`
   justify-content: center;
   min-height: 180px;
   overflow: hidden;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.3s ease;
+  will-change: transform;
+  cursor: pointer;
+
+  /* Desktop: hover to zoom */
+  @media (min-width: 1001px) {
+    &:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 32px rgba(176, 149, 227, 0.15);
+      z-index: 2;
+    }
+  }
+
+  /* Mobile: tap to zoom via data attribute */
+  &[data-tapped="true"] {
+    transform: scale(1.04);
+    box-shadow: 0 8px 32px rgba(176, 149, 227, 0.15);
+    z-index: 2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+    &:hover,
+    &[data-tapped="true"] {
+      transform: none;
+      box-shadow: none;
+    }
+  }
 `;
 
 // Row 1 - Block 1 (2x width)
@@ -81,27 +119,53 @@ const InterviewPrepWrapper = styled(GridBlock)`
 `;
 
 const Grid = () => {
+  const [tappedId, setTappedId] = useState(null);
+
+  const handleTap = useCallback((id) => {
+    // Only apply tap-zoom on mobile (≤1000px)
+    if (typeof window !== "undefined" && window.innerWidth > 1000) return;
+    setTappedId((prev) => (prev === id ? null : id));
+  }, []);
+
   return (
     <GridContainer>
       {/* Row 1 */}
-      <RoadmapWrapper>
+      <RoadmapWrapper
+        data-tapped={tappedId === "roadmap"}
+        onClick={() => handleTap("roadmap")}
+      >
         <RoadmapBlock />
       </RoadmapWrapper>
-      <MentorshipWrapper>
+      <MentorshipWrapper
+        data-tapped={tappedId === "mentorship"}
+        onClick={() => handleTap("mentorship")}
+      >
         <MentorshipBlock />
       </MentorshipWrapper>
-      <CommunityWrapper>
+      <CommunityWrapper
+        data-tapped={tappedId === "community"}
+        onClick={() => handleTap("community")}
+      >
         <CommunityBlock />
       </CommunityWrapper>
 
       {/* Row 2 */}
-      <FocusTimerWrapper>
+      <FocusTimerWrapper
+        data-tapped={tappedId === "focusTimer"}
+        onClick={() => handleTap("focusTimer")}
+      >
         <FocusTimerBlock />
       </FocusTimerWrapper>
-      <InterviewPrepWrapper>
+      <InterviewPrepWrapper
+        data-tapped={tappedId === "interviewPrep"}
+        onClick={() => handleTap("interviewPrep")}
+      >
         <InterviewPrepBlock />
       </InterviewPrepWrapper>
-      <StreaksWrapper>
+      <StreaksWrapper
+        data-tapped={tappedId === "streaks"}
+        onClick={() => handleTap("streaks")}
+      >
         <StreaksBlock />
       </StreaksWrapper>
     </GridContainer>

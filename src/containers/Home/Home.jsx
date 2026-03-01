@@ -34,9 +34,9 @@ const Home = () => {
         <Hero id="home" />
         <Analytics />
         <Supercharge id="products" />
-        {/* <Contact /> */}
         <GridSection />
-        <JoinWaitList id="contact-us" />
+        <Contact id="contact-us" />
+        <JoinWaitList />
         <Footer />
       </SectionsContainer>
     </HomeContainer>

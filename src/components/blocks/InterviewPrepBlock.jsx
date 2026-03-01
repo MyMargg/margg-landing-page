@@ -17,6 +17,11 @@ const Container = styled.div`
   padding-top: 30px;
   overflow: hidden;
   z-index: 0;
+
+  @media (max-width: 1000px) {
+    padding: 20px 16px;
+    align-items: flex-start;
+  }
 `;
 const Image = styled.img`
   width: 80%;
@@ -25,13 +30,22 @@ const Image = styled.img`
   transform: translateX(-50%);
   bottom: -40%;
   z-index: 1;
+
+  @media (max-width: 1000px) {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    transform: none;
+    width: 90%;
+    margin: auto auto 0;
+  }
 `;
 
 const InterviewPrepBlock = () => {
   const { interviewPrep } = useContent("blocks");
   return (
     <Container>
-      <Title>{interviewPrep.title}</Title>;
+      <Title>{interviewPrep.title}</Title>
       <Image src={InterviewPrep} alt="screen left" />
     </Container>
   );

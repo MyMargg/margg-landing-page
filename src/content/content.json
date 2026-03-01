@@ -3,7 +3,7 @@
     "logoAlt": "Margg",
     "links": [
       { "label": "Home", "href": "#home", "primary": true },
-      { "label": "Our Products", "href": "#product" },
+      { "label": "Our Products", "href": "#products" },
       { "label": "Contact Us", "href": "#contact-us" }
     ]
   },
@@ -115,7 +115,7 @@
 
   "supercharge": {
     "titleLine1": "SUPERCHARGE",
-    "titleLine2": "YOUR LEARNING POTENTIAL",
+    "titleLine2": "YOUR LEARNING POTENTIAL WITH OUR APP",
     "description": "Step out of the ordinary and into a place where roadmaps are designed for you, and interview prep is just a click away"
   },
 
@@ -124,6 +124,60 @@
     "subtitle": "First step towards your dream career",
     "inputPlaceholder": "Enter Email",
     "buttonText": "Notify Me"
+  },
+
+  "courses": [
+    "Frontend Development",
+    "Backend Development",
+    "Programming Essentials",
+    "UI Design Fundamentals",
+    "Database Design",
+    "Cloud & DevOps",
+    "Testing & QA",
+    "Security",
+    "Algorithms",
+    "System Design",
+    "Performance",
+    "React",
+    "Node.js",
+    "Python",
+    "Java",
+    "Data Structures",
+    "Machine Learning",
+    "Mobile Development"
+  ],
+
+  "api": {
+    "submissionMode": "sheets",
+    "baseUrl": "https://api.margg.xyz/service-core",
+    "endpoints": {
+      "waitlist": "/general/user-contacts/waitlist",
+      "learner": "/general/user-contacts",
+      "instructor": "/general/instructor-enquiries",
+      "partner": "/general/organisation-enquiries"
+    },
+    "googleSheets": {
+      "scriptUrl": "https://script.google.com/macros/s/AKfycbwmmOYKHVpfZEcqWhhAlNr6G7726uUj9WT4cua0i8sSMDQrQbWoBK2jj0Pc1FpRNfuB1g/exec"
+    },
+    "emailjs": {
+      "notifyEmail": "margglive@gmail.com",
+      "accounts": {
+        "account1": {
+          "serviceId": "service_uwxllg6",
+          "publicKey": "sS9pUpAdxxLri3bjO"
+        },
+        "account2": {
+          "serviceId": "service_oq3tfkg",
+          "publicKey": "r9cx6ICX3cdQFxZC9"
+        }
+      },
+      "templates": {
+        "waitlist":    { "templateId": "template_ob8hs05", "account": "account1" },
+        "learner":     { "templateId": "template_n8yn8zn", "account": "account1" },
+        "instructor":  { "templateId": "template_a5ox0x9", "account": "account2" },
+        "partner":     { "templateId": "template_qxq0lla", "account": "account2" }
+      }
+    }
   },
 
   "footer": {
@@ -136,19 +190,24 @@
     "logoAlt": "Margg Logo",
     "socialLinks": [
       {
-        "name": "Facebook",
-        "icon": "FacebookIcon",
-        "url": "https://facebook.com"
+        "name": "YouTube",
+        "icon": "YoutubeIcon",
+        "url": "https://www.youtube.com/@MarggLive"
+      },
+      {
+        "name": "Instagram",
+        "icon": "InstagramIcon",
+        "url": "https://instagram.com/margglive"
       },
       {
         "name": "X (Twitter)",
         "icon": "TwitterIcon",
-        "url": "https://twitter.com"
+        "url": "https://x.com/MarggLive"
       },
       {
-        "name": "LinkedIn",
-        "icon": "LinkedInIcon",
-        "url": "https://linkedin.com"
+        "name": "Discord",
+        "icon": "DiscordIcon",
+        "url": "https://discord.gg/PDzhNUnB"
       }
     ]
   },
@@ -168,15 +227,15 @@
   },
 
   "seo": {
-    "title": "Margg – Curated Routes for Curious Minds",
-    "description": "Margg is an LMS built for college students — structured roadmaps, one-on-one mentorship, interview prep, streaks, certifications, and career placement support all in one platform.",
-    "keywords": "LMS for college students, learning management system, mentorship platform, interview prep, career placement, roadmap learning, college learning app, online education India, skill development",
+    "title": "Margg – Roadmap Based Courses & Best LMS Platform in South India | Gagan's Application",
+    "description": "Margg is the best LMS application in South India offering roadmap based courses, structured learning paths, one-on-one mentorship, interview prep, resume building, certifications & career placement support for college students. Built by Gagan — curated routes for curious minds.",
+    "keywords": "roadmap based courses, best LMS application in south india, Gagan's application, Margg, LMS for college students, learning management system India, mentorship platform, interview prep, career placement, roadmap learning, college learning app, online education India, skill development, structured learning paths, best online courses India, South India LMS, Bangalore LMS, Tirupati education platform, curated learning roadmaps, coding bootcamp India, one-on-one mentorship India, resume builder for students, job placement LMS, streaks based learning, certification courses India, Margg Private Limited, MarggLive, best e-learning platform India",
     "author": "Margg Private Limited",
     "robots": "index, follow",
     "locale": "en_IN",
     "url": "https://margg.in",
     "ogImage": "https://margg.in/og-cover.png",
-    "twitterHandle": "@margg",
+    "twitterHandle": "@MarggLive",
     "themeColor": "#090215",
     "foundingYear": "2023",
     "appCategory": "EducationApplication"

@@ -1,15 +1,52 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useRef, useEffect, useState } from "react";
+import styled, { keyframes, css } from "styled-components";
 
 // constants
 import { MAX_CONTENT_WIDTH, MEDIA_QUERIES, FONTS } from "@constants";
 import { useContent } from "@content/ContentContext";
 
+/* ── scroll-triggered slide-up ─────────────────────────── */
+
+const fadeUp = keyframes`
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+`;
+
+function useInView(threshold = 0.1) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return [ref, inView];
+}
+
 // images
 import MarggLogo from "@assets/Margg.png";
 import FacebookIcon from "@assets/footer/FacebookIcon";
 import TwitterIcon from "@assets/footer/TwitterIcon";
-import LinkedInIcon from "@assets/footer/LinkedInIcon";
+import YoutubeIcon from "@assets/footer/YoutubeIcon";
+import InstagramIcon from "@assets/footer/InstagramIcon";
+import DiscordIcon from "@assets/footer/DiscordIcon";
 import LocationIcon from "@assets/footer/LocationIcon";
 import PhoneIcon from "@assets/footer/PhoneIcon";
 import MailIcon from "@assets/footer/MailIcon";
@@ -17,10 +54,13 @@ import MailIcon from "@assets/footer/MailIcon";
 const iconComponents = {
   FacebookIcon,
   TwitterIcon,
-  LinkedInIcon,
+  YoutubeIcon,
+  InstagramIcon,
+  DiscordIcon,
 };
 
 const FooterSection = styled.footer`
+  scroll-margin-top: 100px;
   position: relative;
   width: 100%;
   height: 460px;
@@ -79,6 +119,18 @@ const Box = styled.div`
   box-shadow: 0px 12px 32px 0px #00000040;
 
   backdrop-filter: blur(32px);
+  opacity: 0;
+
+  ${(p) =>
+    p.$inView &&
+    css`
+      animation: ${fadeUp} 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    `}
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none !important;
+  }
 
   ${MEDIA_QUERIES.tablet} {
     width: 100%;
@@ -195,6 +247,18 @@ const CopyrightBox = styled.div`
   gap: 10px;
   box-shadow: 0px 12px 32px 0px #00000040;
   backdrop-filter: blur(32px);
+  opacity: 0;
+
+  ${(p) =>
+    p.$inView &&
+    css`
+      animation: ${fadeUp} 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+    `}
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none !important;
+  }
 
   ${MEDIA_QUERIES.tablet} {
     width: 100%;
@@ -251,9 +315,41 @@ const SocialIcon = styled.a`
   }
 `;
 
+/* ── role-specific contact links ── */
+
+const ContactLinksRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  ${MEDIA_QUERIES.mobile} {
+    gap: 16px;
+  }
+`;
+
+const ContactRoleLink = styled.a`
+  font-family: ${FONTS.body};
+  font-size: 14px;
+  font-weight: 500;
+  color: #B095E3;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  &:hover {
+    color: #D3C4EF;
+    text-decoration: underline;
+  }
+`;
+
 const currentYear = new Date().getFullYear();
 
-const Footer = () => {
+const Footer = ({ id }) => {
   const {
     contactTitle,
     location,
@@ -264,11 +360,12 @@ const Footer = () => {
     logoAlt,
     socialLinks,
   } = useContent("footer");
+  const [viewRef, inView] = useInView(0.1);
 
   return (
-    <FooterSection>
+    <FooterSection id={id} ref={viewRef}>
       <Inner>
-        <Box>
+        <Box $inView={inView}>
           <LeftColumn>
             <ContactTitle>{contactTitle}</ContactTitle>
             <ContactInfo>
@@ -291,13 +388,18 @@ const Footer = () => {
                 {email}
               </ContactItem>
             </ContactInfo>
+            <ContactLinksRow>
+              <ContactRoleLink href="#contact-learner">Learner Form &rarr;</ContactRoleLink>
+              <ContactRoleLink href="#contact-instructor">Instructor Form &rarr;</ContactRoleLink>
+              <ContactRoleLink href="#contact-partner">Partner Form &rarr;</ContactRoleLink>
+            </ContactLinksRow>
           </LeftColumn>
           <RightColumn>
             <Logo src={MarggLogo} alt={logoAlt} />
             <Tagline>{tagline}</Tagline>
           </RightColumn>
         </Box>
-        <CopyrightBox>
+        <CopyrightBox $inView={inView}>
           <CopyrightText>
             &copy; {currentYear} {companyName}. All Rights Reserved.
           </CopyrightText>

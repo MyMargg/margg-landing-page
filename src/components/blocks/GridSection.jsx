@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useRef, useEffect, useState } from "react";
+import styled, { keyframes, css } from "styled-components";
 
 // images
 import Phone from "@assets/figma/phone-screen-2.png";
@@ -9,6 +9,41 @@ import Grid from "./Grid";
 
 // constants
 import { MEDIA_QUERIES } from "@constants";
+
+/* ── scroll-triggered slide-up ─────────────────────────── */
+
+const fadeUp = keyframes`
+  0%   { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+`;
+
+function useInView(threshold = 0.1) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return [ref, inView];
+}
 
 const SectionContainer = styled.div`
   display: flex;
@@ -32,6 +67,18 @@ const PhoneWrapper = styled.div`
   flex-shrink: 0;
   display: flex;
   justify-content: center;
+  opacity: 0;
+
+  ${(p) =>
+    p.$inView &&
+    css`
+      animation: ${fadeUp} 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+    `}
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none !important;
+  }
 
   ${MEDIA_QUERIES.mobile} {
     display: none;
@@ -47,16 +94,29 @@ const PhoneImage = styled.img`
 
 const GridWrapper = styled.div`
   min-width: 0;
-  flex: 1;
+  opacity: 0;
+
+  ${(p) =>
+    p.$inView &&
+    css`
+      animation: ${fadeUp} 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+    `}
+
+  @media (prefers-reduced-motion: reduce) {
+    opacity: 1;
+    animation: none !important;
+  }
 `;
 
 const GridSection = () => {
+  const [viewRef, inView] = useInView(0.1);
+
   return (
-    <SectionContainer>
-      <PhoneWrapper>
+    <SectionContainer ref={viewRef}>
+      <PhoneWrapper $inView={inView}>
         <PhoneImage src={Phone} alt="Phone Screen" />
       </PhoneWrapper>
-      <GridWrapper>
+      <GridWrapper $inView={inView}>
         <Grid />
       </GridWrapper>
     </SectionContainer>

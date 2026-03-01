@@ -1,0 +1,53 @@
+{
+  "_comment": "Production content override — upload this to the remote VITE_CONTENT_URL source to keep the deployed config in sync with local content.json. These fields deep-merge over the local fallback.",
+
+  "footer": {
+    "socialLinks": [
+      {
+        "platform": "YouTube",
+        "icon": "YoutubeIcon",
+        "url": "https://youtube.com/@MarggLive"
+      },
+      {
+        "platform": "Instagram",
+        "icon": "InstagramIcon",
+        "url": "https://instagram.com/margglive"
+      },
+      {
+        "platform": "X (Twitter)",
+        "icon": "TwitterIcon",
+        "url": "https://x.com/MarggLive"
+      },
+      {
+        "platform": "Discord",
+        "icon": "DiscordIcon",
+        "url": "https://discord.gg/PDzhNUnB"
+      }
+    ]
+  },
+
+  "api": {
+    "baseUrl": "https://api.margg.xyz/service-core",
+    "endpoints": {
+      "waitlist": "/general/user-contacts/waitlist",
+      "learner": "/general/user-contacts",
+      "instructor": "/general/instructor-enquiries",
+      "partner": "/general/organisation-enquiries"
+    }
+  },
+
+  "seo": {
+    "title": "Margg – Roadmap Based Courses & Best LMS Platform in South India | Gagan's Application",
+    "description": "Margg is the best LMS application in South India offering roadmap based courses, structured learning paths, one-on-one mentorship, interview prep, resume building, certifications & career placement support for college students. Built by Gagan — curated routes for curious minds.",
+    "keywords": "roadmap based courses, best LMS application in south india, Gagan's application, Margg, LMS for college students, learning management system India, mentorship platform, interview prep, career placement, roadmap learning, college learning app, online education India, skill development, structured learning paths, best online courses India, South India LMS, Bangalore LMS, Tirupati education platform, curated learning roadmaps, coding bootcamp India, one-on-one mentorship India, resume builder for students, job placement LMS, streaks based learning, certification courses India, Margg Private Limited, MarggLive, best e-learning platform India",
+    "author": "Margg Private Limited",
+    "robots": "index, follow",
+    "locale": "en_IN",
+    "url": "https://margg.in",
+    "ogImage": "https://margg.in/og-cover.png",
+    "twitterHandle": "@MarggLive",
+    "themeColor": "#090215",
+    "foundingYear": "2023",
+    "appCategory": "EducationApplication"
+  }
+}
