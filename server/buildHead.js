@@ -27,6 +27,23 @@ try {
   // courses.json may not exist in some environments — continue without it
 }
 
+// Load roadmaps data
+let roadmapsAll = { roadmaps: [] };
+try {
+  const raw = readFileSync(resolve(__dirname, "../src/content/roadmaps.json"), "utf-8");
+  roadmapsAll = JSON.parse(raw);
+} catch {
+  // roadmaps.json may not exist — continue without it
+}
+
+// Build flat course lookup from roadmaps
+const roadmapCourses = {};
+roadmapsAll.roadmaps.forEach((rm) => {
+  [...rm.starterKit, ...rm.levels, ...rm.addOns].forEach((c) => {
+    roadmapCourses[c.slug] = { ...c, roadmapName: rm.name, roadmapSlug: rm.slug };
+  });
+});
+
 // Escape HTML attribute values to prevent XSS
 function esc(val) {
   return String(val ?? "")
@@ -75,10 +92,118 @@ export function buildHead(
   const slug = reqUrl.replace(/^\//, "").replace(/\/$/, "");
   const courseData = coursesAll[slug] ?? null;
   const isHomePage = slug === "" || slug === "/";
-  // Unknown slugs (not home, not a valid course) get noindex
-  const effectiveRobots = (!isHomePage && !courseData) ? "noindex, nofollow" : robots;
 
-  if (courseData) {
+  // Detect new route patterns
+  const isRoadmapsPage = slug === "roadmaps";
+  const roadmapMatch = slug.match(/^roadmap\/(.+)$/);
+  const courseMatch = slug.match(/^course\/(.+)$/);
+  const roadmapDetailData = roadmapMatch
+    ? roadmapsAll.roadmaps.find((r) => r.slug === roadmapMatch[1])
+    : null;
+  const courseDetailData = courseMatch ? roadmapCourses[courseMatch[1]] : null;
+
+  // Known page check: home, courses.json courses, roadmaps page, roadmap detail, course detail
+  const isKnownPage = isHomePage || courseData || isRoadmapsPage || roadmapDetailData || courseDetailData;
+  // Unknown slugs (not home, not a valid course/roadmap) get noindex
+  const effectiveRobots = !isKnownPage ? "noindex, nofollow" : robots;
+
+  if (isRoadmapsPage) {
+    title = "Learning Roadmaps – Structured Courses for Every Career Path | Margg";
+    description = "Explore Margg's structured learning roadmaps. Frontend, Backend, UI/UX, Data Engineering, DevOps, Cyber Security & Business Analytics – from Starter-Kit to Add-Ons.";
+    keywords = "learning roadmaps, career roadmap, course roadmap India, structured learning path, Margg roadmaps, tech career path";
+    canonicalUrl = `${siteUrl}/roadmaps`;
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "Roadmaps", item: canonicalUrl },
+      ],
+    };
+    extraSchemas += `\n    <script type="application/ld+json">${escJson(breadcrumbSchema)}</script>`;
+
+    // ItemList of all roadmaps for rich SERP
+    const roadmapListSchema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "Margg Learning Roadmaps",
+      numberOfItems: roadmapsAll.roadmaps.length,
+      itemListElement: roadmapsAll.roadmaps.map((r, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: r.name,
+        url: `${siteUrl}/roadmap/${r.slug}`,
+      })),
+    };
+    extraSchemas += `\n    <script type="application/ld+json">${escJson(roadmapListSchema)}</script>`;
+  } else if (roadmapDetailData) {
+    title = roadmapDetailData.metaTitle;
+    description = roadmapDetailData.metaDescription;
+    keywords = roadmapDetailData.keywords;
+    canonicalUrl = `${siteUrl}/roadmap/${roadmapDetailData.slug}`;
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "Roadmaps", item: `${siteUrl}/roadmaps` },
+        { "@type": "ListItem", position: 3, name: roadmapDetailData.name, item: canonicalUrl },
+      ],
+    };
+    extraSchemas += `\n    <script type="application/ld+json">${escJson(breadcrumbSchema)}</script>`;
+
+    // Course list within roadmap
+    const allRoadmapCourses = [
+      ...roadmapDetailData.starterKit,
+      ...roadmapDetailData.levels,
+      ...roadmapDetailData.addOns,
+    ];
+    const courseListSchema = {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: `${roadmapDetailData.name} Courses`,
+      numberOfItems: allRoadmapCourses.length,
+      itemListElement: allRoadmapCourses.map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: c.title,
+        url: `${siteUrl}/course/${c.slug}`,
+      })),
+    };
+    extraSchemas += `\n    <script type="application/ld+json">${escJson(courseListSchema)}</script>`;
+  } else if (courseDetailData) {
+    title = `${courseDetailData.title} – ${courseDetailData.roadmapName} | Margg`;
+    description = courseDetailData.description;
+    keywords = `${courseDetailData.title}, ${courseDetailData.roadmapName}, Margg course, ${courseDetailData.level} course India`;
+    canonicalUrl = `${siteUrl}/course/${courseDetailData.slug}`;
+
+    const courseSchema = {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: courseDetailData.title,
+      description: courseDetailData.description,
+      provider: { "@type": "Organization", name: "Margg", url: siteUrl },
+      url: canonicalUrl,
+      educationalLevel: courseDetailData.level === "starter-kit" ? "Beginner" : courseDetailData.level === "beginner" ? "Beginner" : courseDetailData.level === "intermediate" ? "Intermediate" : "Advanced",
+      inLanguage: "en",
+      isAccessibleForFree: false,
+    };
+    extraSchemas += `\n    <script type="application/ld+json">${escJson(courseSchema)}</script>`;
+
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "Roadmaps", item: `${siteUrl}/roadmaps` },
+        { "@type": "ListItem", position: 3, name: courseDetailData.roadmapName, item: `${siteUrl}/roadmap/${courseDetailData.roadmapSlug}` },
+        { "@type": "ListItem", position: 4, name: courseDetailData.title, item: canonicalUrl },
+      ],
+    };
+    extraSchemas += `\n    <script type="application/ld+json">${escJson(breadcrumbSchema)}</script>`;
+  } else if (courseData) {
     title = courseData.title;
     description = courseData.metaDescription;
     keywords = courseData.keywords;
@@ -280,7 +405,7 @@ export function buildHead(
     <link rel="alternate" hreflang="x-default" href="${esc(canonicalUrl)}" />
 
     <!-- Open Graph -->
-    <meta property="og:type"        content="${courseData ? 'article' : 'website'}" />
+    <meta property="og:type"        content="${(courseData || courseDetailData) ? 'article' : 'website'}" />
     <meta property="og:locale"      content="${esc(locale)}" />
     <meta property="og:url"         content="${esc(canonicalUrl)}" />
     <meta property="og:site_name"   content="Margg" />

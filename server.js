@@ -138,8 +138,8 @@ async function createApp() {
           `<script>window.__PRELOADED_STATE__=${serializeState(state)}</script>`,
         );
 
-      // Detect 404 pages (CoursePage renders "Course Not Found" for unknown slugs)
-      const is404 = appHtml.includes("Course Not Found");
+      // Detect 404 pages (renders "Not Found" for unknown slugs/roadmaps/courses)
+      const is404 = appHtml.includes("Course Not Found") || appHtml.includes("Roadmap Not Found");
 
       res.status(is404 ? 404 : 200).set({
         "Content-Type": "text/html",

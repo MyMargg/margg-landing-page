@@ -192,6 +192,7 @@ const CardsRow = styled.div`
   margin-top: 56px;
   width: 100%;
   justify-content: center;
+  align-items: stretch;
   ${animMixin}
 
   ${MEDIA_QUERIES.mobile} { gap: 16px; }
@@ -227,6 +228,7 @@ const RoleCard = styled.button`
   box-sizing: border-box;
   position: relative;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -313,8 +315,8 @@ const MobileDesc = styled.p`
 const ConnectorArea = styled.div`
   position: relative;
   width: 100%;
-  height: 100px;
-  margin-top: -20px;
+  height: 80px;
+  margin-top: 0;
   @media (max-width: 600px) { display: none; }
 `;
 
@@ -323,9 +325,9 @@ const DashedLine = styled.div`
   top: 0;
   bottom: 0;
   border-left: 2px dashed rgba(176, 149, 227, 0.3);
-  ${(p) => p.$pos === "left" && css` left: 18%; transform: rotate(22deg); transform-origin: top center; `}
+  ${(p) => p.$pos === "left" && css` left: 18%; transform: rotate(18deg); transform-origin: top center; `}
   ${(p) => p.$pos === "center" && css` left: 50%; `}
-  ${(p) => p.$pos === "right" && css` right: 18%; transform: rotate(-22deg); transform-origin: top center; `}
+  ${(p) => p.$pos === "right" && css` left: 82%; transform: rotate(-18deg); transform-origin: top center; `}
 `;
 
 /* ── form card ── */

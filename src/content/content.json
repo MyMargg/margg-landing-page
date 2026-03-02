@@ -3,6 +3,7 @@
     "logoAlt": "Margg",
     "links": [
       { "label": "Home", "href": "#home", "primary": true },
+      { "label": "Roadmaps", "href": "/roadmaps" },
       { "label": "Our Products", "href": "#products" },
       { "label": "Contact Us", "href": "#contact-us" }
     ]
