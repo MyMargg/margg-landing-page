@@ -52,7 +52,7 @@ const Section = styled.section`
   margin-top: -72px;
 
   --pad: clamp(24px, 7vw, 120px);
-  padding: calc(140px + 72px) var(--pad) 0;
+  padding: calc(40px + 72px) var(--pad) 0;
 
   background:
     linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%),

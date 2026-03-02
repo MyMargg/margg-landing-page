@@ -11,7 +11,7 @@
     "/assets/interview-prep-DeoMkukO.webp"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/react-dom/cjs/react-dom.production.js?commonjs-exports": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/react-dom/client.js?commonjs-es-import": [
     "/assets/Margg-CT4M_ONj.webp",
@@ -36,16 +36,16 @@
     "/assets/interview-prep-DeoMkukO.webp"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/react-dom/index.js?commonjs-es-import": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/react-dom/index.js?commonjs-module": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/react-router/node_modules/cookie/dist/index.js?commonjs-es-import": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/react-router/node_modules/cookie/dist/index.js?commonjs-exports": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/react/cjs/react-jsx-runtime.production.js?commonjs-exports": [
     "/assets/Margg-CT4M_ONj.webp",
@@ -112,10 +112,10 @@
     "/assets/interview-prep-DeoMkukO.webp"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/set-cookie-parser/lib/set-cookie.js?commonjs-es-import": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/set-cookie-parser/lib/set-cookie.js?commonjs-module": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "\u0000/Users/r0v05mk/Desktop/skillgig/skillgig-landing-page/node_modules/use-sync-external-store/cjs/use-sync-external-store-with-selector.production.js?commonjs-exports": [
     "/assets/redux-ZgJ2Wkzd.js"
@@ -178,7 +178,7 @@
     "/assets/interview-prep-DeoMkukO.webp"
   ],
   "node_modules/react-dom/cjs/react-dom.production.js": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react-dom/client.js": [
     "/assets/Margg-CT4M_ONj.webp",
@@ -192,31 +192,31 @@
     "/assets/interview-prep-DeoMkukO.webp"
   ],
   "node_modules/react-dom/index.js": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react-dom/index.js?commonjs-entry": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react-redux/dist/react-redux.mjs": [
     "/assets/redux-ZgJ2Wkzd.js"
   ],
   "node_modules/react-router-dom/dist/index.mjs": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react-router/dist/development/chunk-JPUPSTYD.mjs": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react-router/dist/development/chunk-LFPYN7LY.mjs": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react-router/dist/development/dom-export.mjs": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react-router/dist/development/index.mjs": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react-router/node_modules/cookie/dist/index.js": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react/cjs/react-jsx-runtime.production.js": [
     "/assets/Margg-CT4M_ONj.webp",
@@ -236,7 +236,7 @@
     "/assets/redux-ZgJ2Wkzd.js"
   ],
   "node_modules/react/index.js?commonjs-entry": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/react/jsx-runtime.js": [
     "/assets/Margg-CT4M_ONj.webp",
@@ -281,7 +281,7 @@
     "/assets/interview-prep-DeoMkukO.webp"
   ],
   "node_modules/set-cookie-parser/lib/set-cookie.js": [
-    "/assets/vendor-C8045NFy.js"
+    "/assets/vendor-CYazf-v1.js"
   ],
   "node_modules/styled-components/dist/styled-components.browser.esm.js": [
     "/assets/styles-CSKeg26X.js"
@@ -693,6 +693,17 @@
     "/assets/streak-DyGuKhiQ.webp",
     "/assets/interview-prep-DeoMkukO.webp"
   ],
+  "src/containers/Home/CourseDetailPage.jsx": [
+    "/assets/Margg-CT4M_ONj.webp",
+    "/assets/phone-screen-uLB7OkVb.webp",
+    "/assets/phone-screen-2-DEQ8AWQ-.webp",
+    "/assets/roadmap-Dn-5xO1L.webp",
+    "/assets/mentor-B3u5TnvR.webp",
+    "/assets/community-DUEL_A6f.webp",
+    "/assets/focus-timer-C5HEcCmJ.webp",
+    "/assets/streak-DyGuKhiQ.webp",
+    "/assets/interview-prep-DeoMkukO.webp"
+  ],
   "src/containers/Home/CoursePage.jsx": [
     "/assets/Margg-CT4M_ONj.webp",
     "/assets/phone-screen-uLB7OkVb.webp",
@@ -738,6 +749,28 @@
     "/assets/interview-prep-DeoMkukO.webp"
   ],
   "src/containers/Home/Navbar.jsx": [
+    "/assets/Margg-CT4M_ONj.webp",
+    "/assets/phone-screen-uLB7OkVb.webp",
+    "/assets/phone-screen-2-DEQ8AWQ-.webp",
+    "/assets/roadmap-Dn-5xO1L.webp",
+    "/assets/mentor-B3u5TnvR.webp",
+    "/assets/community-DUEL_A6f.webp",
+    "/assets/focus-timer-C5HEcCmJ.webp",
+    "/assets/streak-DyGuKhiQ.webp",
+    "/assets/interview-prep-DeoMkukO.webp"
+  ],
+  "src/containers/Home/RoadmapDetailPage.jsx": [
+    "/assets/Margg-CT4M_ONj.webp",
+    "/assets/phone-screen-uLB7OkVb.webp",
+    "/assets/phone-screen-2-DEQ8AWQ-.webp",
+    "/assets/roadmap-Dn-5xO1L.webp",
+    "/assets/mentor-B3u5TnvR.webp",
+    "/assets/community-DUEL_A6f.webp",
+    "/assets/focus-timer-C5HEcCmJ.webp",
+    "/assets/streak-DyGuKhiQ.webp",
+    "/assets/interview-prep-DeoMkukO.webp"
+  ],
+  "src/containers/Home/RoadmapsPage.jsx": [
     "/assets/Margg-CT4M_ONj.webp",
     "/assets/phone-screen-uLB7OkVb.webp",
     "/assets/phone-screen-2-DEQ8AWQ-.webp",
@@ -804,6 +837,17 @@
     "/assets/interview-prep-DeoMkukO.webp"
   ],
   "src/content/courses.json": [
+    "/assets/Margg-CT4M_ONj.webp",
+    "/assets/phone-screen-uLB7OkVb.webp",
+    "/assets/phone-screen-2-DEQ8AWQ-.webp",
+    "/assets/roadmap-Dn-5xO1L.webp",
+    "/assets/mentor-B3u5TnvR.webp",
+    "/assets/community-DUEL_A6f.webp",
+    "/assets/focus-timer-C5HEcCmJ.webp",
+    "/assets/streak-DyGuKhiQ.webp",
+    "/assets/interview-prep-DeoMkukO.webp"
+  ],
+  "src/content/roadmaps.json": [
     "/assets/Margg-CT4M_ONj.webp",
     "/assets/phone-screen-uLB7OkVb.webp",
     "/assets/phone-screen-2-DEQ8AWQ-.webp",

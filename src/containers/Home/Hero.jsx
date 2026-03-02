@@ -118,6 +118,7 @@ const TopGrid = styled.div`
   position: relative;
   z-index: 2;
   width: 100%;
+  margin-top: clamp(48px, 8vh, 128px);
   padding: 98px 5vw 98px 5vw;
   display: flex;
   justify-content: center;
