@@ -404,10 +404,14 @@ const NAV_ICONS = {
   ),
 };
 
+// Section IDs that map to nav hash links
+const SECTION_IDS = ["home", "products", "contact-us"];
+
 const Navbar = () => {
   const { logoAlt, links } = useContent("navbar");
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const drawerRef = useRef(null);
   const lastScrollY = useRef(0);
   const navigate = useNavigate();
@@ -455,16 +459,58 @@ const Navbar = () => {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  /* ── scroll to top on route change (non-hash navigations) ── */
+  useEffect(() => {
+    if (!location.hash) {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  }, [location.pathname, location.hash]);
+
+  /* ── IntersectionObserver: track which section is in viewport ── */
+  useEffect(() => {
+    if (location.pathname !== "/") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Pick the entry with the largest intersection ratio
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { rootMargin: "-20% 0px -50% 0px", threshold: [0, 0.25, 0.5] },
+    );
+
+    // Small delay to let DOM settle after navigation
+    const timer = setTimeout(() => {
+      SECTION_IDS.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }, 200);
+
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [location.pathname]);
+
   /* ── determine which link is active ── */
   const isActive = useCallback(
     (href) => {
       const path = location.pathname;
-      if (href === "#home") return path === "/";
+      // Route-based pages
       if (href === "/roadmaps")
         return path === "/roadmaps" || path.startsWith("/roadmap/");
+      // On home page, use section-based detection
+      if (path === "/" && href.startsWith("#")) {
+        return activeSection === href.slice(1);
+      }
       return false;
     },
-    [location.pathname],
+    [location.pathname, activeSection],
   );
 
   const handleLogoClick = useCallback(() => {
