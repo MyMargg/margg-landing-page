@@ -34,7 +34,8 @@ function loadEmailJS() {
     }
 
     const script = document.createElement("script");
-    script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
+    script.src =
+      "https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js";
     script.async = true;
     script.onload = () => {
       emailjsLoaded = true;
@@ -81,7 +82,11 @@ function resolveTemplate(emailjsConfig, templateKey) {
  * @param {string} templateKey   – key into emailjsConfig.templates (e.g. "learner")
  * @param {object} templateVars  – variables to pass to the EmailJS template
  */
-export async function sendNotification(emailjsConfig, templateKey, templateVars) {
+export async function sendNotification(
+  emailjsConfig,
+  templateKey,
+  templateVars,
+) {
   const resolved = resolveTemplate(emailjsConfig, templateKey);
 
   if (!resolved) {
@@ -98,7 +103,9 @@ export async function sendNotification(emailjsConfig, templateKey, templateVars)
     const vars = {
       ...templateVars,
       to_email: emailjsConfig.notifyEmail || "info@margg.in",
-      submission_time: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
+      submission_time: new Date().toLocaleString("en-IN", {
+        timeZone: "Asia/Kolkata",
+      }),
     };
 
     const result = await window.emailjs.send(

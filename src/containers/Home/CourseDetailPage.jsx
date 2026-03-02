@@ -19,11 +19,7 @@ const allCourses = {};
 const courseToRoadmaps = {};
 
 roadmapsData.roadmaps.forEach((roadmap) => {
-  const all = [
-    ...roadmap.starterKit,
-    ...roadmap.levels,
-    ...roadmap.addOns,
-  ];
+  const all = [...roadmap.starterKit, ...roadmap.levels, ...roadmap.addOns];
   all.forEach((course) => {
     allCourses[course.slug] = {
       ...course,
@@ -62,8 +58,16 @@ const HeroSection = styled.section`
   padding: 160px clamp(24px, 7vw, 120px) 80px;
   text-align: center;
   background:
-    radial-gradient(700px circle at 30% 20%, rgba(176,149,227,0.18), transparent 60%),
-    radial-gradient(600px circle at 70% 80%, rgba(80,19,192,0.15), transparent 60%),
+    radial-gradient(
+      700px circle at 30% 20%,
+      rgba(176, 149, 227, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      600px circle at 70% 80%,
+      rgba(80, 19, 192, 0.15),
+      transparent 60%
+    ),
     linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%);
 
   ${MEDIA_QUERIES.mobile} {
@@ -81,13 +85,15 @@ const Breadcrumb = styled.nav`
   margin-bottom: 24px;
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: rgba(238,231,249,0.5);
+  color: rgba(238, 231, 249, 0.5);
   animation: ${fadeInUp} 0.5s ease-out;
 
   a {
-    color: #B095E3;
+    color: #b095e3;
     text-decoration: none;
-    &:hover { text-decoration: underline; }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -104,29 +110,29 @@ const LevelBadge = styled.span`
   animation: ${fadeInUp} 0.5s ease-out 0.05s both;
 
   &.starter-kit {
-    color: #4CAF50;
-    background: rgba(76,175,80,0.15);
-    border: 1px solid rgba(76,175,80,0.3);
+    color: #4caf50;
+    background: rgba(76, 175, 80, 0.15);
+    border: 1px solid rgba(76, 175, 80, 0.3);
   }
   &.beginner {
-    color: #29B6F6;
-    background: rgba(41,182,246,0.15);
-    border: 1px solid rgba(41,182,246,0.3);
+    color: #29b6f6;
+    background: rgba(41, 182, 246, 0.15);
+    border: 1px solid rgba(41, 182, 246, 0.3);
   }
   &.intermediate {
-    color: #42A5F5;
-    background: rgba(66,165,245,0.15);
-    border: 1px solid rgba(66,165,245,0.3);
+    color: #42a5f5;
+    background: rgba(66, 165, 245, 0.15);
+    border: 1px solid rgba(66, 165, 245, 0.3);
   }
   &.advanced {
-    color: #1565C0;
-    background: rgba(21,101,192,0.2);
-    border: 1px solid rgba(21,101,192,0.35);
+    color: #1565c0;
+    background: rgba(21, 101, 192, 0.2);
+    border: 1px solid rgba(21, 101, 192, 0.35);
   }
   &.add-on {
-    color: #FF9800;
-    background: rgba(255,152,0,0.15);
-    border: 1px solid rgba(255,152,0,0.3);
+    color: #ff9800;
+    background: rgba(255, 152, 0, 0.15);
+    border: 1px solid rgba(255, 152, 0, 0.3);
   }
 `;
 
@@ -144,7 +150,7 @@ const H1 = styled.h1`
 const HeroDesc = styled.p`
   font-family: ${FONTS.body};
   font-size: 16px;
-  color: rgba(238,231,249,0.75);
+  color: rgba(238, 231, 249, 0.75);
   line-height: 1.7;
   margin: 0 0 28px;
   max-width: 720px;
@@ -165,9 +171,9 @@ const MetaRow = styled.div`
 const MetaTag = styled.span`
   font-family: ${FONTS.body};
   font-size: 13px;
-  color: rgba(238,231,249,0.55);
-  background: rgba(176,149,227,0.08);
-  border: 1px solid rgba(176,149,227,0.12);
+  color: rgba(238, 231, 249, 0.55);
+  background: rgba(176, 149, 227, 0.08);
+  border: 1px solid rgba(176, 149, 227, 0.12);
   padding: 6px 14px;
   border-radius: 8px;
 `;
@@ -176,20 +182,20 @@ const CTAButton = styled.a`
   display: inline-block;
   padding: 16px 40px;
   background: #fff;
-  color: #5013C0;
+  color: #5013c0;
   font-family: ${FONTS.body};
   font-size: 18px;
   font-weight: 700;
   border-radius: 14px;
-  border: 1px solid #D3C4EF;
-  box-shadow: 0 4px 24px rgba(176,149,227,0.5);
+  border: 1px solid #d3c4ef;
+  box-shadow: 0 4px 24px rgba(176, 149, 227, 0.5);
   text-decoration: none;
   transition: all 0.3s ease;
   animation: ${fadeInUp} 0.5s ease-out 0.25s both;
 
   &:hover {
     transform: scale(1.03);
-    box-shadow: 0 6px 32px rgba(176,149,227,0.65);
+    box-shadow: 0 6px 32px rgba(176, 149, 227, 0.65);
   }
 `;
 
@@ -219,7 +225,7 @@ const H2 = styled.h2`
 const Paragraph = styled.p`
   font-family: ${FONTS.body};
   font-size: 16px;
-  color: rgba(238,231,249,0.8);
+  color: rgba(238, 231, 249, 0.8);
   line-height: 1.8;
   margin: 0 0 16px;
   white-space: pre-line;
@@ -233,12 +239,12 @@ const List = styled.ul`
 const ListItem = styled.li`
   font-family: ${FONTS.body};
   font-size: 16px;
-  color: rgba(238,231,249,0.8);
+  color: rgba(238, 231, 249, 0.8);
   line-height: 1.8;
   margin-bottom: 8px;
 
   &::marker {
-    color: #B095E3;
+    color: #b095e3;
   }
 `;
 
@@ -254,20 +260,20 @@ const CurriculumGrid = styled.div`
 const CurriculumCard = styled.div`
   padding: 20px;
   border-radius: 14px;
-  border: 1px solid rgba(176,149,227,0.12);
-  background: rgba(211,196,239,0.04);
+  border: 1px solid rgba(176, 149, 227, 0.12);
+  background: rgba(211, 196, 239, 0.04);
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: rgba(176,149,227,0.3);
-    background: rgba(211,196,239,0.08);
+    border-color: rgba(176, 149, 227, 0.3);
+    background: rgba(211, 196, 239, 0.08);
   }
 `;
 
 const CurriculumNumber = styled.div`
   font-family: ${FONTS.heading};
   font-size: 32px;
-  color: rgba(176,149,227,0.3);
+  color: rgba(176, 149, 227, 0.3);
   margin-bottom: 8px;
 `;
 
@@ -275,7 +281,7 @@ const CurriculumTitle = styled.h3`
   font-family: ${FONTS.body};
   font-size: 15px;
   font-weight: 600;
-  color: #EEE7F9;
+  color: #eee7f9;
   margin: 0;
 `;
 
@@ -291,16 +297,16 @@ const RoadmapLink = styled(Link)`
   gap: 10px;
   padding: 12px 20px;
   border-radius: 12px;
-  border: 1px solid rgba(176,149,227,0.15);
-  background: rgba(211,196,239,0.04);
+  border: 1px solid rgba(176, 149, 227, 0.15);
+  background: rgba(211, 196, 239, 0.04);
   text-decoration: none;
   margin-right: 12px;
   margin-bottom: 8px;
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: rgba(176,149,227,0.35);
-    background: rgba(211,196,239,0.08);
+    border-color: rgba(176, 149, 227, 0.35);
+    background: rgba(211, 196, 239, 0.08);
   }
 `;
 
@@ -311,7 +317,7 @@ const RoadmapLinkIcon = styled.span`
 const RoadmapLinkText = styled.span`
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: #B095E3;
+  color: #b095e3;
 `;
 
 /* ── Related Courses ── */
@@ -341,15 +347,15 @@ const RelatedGrid = styled.div`
 const RelatedCard = styled(Link)`
   display: block;
   padding: 24px;
-  border: 1px solid rgba(176,149,227,0.15);
+  border: 1px solid rgba(176, 149, 227, 0.15);
   border-radius: 16px;
-  background: rgba(211,196,239,0.04);
+  background: rgba(211, 196, 239, 0.04);
   text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: rgba(176,149,227,0.4);
-    background: rgba(211,196,239,0.08);
+    border-color: rgba(176, 149, 227, 0.4);
+    background: rgba(211, 196, 239, 0.08);
     transform: translateY(-2px);
   }
 `;
@@ -366,7 +372,7 @@ const RelatedCardTitle = styled.h3`
 const RelatedCardDesc = styled.p`
   font-family: ${FONTS.body};
   font-size: 13px;
-  color: rgba(238,231,249,0.5);
+  color: rgba(238, 231, 249, 0.5);
   line-height: 1.5;
   margin: 0;
 `;
@@ -387,16 +393,17 @@ function generateSections(course) {
   // About this course
   sections.push({
     heading: `About This Course`,
-    content: `${course.description}\n\nThis course is part of the ${course.roadmapName} roadmap at Margg. It is categorised as a ${LEVEL_LABELS[course.level] || course.level} course, designed to ${course.level === "starter-kit"
-      ? "build your foundational skills before you dive into specialised topics"
-      : course.level === "beginner"
-        ? "introduce you to the core concepts and give you hands-on experience from day one"
-        : course.level === "intermediate"
-          ? "deepen your understanding and prepare you for advanced challenges"
-          : course.level === "advanced"
-            ? "push your skills to a professional level with complex, real-world scenarios"
-            : "add specialised expertise to your skill set beyond the core curriculum"
-      }.\n\nAt Margg, we believe in roadmap-based learning where every course connects to the next, building a coherent path from beginner to job-ready professional. Each module includes hands-on projects, mentor-reviewed assignments, and community discussions.`,
+    content: `${course.description}\n\nThis course is part of the ${course.roadmapName} roadmap at Margg. It is categorised as a ${LEVEL_LABELS[course.level] || course.level} course, designed to ${
+      course.level === "starter-kit"
+        ? "build your foundational skills before you dive into specialised topics"
+        : course.level === "beginner"
+          ? "introduce you to the core concepts and give you hands-on experience from day one"
+          : course.level === "intermediate"
+            ? "deepen your understanding and prepare you for advanced challenges"
+            : course.level === "advanced"
+              ? "push your skills to a professional level with complex, real-world scenarios"
+              : "add specialised expertise to your skill set beyond the core curriculum"
+    }.\n\nAt Margg, we believe in roadmap-based learning where every course connects to the next, building a coherent path from beginner to job-ready professional. Each module includes hands-on projects, mentor-reviewed assignments, and community discussions.`,
   });
 
   // Curriculum
@@ -405,7 +412,8 @@ function generateSections(course) {
       heading: "Course Curriculum",
       content: `This course is structured into ${course.sections.length} modules, each building on the previous one. You'll progress through the following topics:`,
       list: course.sections.map(
-        (s, i) => `Module ${i + 1}: ${s} — Hands-on exercises, quizzes, and a mini-project`
+        (s, i) =>
+          `Module ${i + 1}: ${s} — Hands-on exercises, quizzes, and a mini-project`,
       ),
     });
   }
@@ -450,9 +458,10 @@ function generateFAQs(course) {
   return [
     {
       question: `Do I need prior experience to take ${course.title}?`,
-      answer: course.level === "starter-kit" || course.level === "beginner"
-        ? "No prior experience is required. This course starts from the fundamentals and builds up progressively. Basic computer literacy is all you need."
-        : `This is a ${LEVEL_LABELS[course.level].toLowerCase()}-level course, so familiarity with the prerequisite topics is recommended. Check the roadmap order to see what courses come before this one.`,
+      answer:
+        course.level === "starter-kit" || course.level === "beginner"
+          ? "No prior experience is required. This course starts from the fundamentals and builds up progressively. Basic computer literacy is all you need."
+          : `This is a ${LEVEL_LABELS[course.level].toLowerCase()}-level course, so familiarity with the prerequisite topics is recommended. Check the roadmap order to see what courses come before this one.`,
     },
     {
       question: "What is the format of the course?",
@@ -460,11 +469,13 @@ function generateFAQs(course) {
     },
     {
       question: "Will I receive a certificate?",
-      answer: "Yes. Upon completing all modules and the final project, you'll receive a Margg course completion certificate that you can add to your LinkedIn profile and resume.",
+      answer:
+        "Yes. Upon completing all modules and the final project, you'll receive a Margg course completion certificate that you can add to your LinkedIn profile and resume.",
     },
     {
       question: "Is this course available online?",
-      answer: "Yes, 100% online. Whether you're in Bangalore, Chennai, Hyderabad, Delhi, or any other city in India, you can access the full course, mentorship, and community remotely.",
+      answer:
+        "Yes, 100% online. Whether you're in Bangalore, Chennai, Hyderabad, Delhi, or any other city in India, you can access the full course, mentorship, and community remotely.",
     },
     {
       question: "How does this course fit into the overall roadmap?",
@@ -492,16 +503,16 @@ const FAQTitle = styled.h2`
 `;
 
 const FAQItem = styled.details`
-  border: 1px solid rgba(176,149,227,0.2);
+  border: 1px solid rgba(176, 149, 227, 0.2);
   border-radius: 12px;
   margin-bottom: 12px;
-  background: rgba(211,196,239,0.04);
+  background: rgba(211, 196, 239, 0.04);
   overflow: hidden;
   transition: all 0.3s ease;
 
   &[open] {
-    background: rgba(211,196,239,0.08);
-    border-color: rgba(176,149,227,0.35);
+    background: rgba(211, 196, 239, 0.08);
+    border-color: rgba(176, 149, 227, 0.35);
   }
 `;
 
@@ -509,7 +520,7 @@ const FAQQuestion = styled.summary`
   font-family: ${FONTS.body};
   font-size: 17px;
   font-weight: 600;
-  color: #EEE7F9;
+  color: #eee7f9;
   padding: 20px 24px;
   cursor: pointer;
   list-style: none;
@@ -518,25 +529,29 @@ const FAQQuestion = styled.summary`
   justify-content: space-between;
   gap: 16px;
 
-  &::-webkit-details-marker { display: none; }
+  &::-webkit-details-marker {
+    display: none;
+  }
 
   &::after {
     content: "+";
     font-size: 22px;
-    color: #B095E3;
+    color: #b095e3;
     flex-shrink: 0;
     transition: transform 0.2s ease;
   }
 
   details[open] > & {
-    &::after { content: "−"; }
+    &::after {
+      content: "−";
+    }
   }
 `;
 
 const FAQAnswer = styled.div`
   font-family: ${FONTS.body};
   font-size: 15px;
-  color: rgba(238,231,249,0.7);
+  color: rgba(238, 231, 249, 0.7);
   line-height: 1.7;
   padding: 0 24px 20px;
 `;
@@ -568,7 +583,7 @@ export default function CourseDetailPage() {
 
   // Get related courses from same roadmap
   const roadmap = roadmapsData.roadmaps.find(
-    (r) => r.slug === course.roadmapSlug
+    (r) => r.slug === course.roadmapSlug,
   );
   const relatedCourses = roadmap
     ? [...roadmap.starterKit, ...roadmap.levels, ...roadmap.addOns]
@@ -585,8 +600,7 @@ export default function CourseDetailPage() {
       <HeroSection>
         <HeroInner>
           <Breadcrumb>
-            <Link to="/">Home</Link> /{" "}
-            <Link to="/roadmaps">Roadmaps</Link> /{" "}
+            <Link to="/">Home</Link> / <Link to="/roadmaps">Roadmaps</Link> /{" "}
             <Link to={`/roadmap/${course.roadmapSlug}`}>
               {course.roadmapName}
             </Link>{" "}
@@ -602,7 +616,9 @@ export default function CourseDetailPage() {
 
           <MetaRow>
             <MetaTag>⏱ {course.duration}</MetaTag>
-            <MetaTag>{course.roadmapIcon} {course.roadmapName}</MetaTag>
+            <MetaTag>
+              {course.roadmapIcon} {course.roadmapName}
+            </MetaTag>
             <MetaTag>📋 {course.sections?.length || 0} modules</MetaTag>
           </MetaRow>
 

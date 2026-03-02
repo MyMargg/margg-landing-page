@@ -171,7 +171,8 @@ const JoinWaitList = ({ onSubmit, id }) => {
   const apiConfig = useContent("api");
   const [viewRef, inView] = useInView(0.15);
 
-  const handleSubmit = onSubmit || ((email) => submitWaitlist(apiConfig, email));
+  const handleSubmit =
+    onSubmit || ((email) => submitWaitlist(apiConfig, email));
 
   return (
     <WaitlistContainer id={id} ref={viewRef} $inView={inView}>
@@ -186,7 +187,14 @@ const JoinWaitList = ({ onSubmit, id }) => {
       </LeftColumn>
       <RightColumn>
         <PhoneScreenWrapper>
-          <PhoneImage src={PhoneScreenImg} alt="Margg app interface showing roadmap-based learning features" width={1036} height={1248} loading="lazy" decoding="async" />
+          <PhoneImage
+            src={PhoneScreenImg}
+            alt="Margg app interface showing roadmap-based learning features"
+            width={1036}
+            height={1248}
+            loading="lazy"
+            decoding="async"
+          />
         </PhoneScreenWrapper>
       </RightColumn>
     </WaitlistContainer>

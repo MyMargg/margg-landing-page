@@ -45,7 +45,14 @@ const FocusTimerBlock = () => {
       <TextContainer>
         <Title>{focusTimer.title}</Title>
       </TextContainer>
-      <Image src={FocusTimer} alt="Focus timer for productive study sessions on Margg" width={479} height={648} loading="lazy" decoding="async" />
+      <Image
+        src={FocusTimer}
+        alt="Focus timer for productive study sessions on Margg"
+        width={479}
+        height={648}
+        loading="lazy"
+        decoding="async"
+      />
     </Container>
   );
 };

@@ -21,7 +21,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // Load course data once at module level (tiny JSON, never changes at runtime)
 let coursesAll = {};
 try {
-  const raw = readFileSync(resolve(__dirname, "../src/content/courses.json"), "utf-8");
+  const raw = readFileSync(
+    resolve(__dirname, "../src/content/courses.json"),
+    "utf-8",
+  );
   coursesAll = JSON.parse(raw);
 } catch {
   // courses.json may not exist in some environments — continue without it
@@ -30,7 +33,10 @@ try {
 // Load roadmaps data
 let roadmapsAll = { roadmaps: [] };
 try {
-  const raw = readFileSync(resolve(__dirname, "../src/content/roadmaps.json"), "utf-8");
+  const raw = readFileSync(
+    resolve(__dirname, "../src/content/roadmaps.json"),
+    "utf-8",
+  );
   roadmapsAll = JSON.parse(raw);
 } catch {
   // roadmaps.json may not exist — continue without it
@@ -40,7 +46,11 @@ try {
 const roadmapCourses = {};
 roadmapsAll.roadmaps.forEach((rm) => {
   [...rm.starterKit, ...rm.levels, ...rm.addOns].forEach((c) => {
-    roadmapCourses[c.slug] = { ...c, roadmapName: rm.name, roadmapSlug: rm.slug };
+    roadmapCourses[c.slug] = {
+      ...c,
+      roadmapName: rm.name,
+      roadmapSlug: rm.slug,
+    };
   });
 });
 
@@ -103,14 +113,22 @@ export function buildHead(
   const courseDetailData = courseMatch ? roadmapCourses[courseMatch[1]] : null;
 
   // Known page check: home, courses.json courses, roadmaps page, roadmap detail, course detail
-  const isKnownPage = isHomePage || courseData || isRoadmapsPage || roadmapDetailData || courseDetailData;
+  const isKnownPage =
+    isHomePage ||
+    courseData ||
+    isRoadmapsPage ||
+    roadmapDetailData ||
+    courseDetailData;
   // Unknown slugs (not home, not a valid course/roadmap) get noindex
   const effectiveRobots = !isKnownPage ? "noindex, nofollow" : robots;
 
   if (isRoadmapsPage) {
-    title = "Learning Roadmaps – Structured Courses for Every Career Path | Margg";
-    description = "Explore Margg's structured learning roadmaps. Frontend, Backend, UI/UX, Data Engineering, DevOps, Cyber Security & Business Analytics – from Starter-Kit to Add-Ons.";
-    keywords = "learning roadmaps, career roadmap, course roadmap India, structured learning path, Margg roadmaps, tech career path";
+    title =
+      "Learning Roadmaps – Structured Courses for Every Career Path | Margg";
+    description =
+      "Explore Margg's structured learning roadmaps. Frontend, Backend, UI/UX, Data Engineering, DevOps, Cyber Security & Business Analytics – from Starter-Kit to Add-Ons.";
+    keywords =
+      "learning roadmaps, career roadmap, course roadmap India, structured learning path, Margg roadmaps, tech career path";
     canonicalUrl = `${siteUrl}/roadmaps`;
 
     const breadcrumbSchema = {
@@ -118,7 +136,12 @@ export function buildHead(
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-        { "@type": "ListItem", position: 2, name: "Roadmaps", item: canonicalUrl },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Roadmaps",
+          item: canonicalUrl,
+        },
       ],
     };
     extraSchemas += `\n    <script type="application/ld+json">${escJson(breadcrumbSchema)}</script>`;
@@ -148,8 +171,18 @@ export function buildHead(
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-        { "@type": "ListItem", position: 2, name: "Roadmaps", item: `${siteUrl}/roadmaps` },
-        { "@type": "ListItem", position: 3, name: roadmapDetailData.name, item: canonicalUrl },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Roadmaps",
+          item: `${siteUrl}/roadmaps`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: roadmapDetailData.name,
+          item: canonicalUrl,
+        },
       ],
     };
     extraSchemas += `\n    <script type="application/ld+json">${escJson(breadcrumbSchema)}</script>`;
@@ -186,7 +219,14 @@ export function buildHead(
       description: courseDetailData.description,
       provider: { "@type": "Organization", name: "Margg", url: siteUrl },
       url: canonicalUrl,
-      educationalLevel: courseDetailData.level === "starter-kit" ? "Beginner" : courseDetailData.level === "beginner" ? "Beginner" : courseDetailData.level === "intermediate" ? "Intermediate" : "Advanced",
+      educationalLevel:
+        courseDetailData.level === "starter-kit"
+          ? "Beginner"
+          : courseDetailData.level === "beginner"
+            ? "Beginner"
+            : courseDetailData.level === "intermediate"
+              ? "Intermediate"
+              : "Advanced",
       inLanguage: "en",
       isAccessibleForFree: false,
     };
@@ -197,9 +237,24 @@ export function buildHead(
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-        { "@type": "ListItem", position: 2, name: "Roadmaps", item: `${siteUrl}/roadmaps` },
-        { "@type": "ListItem", position: 3, name: courseDetailData.roadmapName, item: `${siteUrl}/roadmap/${courseDetailData.roadmapSlug}` },
-        { "@type": "ListItem", position: 4, name: courseDetailData.title, item: canonicalUrl },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Roadmaps",
+          item: `${siteUrl}/roadmaps`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: courseDetailData.roadmapName,
+          item: `${siteUrl}/roadmap/${courseDetailData.roadmapSlug}`,
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: courseDetailData.title,
+          item: canonicalUrl,
+        },
       ],
     };
     extraSchemas += `\n    <script type="application/ld+json">${escJson(breadcrumbSchema)}</script>`;
@@ -247,7 +302,12 @@ export function buildHead(
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
-        { "@type": "ListItem", position: 2, name: courseData.heroTitle, item: canonicalUrl },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: courseData.heroTitle,
+          item: canonicalUrl,
+        },
       ],
     };
     extraSchemas += `\n    <script type="application/ld+json">${escJson(breadcrumbSchema)}</script>`;
@@ -262,7 +322,11 @@ export function buildHead(
     "@context": "https://schema.org",
     "@type": ["Organization", "EducationalOrganization"],
     name: "Margg",
-    alternateName: ["Margg Private Limited", "MarggLive", "Gagan's Application"],
+    alternateName: [
+      "Margg Private Limited",
+      "MarggLive",
+      "Gagan's Application",
+    ],
     url,
     logo: {
       "@type": "ImageObject",
@@ -405,7 +469,7 @@ export function buildHead(
     <link rel="alternate" hreflang="x-default" href="${esc(canonicalUrl)}" />
 
     <!-- Open Graph -->
-    <meta property="og:type"        content="${(courseData || courseDetailData) ? 'article' : 'website'}" />
+    <meta property="og:type"        content="${courseData || courseDetailData ? "article" : "website"}" />
     <meta property="og:locale"      content="${esc(locale)}" />
     <meta property="og:url"         content="${esc(canonicalUrl)}" />
     <meta property="og:site_name"   content="Margg" />

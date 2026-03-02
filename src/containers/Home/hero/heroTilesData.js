@@ -13,8 +13,7 @@ export const row1Tiles = [
     id: 2,
     ariaLabel: "Backend Engineering",
     title: "Backend Engineering",
-    description:
-      "Server-side logic, APIs, and database management.",
+    description: "Server-side logic, APIs, and database management.",
     icon: "DriverIcon",
     slug: "backend-engineering",
   },
@@ -58,7 +57,8 @@ export const row2Tiles = [
     id: 7,
     ariaLabel: "Cyber Security",
     title: "Cyber Security",
-    description: "Learn safe patterns, auth basics, and secure-by-default systems.",
+    description:
+      "Learn safe patterns, auth basics, and secure-by-default systems.",
     icon: "LockIcon",
     slug: "cyber-security",
   },

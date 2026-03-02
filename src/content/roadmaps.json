@@ -21,7 +21,12 @@
           "description": "Build essential communication skills for the tech industry. Learn to present ideas clearly, write effective documentation, and collaborate in team environments.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Professional Communication", "Technical Writing", "Presentation Skills", "Team Collaboration"]
+          "sections": [
+            "Professional Communication",
+            "Technical Writing",
+            "Presentation Skills",
+            "Team Collaboration"
+          ]
         },
         {
           "id": 105,
@@ -30,7 +35,12 @@
           "description": "Master the core of JavaScript — variables, functions, closures, promises, and async/await. Build a solid foundation for frontend and backend development.",
           "level": "starter-kit",
           "duration": "3 weeks",
-          "sections": ["JavaScript Basics", "Functions & Scope", "Async Programming", "ES6+ Features"]
+          "sections": [
+            "JavaScript Basics",
+            "Functions & Scope",
+            "Async Programming",
+            "ES6+ Features"
+          ]
         },
         {
           "id": 106,
@@ -39,7 +49,12 @@
           "description": "Learn version control with Git and collaborative workflows with GitHub. Master branching, merging, pull requests, and team collaboration best practices.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Git Fundamentals", "Branching & Merging", "GitHub Workflows", "Collaboration Best Practices"]
+          "sections": [
+            "Git Fundamentals",
+            "Branching & Merging",
+            "GitHub Workflows",
+            "Collaboration Best Practices"
+          ]
         }
       ],
       "levels": [
@@ -50,7 +65,12 @@
           "description": "Build accessible, SEO-friendly web pages with semantic HTML5 and modern CSS3. Master Flexbox, Grid, animations, and responsive design patterns.",
           "level": "beginner",
           "duration": "3 weeks",
-          "sections": ["Semantic HTML5", "CSS Fundamentals", "Flexbox & Grid", "Responsive Design"]
+          "sections": [
+            "Semantic HTML5",
+            "CSS Fundamentals",
+            "Flexbox & Grid",
+            "Responsive Design"
+          ]
         },
         {
           "id": 114,
@@ -59,7 +79,12 @@
           "description": "Master DOM manipulation and event handling in JavaScript. Learn to create interactive web applications with efficient DOM operations.",
           "level": "beginner",
           "duration": "2 weeks",
-          "sections": ["DOM Traversal", "Element Manipulation", "Event Listeners", "Performance Optimization"]
+          "sections": [
+            "DOM Traversal",
+            "Element Manipulation",
+            "Event Listeners",
+            "Performance Optimization"
+          ]
         },
         {
           "id": 113,
@@ -68,7 +93,12 @@
           "description": "Master TypeScript for scalable JavaScript applications. Learn types, interfaces, generics, and advanced TypeScript features.",
           "level": "intermediate",
           "duration": "3 weeks",
-          "sections": ["TypeScript Basics", "Interfaces & Types", "Generics", "Advanced Patterns"]
+          "sections": [
+            "TypeScript Basics",
+            "Interfaces & Types",
+            "Generics",
+            "Advanced Patterns"
+          ]
         },
         {
           "id": 115,
@@ -77,7 +107,12 @@
           "description": "Create responsive websites that work on all devices. Learn mobile-first design, CSS Grid, Flexbox, and modern responsive techniques.",
           "level": "intermediate",
           "duration": "2 weeks",
-          "sections": ["Mobile-First Approach", "Media Queries", "Fluid Typography", "Cross-Device Testing"]
+          "sections": [
+            "Mobile-First Approach",
+            "Media Queries",
+            "Fluid Typography",
+            "Cross-Device Testing"
+          ]
         },
         {
           "id": 111,
@@ -86,7 +121,12 @@
           "description": "Deep dive into modern JavaScript — advanced closures, prototypes, async patterns, modules, and performance optimization for production apps.",
           "level": "advanced",
           "duration": "3 weeks",
-          "sections": ["Closures & Prototypes", "Async Patterns", "Module Systems", "Performance Tuning"]
+          "sections": [
+            "Closures & Prototypes",
+            "Async Patterns",
+            "Module Systems",
+            "Performance Tuning"
+          ]
         },
         {
           "id": 112,
@@ -95,7 +135,12 @@
           "description": "Build modern web applications with React. Master components, hooks, context, routing, and state management patterns.",
           "level": "advanced",
           "duration": "4 weeks",
-          "sections": ["React Fundamentals", "Hooks Deep Dive", "Context & Routing", "Advanced Patterns"]
+          "sections": [
+            "React Fundamentals",
+            "Hooks Deep Dive",
+            "Context & Routing",
+            "Advanced Patterns"
+          ]
         }
       ],
       "addOns": [
@@ -106,7 +151,12 @@
           "description": "Master Redux, Redux Toolkit, and modern state management patterns for React applications. Learn when and how to manage complex application state.",
           "level": "add-on",
           "duration": "2 weeks",
-          "sections": ["Redux Fundamentals", "Redux Toolkit", "Middleware & Thunks", "State Architecture"]
+          "sections": [
+            "Redux Fundamentals",
+            "Redux Toolkit",
+            "Middleware & Thunks",
+            "State Architecture"
+          ]
         },
         {
           "id": 107,
@@ -115,7 +165,12 @@
           "description": "Comprehensive testing course covering Jest, React Testing Library, and E2E testing with Cypress. Build reliable, well-tested applications.",
           "level": "add-on",
           "duration": "2 weeks",
-          "sections": ["Jest Fundamentals", "React Testing Library", "Integration Testing", "E2E with Cypress"]
+          "sections": [
+            "Jest Fundamentals",
+            "React Testing Library",
+            "Integration Testing",
+            "E2E with Cypress"
+          ]
         }
       ]
     },
@@ -140,7 +195,12 @@
           "description": "Build essential communication skills for the tech industry. Learn to present ideas clearly, write effective documentation, and collaborate in team environments.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Professional Communication", "Technical Writing", "Presentation Skills", "Team Collaboration"]
+          "sections": [
+            "Professional Communication",
+            "Technical Writing",
+            "Presentation Skills",
+            "Team Collaboration"
+          ]
         },
         {
           "id": 105,
@@ -149,7 +209,12 @@
           "description": "Master the core of JavaScript — variables, functions, closures, promises, and async/await. Build a solid foundation for frontend and backend development.",
           "level": "starter-kit",
           "duration": "3 weeks",
-          "sections": ["JavaScript Basics", "Functions & Scope", "Async Programming", "ES6+ Features"]
+          "sections": [
+            "JavaScript Basics",
+            "Functions & Scope",
+            "Async Programming",
+            "ES6+ Features"
+          ]
         },
         {
           "id": 106,
@@ -158,7 +223,12 @@
           "description": "Learn version control with Git and collaborative workflows with GitHub. Master branching, merging, pull requests, and team collaboration best practices.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Git Fundamentals", "Branching & Merging", "GitHub Workflows", "Collaboration Best Practices"]
+          "sections": [
+            "Git Fundamentals",
+            "Branching & Merging",
+            "GitHub Workflows",
+            "Collaboration Best Practices"
+          ]
         }
       ],
       "levels": [
@@ -169,7 +239,12 @@
           "description": "Master server-side JavaScript with Node.js. Learn core concepts, modules, file system, and building your first backend applications.",
           "level": "beginner",
           "duration": "3 weeks",
-          "sections": ["Node.js Basics", "Core Modules & NPM", "File System & Streams", "Event-Driven Programming"]
+          "sections": [
+            "Node.js Basics",
+            "Core Modules & NPM",
+            "File System & Streams",
+            "Event-Driven Programming"
+          ]
         },
         {
           "id": 117,
@@ -178,7 +253,12 @@
           "description": "Build robust REST APIs with Express.js. Learn middleware, routing, authentication, and modern API development practices.",
           "level": "intermediate",
           "duration": "3 weeks",
-          "sections": ["Express.js Fundamentals", "Middleware & Request Handling", "REST API Design", "Authentication & Authorization"]
+          "sections": [
+            "Express.js Fundamentals",
+            "Middleware & Request Handling",
+            "REST API Design",
+            "Authentication & Authorization"
+          ]
         },
         {
           "id": 118,
@@ -187,7 +267,12 @@
           "description": "Master database design, SQL, NoSQL, and integration patterns. Learn MongoDB, PostgreSQL, and data modeling best practices.",
           "level": "advanced",
           "duration": "3 weeks",
-          "sections": ["Database Fundamentals", "SQL & PostgreSQL", "MongoDB & NoSQL", "Database Integration Patterns"]
+          "sections": [
+            "Database Fundamentals",
+            "SQL & PostgreSQL",
+            "MongoDB & NoSQL",
+            "Database Integration Patterns"
+          ]
         }
       ],
       "addOns": [
@@ -198,7 +283,12 @@
           "description": "Design and implement microservices architecture. Learn service communication, API gateways, and distributed system patterns.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["Microservices Fundamentals", "Service Communication", "API Gateway & Load Balancing", "Monitoring & Observability"]
+          "sections": [
+            "Microservices Fundamentals",
+            "Service Communication",
+            "API Gateway & Load Balancing",
+            "Monitoring & Observability"
+          ]
         },
         {
           "id": 120,
@@ -207,7 +297,12 @@
           "description": "Secure your backend applications and implement DevOps practices. Learn security best practices, CI/CD, and deployment strategies.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["Security Fundamentals", "Authentication & Encryption", "CI/CD Pipelines", "Production Deployment"]
+          "sections": [
+            "Security Fundamentals",
+            "Authentication & Encryption",
+            "CI/CD Pipelines",
+            "Production Deployment"
+          ]
         }
       ]
     },
@@ -232,7 +327,12 @@
           "description": "Build essential communication skills for the tech industry. Learn to present ideas clearly, write effective documentation, and collaborate in team environments.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Professional Communication", "Technical Writing", "Presentation Skills", "Team Collaboration"]
+          "sections": [
+            "Professional Communication",
+            "Technical Writing",
+            "Presentation Skills",
+            "Team Collaboration"
+          ]
         },
         {
           "id": 105,
@@ -241,7 +341,12 @@
           "description": "Master the core of JavaScript — variables, functions, closures, promises, and async/await. Build a solid foundation for frontend and backend development.",
           "level": "starter-kit",
           "duration": "3 weeks",
-          "sections": ["JavaScript Basics", "Functions & Scope", "Async Programming", "ES6+ Features"]
+          "sections": [
+            "JavaScript Basics",
+            "Functions & Scope",
+            "Async Programming",
+            "ES6+ Features"
+          ]
         },
         {
           "id": 106,
@@ -250,7 +355,12 @@
           "description": "Learn version control with Git and collaborative workflows with GitHub. Master branching, merging, pull requests, and team collaboration best practices.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Git Fundamentals", "Branching & Merging", "GitHub Workflows", "Collaboration Best Practices"]
+          "sections": [
+            "Git Fundamentals",
+            "Branching & Merging",
+            "GitHub Workflows",
+            "Collaboration Best Practices"
+          ]
         }
       ],
       "levels": [
@@ -261,7 +371,12 @@
           "description": "Master the design thinking process and user-centered design principles. Learn to empathize, define, ideate, prototype, and test digital solutions.",
           "level": "beginner",
           "duration": "3 weeks",
-          "sections": ["Introduction to Design Thinking", "Empathy & User Research", "Problem Definition & Ideation", "Prototyping & Testing"]
+          "sections": [
+            "Introduction to Design Thinking",
+            "Empathy & User Research",
+            "Problem Definition & Ideation",
+            "Prototyping & Testing"
+          ]
         },
         {
           "id": 122,
@@ -270,7 +385,12 @@
           "description": "Create stunning user interfaces and interactive prototypes. Master Figma, design systems, and modern UI design principles.",
           "level": "intermediate",
           "duration": "3 weeks",
-          "sections": ["Visual Design Principles", "Interface Design Patterns", "Figma Mastery", "Interactive Prototyping"]
+          "sections": [
+            "Visual Design Principles",
+            "Interface Design Patterns",
+            "Figma Mastery",
+            "Interactive Prototyping"
+          ]
         },
         {
           "id": 123,
@@ -279,7 +399,12 @@
           "description": "Conduct comprehensive UX research and usability testing. Learn research methodologies, user interviews, and data-driven design decisions.",
           "level": "advanced",
           "duration": "3 weeks",
-          "sections": ["Research Methodologies", "User Interviews & Surveys", "Usability Testing", "Data Analysis & Insights"]
+          "sections": [
+            "Research Methodologies",
+            "User Interviews & Surveys",
+            "Usability Testing",
+            "Data Analysis & Insights"
+          ]
         }
       ],
       "addOns": [
@@ -290,7 +415,12 @@
           "description": "Build scalable design systems and collaborate effectively with developers. Learn component libraries and design-to-development workflows.",
           "level": "add-on",
           "duration": "2 weeks",
-          "sections": ["Design Systems Fundamentals", "Component Libraries", "Developer Handoff", "Design Tokens & Automation"]
+          "sections": [
+            "Design Systems Fundamentals",
+            "Component Libraries",
+            "Developer Handoff",
+            "Design Tokens & Automation"
+          ]
         },
         {
           "id": 125,
@@ -299,7 +429,12 @@
           "description": "Align UX strategy with business goals and measure design impact. Learn UX metrics, stakeholder management, and design leadership.",
           "level": "add-on",
           "duration": "2 weeks",
-          "sections": ["UX Strategy & Business Alignment", "UX Metrics & KPIs", "Stakeholder Management", "Design Leadership"]
+          "sections": [
+            "UX Strategy & Business Alignment",
+            "UX Metrics & KPIs",
+            "Stakeholder Management",
+            "Design Leadership"
+          ]
         }
       ]
     },
@@ -324,7 +459,12 @@
           "description": "Build essential communication skills for the tech industry. Learn to present ideas clearly, write effective documentation, and collaborate in team environments.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Professional Communication", "Technical Writing", "Presentation Skills", "Team Collaboration"]
+          "sections": [
+            "Professional Communication",
+            "Technical Writing",
+            "Presentation Skills",
+            "Team Collaboration"
+          ]
         },
         {
           "id": 105,
@@ -333,7 +473,12 @@
           "description": "Master the core of JavaScript — variables, functions, closures, promises, and async/await. Build a solid foundation for frontend and backend development.",
           "level": "starter-kit",
           "duration": "3 weeks",
-          "sections": ["JavaScript Basics", "Functions & Scope", "Async Programming", "ES6+ Features"]
+          "sections": [
+            "JavaScript Basics",
+            "Functions & Scope",
+            "Async Programming",
+            "ES6+ Features"
+          ]
         },
         {
           "id": 106,
@@ -342,7 +487,12 @@
           "description": "Learn version control with Git and collaborative workflows with GitHub. Master branching, merging, pull requests, and team collaboration best practices.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Git Fundamentals", "Branching & Merging", "GitHub Workflows", "Collaboration Best Practices"]
+          "sections": [
+            "Git Fundamentals",
+            "Branching & Merging",
+            "GitHub Workflows",
+            "Collaboration Best Practices"
+          ]
         }
       ],
       "levels": [
@@ -353,7 +503,12 @@
           "description": "Master Python fundamentals for data engineering. Learn data structures, file handling, APIs, and essential libraries for data processing.",
           "level": "beginner",
           "duration": "3 weeks",
-          "sections": ["Python Fundamentals", "Data Processing Libraries", "File Handling & APIs", "Data Engineering Tools"]
+          "sections": [
+            "Python Fundamentals",
+            "Data Processing Libraries",
+            "File Handling & APIs",
+            "Data Engineering Tools"
+          ]
         },
         {
           "id": 127,
@@ -362,7 +517,12 @@
           "description": "Master SQL and database design for data engineering. Learn advanced queries, optimization, and working with various database systems.",
           "level": "intermediate",
           "duration": "3 weeks",
-          "sections": ["SQL Fundamentals", "Advanced SQL Techniques", "Database Design & Modeling", "NoSQL & Modern Databases"]
+          "sections": [
+            "SQL Fundamentals",
+            "Advanced SQL Techniques",
+            "Database Design & Modeling",
+            "NoSQL & Modern Databases"
+          ]
         },
         {
           "id": 128,
@@ -371,7 +531,12 @@
           "description": "Master big data technologies and distributed computing. Learn Hadoop, Spark, Kafka, and cloud-based data processing at scale.",
           "level": "advanced",
           "duration": "3 weeks",
-          "sections": ["Big Data Fundamentals", "Hadoop Ecosystem", "Apache Spark", "Stream Processing"]
+          "sections": [
+            "Big Data Fundamentals",
+            "Hadoop Ecosystem",
+            "Apache Spark",
+            "Stream Processing"
+          ]
         }
       ],
       "addOns": [
@@ -382,7 +547,12 @@
           "description": "Build robust data pipelines and ETL processes. Learn workflow orchestration, data quality, and pipeline monitoring and optimization.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["ETL Fundamentals", "Workflow Orchestration", "Data Quality & Validation", "Pipeline Monitoring & Optimization"]
+          "sections": [
+            "ETL Fundamentals",
+            "Workflow Orchestration",
+            "Data Quality & Validation",
+            "Pipeline Monitoring & Optimization"
+          ]
         },
         {
           "id": 130,
@@ -391,7 +561,12 @@
           "description": "Master cloud data engineering and MLOps practices. Learn AWS/Azure data services, infrastructure as code, and ML pipeline automation.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["Cloud Data Services", "Infrastructure as Code", "MLOps & Model Deployment", "Monitoring & Governance"]
+          "sections": [
+            "Cloud Data Services",
+            "Infrastructure as Code",
+            "MLOps & Model Deployment",
+            "Monitoring & Governance"
+          ]
         }
       ]
     },
@@ -416,7 +591,11 @@
           "description": "Essential data analysis skills for business professionals. Learn Excel, basic statistics, data visualization, and interpreting business metrics.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Excel for Data Analysis", "Statistical Basics for Business", "Data Visualization Fundamentals"]
+          "sections": [
+            "Excel for Data Analysis",
+            "Statistical Basics for Business",
+            "Data Visualization Fundamentals"
+          ]
         },
         {
           "id": 147,
@@ -425,7 +604,11 @@
           "description": "Introduction to business intelligence concepts. Learn KPIs, dashboards, reporting, and data-driven decision making for business success.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Power BI Interface", "Data Modeling in Power BI", "Interactive Dashboard Creation"]
+          "sections": [
+            "Power BI Interface",
+            "Data Modeling in Power BI",
+            "Interactive Dashboard Creation"
+          ]
         },
         {
           "id": 148,
@@ -434,7 +617,11 @@
           "description": "Essential SQL skills for business analysts. Learn to query databases, extract insights, and create reports for business decision-making.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["SQL Basics for Analysts", "Advanced Queries and Joins", "Business Intelligence with SQL"]
+          "sections": [
+            "SQL Basics for Analysts",
+            "Advanced Queries and Joins",
+            "Business Intelligence with SQL"
+          ]
         }
       ],
       "levels": [
@@ -445,7 +632,12 @@
           "description": "Master the core principles of business analysis. Learn requirements gathering, stakeholder management, process analysis, and business documentation fundamentals.",
           "level": "beginner",
           "duration": "3 weeks",
-          "sections": ["Introduction to Business Analysis", "Stakeholder Analysis & Management", "Requirements Elicitation Techniques", "Business Documentation & Communication"]
+          "sections": [
+            "Introduction to Business Analysis",
+            "Stakeholder Analysis & Management",
+            "Requirements Elicitation Techniques",
+            "Business Documentation & Communication"
+          ]
         },
         {
           "id": 142,
@@ -454,7 +646,12 @@
           "description": "Advanced requirements gathering, analysis, and management techniques. Learn elicitation methods, traceability, and change management for complex projects.",
           "level": "intermediate",
           "duration": "3 weeks",
-          "sections": ["Advanced Elicitation Methods", "Requirements Analysis & Validation", "Requirements Traceability & Management", "Change Management & Impact Analysis"]
+          "sections": [
+            "Advanced Elicitation Methods",
+            "Requirements Analysis & Validation",
+            "Requirements Traceability & Management",
+            "Change Management & Impact Analysis"
+          ]
         },
         {
           "id": 143,
@@ -463,7 +660,12 @@
           "description": "Master advanced business process analysis, modeling, and optimization. Learn BPMN, process mining, lean six sigma, and digital transformation strategies.",
           "level": "advanced",
           "duration": "3 weeks",
-          "sections": ["Business Process Mapping & Modeling", "BPMN & Process Notation Standards", "Process Analysis & Optimization", "Lean Six Sigma & Process Excellence"]
+          "sections": [
+            "Business Process Mapping & Modeling",
+            "BPMN & Process Notation Standards",
+            "Process Analysis & Optimization",
+            "Lean Six Sigma & Process Excellence"
+          ]
         }
       ],
       "addOns": [
@@ -474,7 +676,12 @@
           "description": "Leverage data analytics and business intelligence for informed decision-making. Learn SQL, data visualization, statistical analysis, and predictive modeling for business insights.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["Business Intelligence Fundamentals", "SQL & Database Analysis", "Data Visualization & Reporting", "Statistical Analysis & Predictive Modeling"]
+          "sections": [
+            "Business Intelligence Fundamentals",
+            "SQL & Database Analysis",
+            "Data Visualization & Reporting",
+            "Statistical Analysis & Predictive Modeling"
+          ]
         },
         {
           "id": 145,
@@ -483,7 +690,12 @@
           "description": "Navigate digital transformation initiatives and agile methodologies. Learn agile BA practices, user story writing, product ownership, and change management in digital environments.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["Digital Transformation Strategy", "Agile Business Analysis Practices", "User Stories & Product Backlog", "Change Management & Adoption"]
+          "sections": [
+            "Digital Transformation Strategy",
+            "Agile Business Analysis Practices",
+            "User Stories & Product Backlog",
+            "Change Management & Adoption"
+          ]
         }
       ]
     },
@@ -508,7 +720,12 @@
           "description": "Essential Linux skills for DevOps engineers. Learn command line, file systems, process management, and basic system administration.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Linux Command Line", "File Systems & Permissions", "Process Management", "Shell Basics"]
+          "sections": [
+            "Linux Command Line",
+            "File Systems & Permissions",
+            "Process Management",
+            "Shell Basics"
+          ]
         },
         {
           "id": 150,
@@ -517,7 +734,12 @@
           "description": "Master Git and collaborative development workflows. Learn branching, merging, pull requests, and team collaboration best practices.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Git Fundamentals", "Branching Strategies", "Pull Requests & Reviews", "Team Workflows"]
+          "sections": [
+            "Git Fundamentals",
+            "Branching Strategies",
+            "Pull Requests & Reviews",
+            "Team Workflows"
+          ]
         },
         {
           "id": 151,
@@ -526,7 +748,12 @@
           "description": "Introduction to Infrastructure as Code principles. Learn automation, configuration management, and basic scripting for infrastructure.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["IaC Principles", "Configuration Management", "Automation Scripting", "Environment Setup"]
+          "sections": [
+            "IaC Principles",
+            "Configuration Management",
+            "Automation Scripting",
+            "Environment Setup"
+          ]
         }
       ],
       "levels": [
@@ -537,7 +764,12 @@
           "description": "Master Linux fundamentals and system administration. Learn command line, shell scripting, system monitoring, and server management essentials.",
           "level": "beginner",
           "duration": "3 weeks",
-          "sections": ["Linux Fundamentals", "Shell Scripting & Automation", "System Monitoring & Performance", "Network & Security Basics"]
+          "sections": [
+            "Linux Fundamentals",
+            "Shell Scripting & Automation",
+            "System Monitoring & Performance",
+            "Network & Security Basics"
+          ]
         },
         {
           "id": 132,
@@ -546,7 +778,12 @@
           "description": "Build automated CI/CD pipelines and deployment workflows. Master Jenkins, GitHub Actions, and modern DevOps automation practices.",
           "level": "intermediate",
           "duration": "3 weeks",
-          "sections": ["Version Control & Git Workflows", "CI/CD Pipeline Design", "Jenkins & Automation Tools", "Testing & Quality Assurance"]
+          "sections": [
+            "Version Control & Git Workflows",
+            "CI/CD Pipeline Design",
+            "Jenkins & Automation Tools",
+            "Testing & Quality Assurance"
+          ]
         },
         {
           "id": 133,
@@ -555,7 +792,12 @@
           "description": "Master containerization with Docker and orchestration with Kubernetes. Learn microservices deployment, scaling, and management at enterprise scale.",
           "level": "advanced",
           "duration": "3 weeks",
-          "sections": ["Docker Fundamentals", "Kubernetes Architecture", "Kubernetes Workloads", "Advanced Kubernetes"]
+          "sections": [
+            "Docker Fundamentals",
+            "Kubernetes Architecture",
+            "Kubernetes Workloads",
+            "Advanced Kubernetes"
+          ]
         }
       ],
       "addOns": [
@@ -566,7 +808,12 @@
           "description": "Design and manage cloud infrastructure using Infrastructure as Code. Master Terraform, AWS/Azure services, and cloud architecture patterns.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["Cloud Architecture Fundamentals", "Infrastructure as Code", "AWS/Azure Services", "Security & Compliance"]
+          "sections": [
+            "Cloud Architecture Fundamentals",
+            "Infrastructure as Code",
+            "AWS/Azure Services",
+            "Security & Compliance"
+          ]
         },
         {
           "id": 135,
@@ -575,7 +822,12 @@
           "description": "Implement comprehensive monitoring, alerting, and SRE practices. Learn observability, incident response, and maintaining high-availability systems.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["Observability Fundamentals", "Monitoring Stack Implementation", "Incident Response & Management", "Reliability & Performance"]
+          "sections": [
+            "Observability Fundamentals",
+            "Monitoring Stack Implementation",
+            "Incident Response & Management",
+            "Reliability & Performance"
+          ]
         }
       ]
     },
@@ -600,7 +852,12 @@
           "description": "Essential cybersecurity concepts and principles. Learn CIA triad, threat landscape, risk management, and security best practices.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["CIA Triad & Principles", "Threat Landscape", "Risk Management", "Security Best Practices"]
+          "sections": [
+            "CIA Triad & Principles",
+            "Threat Landscape",
+            "Risk Management",
+            "Security Best Practices"
+          ]
         },
         {
           "id": 153,
@@ -609,7 +866,12 @@
           "description": "Foundation of network security concepts. Learn firewalls, VPNs, network protocols, intrusion detection, and secure network design.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Network Protocols", "Firewall Configuration", "VPN & Encryption", "Secure Design"]
+          "sections": [
+            "Network Protocols",
+            "Firewall Configuration",
+            "VPN & Encryption",
+            "Secure Design"
+          ]
         },
         {
           "id": 154,
@@ -618,7 +880,12 @@
           "description": "Introduction to ethical hacking and penetration testing. Learn vulnerability assessment, testing methodologies, and responsible disclosure.",
           "level": "starter-kit",
           "duration": "2 weeks",
-          "sections": ["Hacking Methodologies", "Vulnerability Assessment", "Testing Tools", "Responsible Disclosure"]
+          "sections": [
+            "Hacking Methodologies",
+            "Vulnerability Assessment",
+            "Testing Tools",
+            "Responsible Disclosure"
+          ]
         }
       ],
       "levels": [
@@ -629,7 +896,12 @@
           "description": "Master network security basics, protocols, and threat detection. Learn firewalls, VPNs, intrusion detection, and network monitoring fundamentals.",
           "level": "beginner",
           "duration": "3 weeks",
-          "sections": ["Network Protocols & Architecture", "Firewall & Network Defense", "Intrusion Detection & Prevention", "VPN & Secure Communications"]
+          "sections": [
+            "Network Protocols & Architecture",
+            "Firewall & Network Defense",
+            "Intrusion Detection & Prevention",
+            "VPN & Secure Communications"
+          ]
         },
         {
           "id": 137,
@@ -638,7 +910,12 @@
           "description": "Learn web application security, vulnerability assessment, and ethical hacking. Master OWASP Top 10, penetration testing, and security testing methodologies.",
           "level": "intermediate",
           "duration": "3 weeks",
-          "sections": ["Web Application Security", "OWASP Top 10 & Mitigation", "Penetration Testing Methodology", "Security Testing & Tools"]
+          "sections": [
+            "Web Application Security",
+            "OWASP Top 10 & Mitigation",
+            "Penetration Testing Methodology",
+            "Security Testing & Tools"
+          ]
         },
         {
           "id": 138,
@@ -647,7 +924,12 @@
           "description": "Master advanced cybersecurity operations, incident response, and threat hunting. Learn SIEM, SOC operations, digital forensics, and advanced persistent threat detection.",
           "level": "advanced",
           "duration": "3 weeks",
-          "sections": ["SIEM & Security Operations", "Incident Response & Forensics", "Threat Hunting & Intelligence", "Advanced Persistent Threats"]
+          "sections": [
+            "SIEM & Security Operations",
+            "Incident Response & Forensics",
+            "Threat Hunting & Intelligence",
+            "Advanced Persistent Threats"
+          ]
         }
       ],
       "addOns": [
@@ -658,7 +940,12 @@
           "description": "Secure cloud infrastructure and implement DevSecOps practices. Learn cloud security frameworks, container security, and security automation in CI/CD pipelines.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["Cloud Security Architecture", "Container & Kubernetes Security", "DevSecOps Pipeline Security", "Security Automation & Orchestration"]
+          "sections": [
+            "Cloud Security Architecture",
+            "Container & Kubernetes Security",
+            "DevSecOps Pipeline Security",
+            "Security Automation & Orchestration"
+          ]
         },
         {
           "id": 140,
@@ -667,7 +954,12 @@
           "description": "Master cybersecurity governance, compliance frameworks, and risk assessment. Learn ISO 27001, NIST, SOX compliance, and security program management.",
           "level": "add-on",
           "duration": "3 weeks",
-          "sections": ["Security Governance & Frameworks", "Risk Assessment & Management", "Compliance & Auditing", "Business Continuity & Recovery"]
+          "sections": [
+            "Security Governance & Frameworks",
+            "Risk Assessment & Management",
+            "Compliance & Auditing",
+            "Business Continuity & Recovery"
+          ]
         }
       ]
     }

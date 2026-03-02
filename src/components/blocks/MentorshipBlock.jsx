@@ -26,7 +26,14 @@ const MentorshipBlock = () => {
   return (
     <Container>
       <Title>{mentorship.title}</Title>
-      <Image src={Mentorship} alt="One-on-one mentorship sessions on Margg LMS platform" width={457} height={539} loading="lazy" decoding="async" />
+      <Image
+        src={Mentorship}
+        alt="One-on-one mentorship sessions on Margg LMS platform"
+        width={457}
+        height={539}
+        loading="lazy"
+        decoding="async"
+      />
     </Container>
   );
 };

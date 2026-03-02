@@ -65,7 +65,14 @@ const StreaksBlock = () => {
   return (
     <Container>
       <Title>{streaks.title}</Title>
-      <Image2 src={Streak} alt="Learning streak tracking and consistency feature" width={1108} height={412} loading="lazy" decoding="async" />
+      <Image2
+        src={Streak}
+        alt="Learning streak tracking and consistency feature"
+        width={1108}
+        height={412}
+        loading="lazy"
+        decoding="async"
+      />
     </Container>
   );
 };

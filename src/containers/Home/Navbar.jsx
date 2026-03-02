@@ -149,12 +149,28 @@ const MenuLink = styled.a`
   color: white;
   font-family: ${FONTS.body};
   font-size: 16px;
-  font-weight: ${(props) => (props.$primary ? "600" : "300")};
+  font-weight: ${(p) => (p.$active || p.$primary ? "600" : "300")};
   line-height: normal;
   text-decoration: none;
   border-radius: 0.375rem;
   transition: all 0.5s ease-in-out;
-  opacity: ${(props) => (props.$primary ? "1" : "0.5")};
+  opacity: ${(p) => (p.$active || p.$primary ? "1" : "0.5")};
+  position: relative;
+
+  ${(p) =>
+    p.$active &&
+    css`
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 2px;
+        border-radius: 1px;
+        background: #b095e3;
+      }
+    `}
 
   &:hover {
     text-shadow: 0 0 1px currentColor;
@@ -292,11 +308,21 @@ const DrawerLink = styled.a`
   text-decoration: none;
   font-family: ${FONTS.body};
   font-size: 18px;
-  font-weight: ${(p) => (p.$primary ? "600" : "400")};
+  font-weight: ${(p) => (p.$active || p.$primary ? "600" : "400")};
   color: #fff;
-  opacity: ${(p) => (p.$primary ? 1 : 0.7)};
+  opacity: ${(p) => (p.$active || p.$primary ? 1 : 0.7)};
   transition: all 0.2s ease;
-  background: ${(p) => (p.$primary ? "rgba(80, 19, 192, 0.15)" : "transparent")};
+  background: ${(p) =>
+    p.$active
+      ? "rgba(80, 19, 192, 0.2)"
+      : p.$primary
+        ? "rgba(80, 19, 192, 0.15)"
+        : "transparent"};
+  ${(p) =>
+    p.$active &&
+    css`
+      border-left: 3px solid #b095e3;
+    `};
 
   ${(p) =>
     p.$show &&
@@ -334,22 +360,46 @@ const DrawerDivider = styled.div`
 const NAV_ICONS = {
   Home: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z" stroke="#B095E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path
+        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2z"
+        stroke="#B095E3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   Roadmaps: (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" stroke="#B095E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path
+        d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l5.447 2.724A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"
+        stroke="#B095E3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   "Our Products": (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" stroke="#B095E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path
+        d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+        stroke="#B095E3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
   "Contact Us": (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="#B095E3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <path
+        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        stroke="#B095E3"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   ),
 };
@@ -391,48 +441,79 @@ const Navbar = () => {
     } else {
       document.body.style.overflow = "";
     }
-    return () => { document.body.style.overflow = ""; };
+    return () => {
+      document.body.style.overflow = "";
+    };
   }, [menuOpen]);
 
   /* close on Escape */
   useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") setMenuOpen(false); };
+    const onKey = (e) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const handleClick = useCallback((e) => {
-    const href = e.currentTarget.getAttribute("href");
-    if (href?.startsWith("#")) {
-      e.preventDefault();
-      setMenuOpen(false);
-      if (location.pathname !== "/") {
-        // Navigate home, then scroll
-        navigate("/");
-        setTimeout(() => {
-          const el = document.getElementById(href.slice(1));
-          if (el) {
-            const navHeight = 72;
-            const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
-            window.scrollTo({ top, behavior: "smooth" });
-          }
-        }, 300);
-      } else {
-        setTimeout(() => {
-          const el = document.getElementById(href.slice(1));
-          if (el) {
-            const navHeight = document.querySelector("nav")?.offsetHeight || 72;
-            const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
-            window.scrollTo({ top, behavior: "smooth" });
-          }
-        }, 100);
-      }
-    } else if (href?.startsWith("/")) {
-      e.preventDefault();
-      setMenuOpen(false);
-      navigate(href);
+  /* ── determine which link is active ── */
+  const isActive = useCallback(
+    (href) => {
+      const path = location.pathname;
+      if (href === "#home") return path === "/";
+      if (href === "/roadmaps")
+        return path === "/roadmaps" || path.startsWith("/roadmap/");
+      return false;
+    },
+    [location.pathname],
+  );
+
+  const handleLogoClick = useCallback(() => {
+    if (location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+      setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
     }
   }, [navigate, location.pathname]);
+
+  const handleClick = useCallback(
+    (e) => {
+      const href = e.currentTarget.getAttribute("href");
+      if (href?.startsWith("#")) {
+        e.preventDefault();
+        setMenuOpen(false);
+        if (location.pathname !== "/") {
+          // Navigate home, then scroll
+          navigate("/");
+          setTimeout(() => {
+            const el = document.getElementById(href.slice(1));
+            if (el) {
+              const navHeight = 72;
+              const top =
+                el.getBoundingClientRect().top + window.scrollY - navHeight;
+              window.scrollTo({ top, behavior: "smooth" });
+            }
+          }, 300);
+        } else {
+          setTimeout(() => {
+            const el = document.getElementById(href.slice(1));
+            if (el) {
+              const navHeight =
+                document.querySelector("nav")?.offsetHeight || 72;
+              const top =
+                el.getBoundingClientRect().top + window.scrollY - navHeight;
+              window.scrollTo({ top, behavior: "smooth" });
+            }
+          }, 100);
+        }
+      } else if (href?.startsWith("/")) {
+        e.preventDefault();
+        setMenuOpen(false);
+        navigate(href);
+      }
+    },
+    [navigate, location.pathname],
+  );
 
   return (
     <>
@@ -440,8 +521,16 @@ const Navbar = () => {
         <NavbarContent aria-label="Main navigation">
           <NavbarInner>
             {/* Logo */}
-            <LogoSection onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
-              <SkillImage src={MarggLogo} alt={logoAlt} loading="eager" fetchPriority="high" />
+            <LogoSection
+              onClick={handleLogoClick}
+              style={{ cursor: "pointer" }}
+            >
+              <SkillImage
+                src={MarggLogo}
+                alt={logoAlt}
+                loading="eager"
+                fetchPriority="high"
+              />
             </LogoSection>
 
             {/* Desktop nav */}
@@ -452,6 +541,7 @@ const Navbar = () => {
                     key={link.label}
                     href={link.href}
                     $primary={link.primary ? true : undefined}
+                    $active={isActive(link.href)}
                     onClick={handleClick}
                   >
                     {link.label}
@@ -477,9 +567,17 @@ const Navbar = () => {
       {/* Mobile overlay + drawer */}
       <MobileOverlay $open={menuOpen} onClick={() => setMenuOpen(false)} />
       <MobileDrawer $open={menuOpen} ref={drawerRef}>
-        <DrawerCloseBtn onClick={() => setMenuOpen(false)} aria-label="Close menu">
+        <DrawerCloseBtn
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close menu"
+        >
           <svg viewBox="0 0 16 16" fill="none">
-            <path d="M12 4L4 12M4 4l8 8" stroke="#B095E3" strokeWidth="1.5" strokeLinecap="round" />
+            <path
+              d="M12 4L4 12M4 4l8 8"
+              stroke="#B095E3"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+            />
           </svg>
         </DrawerCloseBtn>
 
@@ -489,6 +587,7 @@ const Navbar = () => {
               key={link.label}
               href={link.href}
               $primary={link.primary}
+              $active={isActive(link.href)}
               $show={menuOpen}
               $delay={`${0.1 + i * 0.07}s`}
               onClick={handleClick}

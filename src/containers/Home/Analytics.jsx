@@ -827,37 +827,37 @@ export default function Analytics() {
 
                   {/* "WE ARE COMING SOON" — semantic heading */}
                   <TitleH2>
-                  <TitleRow>
-                    <StaggeredWord
-                      text="WE"
-                      Component={SmallLetter}
-                      baseDelay={0.1}
-                      animate={inView}
-                    />
-                    <span style={{ width: "clamp(8px,1.5vw,20px)" }} />
-                    <StaggeredWord
-                      text="ARE"
-                      Component={SmallLetter}
-                      baseDelay={0.3}
-                      animate={inView}
-                    />
-                  </TitleRow>
+                    <TitleRow>
+                      <StaggeredWord
+                        text="WE"
+                        Component={SmallLetter}
+                        baseDelay={0.1}
+                        animate={inView}
+                      />
+                      <span style={{ width: "clamp(8px,1.5vw,20px)" }} />
+                      <StaggeredWord
+                        text="ARE"
+                        Component={SmallLetter}
+                        baseDelay={0.3}
+                        animate={inView}
+                      />
+                    </TitleRow>
 
-                  {/* "COMING SOON" — 3D flip entrance */}
-                  <TitleRow style={{ marginTop: "clamp(4px, 0.8vw, 12px)" }}>
-                    <StaggeredWord
-                      text="COMING"
-                      Component={BigLetter}
-                      baseDelay={0.5}
-                      animate={inView}
-                    />
-                    <StaggeredWord
-                      text="SOON"
-                      Component={BigLetter}
-                      baseDelay={0.9}
-                      animate={inView}
-                    />
-                  </TitleRow>
+                    {/* "COMING SOON" — 3D flip entrance */}
+                    <TitleRow style={{ marginTop: "clamp(4px, 0.8vw, 12px)" }}>
+                      <StaggeredWord
+                        text="COMING"
+                        Component={BigLetter}
+                        baseDelay={0.5}
+                        animate={inView}
+                      />
+                      <StaggeredWord
+                        text="SOON"
+                        Component={BigLetter}
+                        baseDelay={0.9}
+                        animate={inView}
+                      />
+                    </TitleRow>
                   </TitleH2>
 
                   <Subtitle>Something extraordinary is on its way</Subtitle>

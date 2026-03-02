@@ -35,9 +35,21 @@ const HeroSection = styled.section`
   padding: 160px clamp(24px, 7vw, 120px) 60px;
   text-align: center;
   background:
-    radial-gradient(900px circle at 50% 30%, rgba(176,149,227,0.15), transparent 60%),
-    radial-gradient(600px circle at 20% 80%, rgba(80,19,192,0.12), transparent 60%),
-    radial-gradient(600px circle at 80% 80%, rgba(176,149,227,0.08), transparent 60%),
+    radial-gradient(
+      900px circle at 50% 30%,
+      rgba(176, 149, 227, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      600px circle at 20% 80%,
+      rgba(80, 19, 192, 0.12),
+      transparent 60%
+    ),
+    radial-gradient(
+      600px circle at 80% 80%,
+      rgba(176, 149, 227, 0.08),
+      transparent 60%
+    ),
     linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%);
 
   ${MEDIA_QUERIES.mobile} {
@@ -50,12 +62,14 @@ const Breadcrumb = styled.nav`
   margin-bottom: 24px;
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: rgba(238,231,249,0.5);
+  color: rgba(238, 231, 249, 0.5);
 
   a {
-    color: #B095E3;
+    color: #b095e3;
     text-decoration: none;
-    &:hover { text-decoration: underline; }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -73,7 +87,7 @@ const H1 = styled.h1`
 const HeroSubtitle = styled.p`
   font-family: ${FONTS.body};
   font-size: clamp(16px, 2vw, 20px);
-  color: rgba(238,231,249,0.7);
+  color: rgba(238, 231, 249, 0.7);
   line-height: 1.7;
   max-width: 680px;
   margin: 0 auto 16px;
@@ -100,14 +114,14 @@ const StatItem = styled.div`
 const StatNumber = styled.div`
   font-family: ${FONTS.heading};
   font-size: clamp(32px, 5vw, 48px);
-  color: #B095E3;
+  color: #b095e3;
   letter-spacing: 1px;
 `;
 
 const StatLabel = styled.div`
   font-family: ${FONTS.body};
   font-size: 13px;
-  color: rgba(238,231,249,0.5);
+  color: rgba(238, 231, 249, 0.5);
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 4px;
@@ -126,7 +140,7 @@ const SectionLabel = styled.p`
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #B095E3;
+  color: #b095e3;
   text-align: center;
   margin: 0 0 12px;
 `;
@@ -158,8 +172,8 @@ const Card = styled(Link)`
   flex-direction: column;
   padding: 32px 28px;
   border-radius: 20px;
-  border: 1px solid rgba(176,149,227,0.15);
-  background: rgba(211,196,239,0.04);
+  border: 1px solid rgba(176, 149, 227, 0.15);
+  background: rgba(211, 196, 239, 0.04);
   text-decoration: none;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -178,10 +192,10 @@ const Card = styled(Link)`
   }
 
   &:hover {
-    border-color: rgba(176,149,227,0.4);
-    background: rgba(211,196,239,0.08);
+    border-color: rgba(176, 149, 227, 0.4);
+    background: rgba(211, 196, 239, 0.08);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(80,19,192,0.2);
+    box-shadow: 0 12px 40px rgba(80, 19, 192, 0.2);
 
     &::before {
       opacity: 1;
@@ -208,7 +222,7 @@ const CardTitle = styled.h3`
 const CardDesc = styled.p`
   font-family: ${FONTS.body};
   font-size: 15px;
-  color: rgba(238,231,249,0.65);
+  color: rgba(238, 231, 249, 0.65);
   line-height: 1.65;
   margin: 0 0 20px;
   flex: 1;
@@ -226,8 +240,8 @@ const MetaBadge = styled.span`
   gap: 6px;
   font-family: ${FONTS.body};
   font-size: 12px;
-  color: rgba(238,231,249,0.5);
-  background: rgba(176,149,227,0.1);
+  color: rgba(238, 231, 249, 0.5);
+  background: rgba(176, 149, 227, 0.1);
   padding: 6px 12px;
   border-radius: 8px;
   white-space: nowrap;
@@ -252,26 +266,26 @@ const CategoryTag = styled.span`
   white-space: nowrap;
 
   &.starter {
-    color: #4CAF50;
-    border-color: rgba(76,175,80,0.3);
-    background: rgba(76,175,80,0.08);
+    color: #4caf50;
+    border-color: rgba(76, 175, 80, 0.3);
+    background: rgba(76, 175, 80, 0.08);
   }
   &.levels {
-    color: #2196F3;
-    border-color: rgba(33,150,243,0.3);
-    background: rgba(33,150,243,0.08);
+    color: #2196f3;
+    border-color: rgba(33, 150, 243, 0.3);
+    background: rgba(33, 150, 243, 0.08);
   }
   &.addons {
-    color: #FF9800;
-    border-color: rgba(255,152,0,0.3);
-    background: rgba(255,152,0,0.08);
+    color: #ff9800;
+    border-color: rgba(255, 152, 0, 0.3);
+    background: rgba(255, 152, 0, 0.08);
   }
 `;
 
 const ArrowIcon = styled.span`
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: #B095E3;
+  color: #b095e3;
   margin-top: 20px;
   display: flex;
   align-items: center;
@@ -288,8 +302,11 @@ const ArrowIcon = styled.span`
 const CTASection = styled.section`
   text-align: center;
   padding: 60px clamp(24px, 7vw, 120px) 100px;
-  background:
-    radial-gradient(600px circle at 50% 50%, rgba(80,19,192,0.12), transparent 60%);
+  background: radial-gradient(
+    600px circle at 50% 50%,
+    rgba(80, 19, 192, 0.12),
+    transparent 60%
+  );
 `;
 
 const CTATitle = styled.h2`
@@ -304,7 +321,7 @@ const CTATitle = styled.h2`
 const CTADesc = styled.p`
   font-family: ${FONTS.body};
   font-size: 16px;
-  color: rgba(238,231,249,0.65);
+  color: rgba(238, 231, 249, 0.65);
   max-width: 560px;
   margin: 0 auto 32px;
   line-height: 1.7;
@@ -314,19 +331,19 @@ const CTAButton = styled.a`
   display: inline-block;
   padding: 16px 40px;
   background: #fff;
-  color: #5013C0;
+  color: #5013c0;
   font-family: ${FONTS.body};
   font-size: 18px;
   font-weight: 700;
   border-radius: 14px;
-  border: 1px solid #D3C4EF;
-  box-shadow: 0 4px 24px rgba(176,149,227,0.5);
+  border: 1px solid #d3c4ef;
+  box-shadow: 0 4px 24px rgba(176, 149, 227, 0.5);
   text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
     transform: scale(1.03);
-    box-shadow: 0 6px 32px rgba(176,149,227,0.65);
+    box-shadow: 0 6px 32px rgba(176, 149, 227, 0.65);
   }
 `;
 
@@ -336,7 +353,7 @@ const { roadmaps } = roadmapsData;
 
 const totalCourses = roadmaps.reduce(
   (sum, r) => sum + r.starterKit.length + r.levels.length + r.addOns.length,
-  0
+  0,
 );
 
 export default function RoadmapsPage() {

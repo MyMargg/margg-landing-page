@@ -31,8 +31,16 @@ const HeroSection = styled.section`
   padding: 160px clamp(24px, 7vw, 120px) 60px;
   text-align: center;
   background:
-    radial-gradient(800px circle at 40% 20%, ${(p) => p.$glow || "rgba(176,149,227,0.15)"}, transparent 60%),
-    radial-gradient(600px circle at 70% 80%, rgba(80,19,192,0.12), transparent 60%),
+    radial-gradient(
+      800px circle at 40% 20%,
+      ${(p) => p.$glow || "rgba(176,149,227,0.15)"},
+      transparent 60%
+    ),
+    radial-gradient(
+      600px circle at 70% 80%,
+      rgba(80, 19, 192, 0.12),
+      transparent 60%
+    ),
     linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%);
 
   ${MEDIA_QUERIES.mobile} {
@@ -45,13 +53,15 @@ const Breadcrumb = styled.nav`
   margin-bottom: 24px;
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: rgba(238,231,249,0.5);
+  color: rgba(238, 231, 249, 0.5);
   animation: ${fadeInUp} 0.5s ease-out;
 
   a {
-    color: #B095E3;
+    color: #b095e3;
     text-decoration: none;
-    &:hover { text-decoration: underline; }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -76,7 +86,7 @@ const H1 = styled.h1`
 const HeroDesc = styled.p`
   font-family: ${FONTS.body};
   font-size: clamp(15px, 2vw, 18px);
-  color: rgba(238,231,249,0.7);
+  color: rgba(238, 231, 249, 0.7);
   line-height: 1.7;
   max-width: 640px;
   margin: 0 auto 24px;
@@ -94,9 +104,9 @@ const MetaRow = styled.div`
 const MetaBadge = styled.span`
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: rgba(238,231,249,0.6);
-  background: rgba(176,149,227,0.1);
-  border: 1px solid rgba(176,149,227,0.15);
+  color: rgba(238, 231, 249, 0.6);
+  background: rgba(176, 149, 227, 0.1);
+  border: 1px solid rgba(176, 149, 227, 0.15);
   padding: 8px 16px;
   border-radius: 10px;
   display: inline-flex;
@@ -132,34 +142,48 @@ const CategoryBtn = styled.button`
   background: transparent;
   white-space: nowrap;
 
-  ${(p) => p.$active && p.$variant === "starter" && css`
-    background: rgba(76,175,80,0.15);
-    border-color: rgba(76,175,80,0.4);
-    color: #4CAF50;
-  `}
-  ${(p) => p.$active && p.$variant === "levels" && css`
-    background: rgba(33,150,243,0.15);
-    border-color: rgba(33,150,243,0.4);
-    color: #2196F3;
-  `}
-  ${(p) => p.$active && p.$variant === "addons" && css`
-    background: rgba(255,152,0,0.15);
-    border-color: rgba(255,152,0,0.4);
-    color: #FF9800;
-  `}
-  ${(p) => p.$active && p.$variant === "all" && css`
-    background: rgba(176,149,227,0.15);
-    border-color: rgba(176,149,227,0.4);
-    color: #B095E3;
-  `}
-  ${(p) => !p.$active && css`
-    border-color: rgba(176,149,227,0.15);
-    color: rgba(238,231,249,0.5);
-    &:hover {
-      border-color: rgba(176,149,227,0.3);
-      color: rgba(238,231,249,0.8);
-    }
-  `}
+  ${(p) =>
+    p.$active &&
+    p.$variant === "starter" &&
+    css`
+      background: rgba(76, 175, 80, 0.15);
+      border-color: rgba(76, 175, 80, 0.4);
+      color: #4caf50;
+    `}
+  ${(p) =>
+    p.$active &&
+    p.$variant === "levels" &&
+    css`
+      background: rgba(33, 150, 243, 0.15);
+      border-color: rgba(33, 150, 243, 0.4);
+      color: #2196f3;
+    `}
+  ${(p) =>
+    p.$active &&
+    p.$variant === "addons" &&
+    css`
+      background: rgba(255, 152, 0, 0.15);
+      border-color: rgba(255, 152, 0, 0.4);
+      color: #ff9800;
+    `}
+  ${(p) =>
+    p.$active &&
+    p.$variant === "all" &&
+    css`
+      background: rgba(176, 149, 227, 0.15);
+      border-color: rgba(176, 149, 227, 0.4);
+      color: #b095e3;
+    `}
+  ${(p) =>
+    !p.$active &&
+    css`
+      border-color: rgba(176, 149, 227, 0.15);
+      color: rgba(238, 231, 249, 0.5);
+      &:hover {
+        border-color: rgba(176, 149, 227, 0.3);
+        color: rgba(238, 231, 249, 0.8);
+      }
+    `}
 
   ${MEDIA_QUERIES.mobile} {
     font-size: 12px;
@@ -193,9 +217,15 @@ const CategoryDot = styled.span`
   border-radius: 50%;
   flex-shrink: 0;
 
-  &.starter { background: #4CAF50; }
-  &.levels  { background: #2196F3; }
-  &.addons  { background: #FF9800; }
+  &.starter {
+    background: #4caf50;
+  }
+  &.levels {
+    background: #2196f3;
+  }
+  &.addons {
+    background: #ff9800;
+  }
 `;
 
 const CategoryTitle = styled.h2`
@@ -211,7 +241,7 @@ const CategoryTitle = styled.h2`
 const CategoryDesc = styled.p`
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: rgba(238,231,249,0.5);
+  color: rgba(238, 231, 249, 0.5);
   margin: -20px 0 28px 28px;
 `;
 
@@ -219,7 +249,9 @@ const CategoryDesc = styled.p`
 
 const SubLevel = styled.div`
   margin-bottom: 32px;
-  &:last-child { margin-bottom: 0; }
+  &:last-child {
+    margin-bottom: 0;
+  }
 `;
 
 const SubLevelHeader = styled.div`
@@ -250,7 +282,7 @@ const SubLevelTitle = styled.h3`
 const SubLevelCount = styled.span`
   font-family: ${FONTS.body};
   font-size: 12px;
-  color: rgba(238,231,249,0.35);
+  color: rgba(238, 231, 249, 0.35);
   margin-left: 4px;
 `;
 
@@ -269,8 +301,8 @@ const Timeline = styled.div`
     width: 2px;
     background: linear-gradient(
       180deg,
-      rgba(176,149,227,0.4) 0%,
-      rgba(176,149,227,0.15) 100%
+      rgba(176, 149, 227, 0.4) 0%,
+      rgba(176, 149, 227, 0.15) 100%
     );
     border-radius: 1px;
   }
@@ -293,27 +325,37 @@ const TimelineNode = styled.div`
     z-index: 1;
   }
 
-  &.starter::before { border-color: #4CAF50; }
-  &.beginner::before { border-color: #29B6F6; }
-  &.intermediate::before { border-color: #42A5F5; }
-  &.advanced::before { border-color: #1565C0; }
-  &.add-on::before { border-color: #FF9800; }
+  &.starter::before {
+    border-color: #4caf50;
+  }
+  &.beginner::before {
+    border-color: #29b6f6;
+  }
+  &.intermediate::before {
+    border-color: #42a5f5;
+  }
+  &.advanced::before {
+    border-color: #1565c0;
+  }
+  &.add-on::before {
+    border-color: #ff9800;
+  }
 `;
 
 const CourseCard = styled(Link)`
   display: block;
   padding: 24px;
   border-radius: 16px;
-  border: 1px solid rgba(176,149,227,0.12);
-  background: rgba(211,196,239,0.03);
+  border: 1px solid rgba(176, 149, 227, 0.12);
+  background: rgba(211, 196, 239, 0.03);
   text-decoration: none;
   transition: all 0.35s ease;
 
   &:hover {
-    border-color: rgba(176,149,227,0.35);
-    background: rgba(211,196,239,0.07);
+    border-color: rgba(176, 149, 227, 0.35);
+    background: rgba(211, 196, 239, 0.07);
     transform: translateX(4px);
-    box-shadow: 0 8px 32px rgba(80,19,192,0.12);
+    box-shadow: 0 8px 32px rgba(80, 19, 192, 0.12);
   }
 `;
 
@@ -352,36 +394,36 @@ const LevelBadge = styled.span`
   flex-shrink: 0;
 
   &.starter-kit {
-    color: #4CAF50;
-    background: rgba(76,175,80,0.12);
-    border: 1px solid rgba(76,175,80,0.25);
+    color: #4caf50;
+    background: rgba(76, 175, 80, 0.12);
+    border: 1px solid rgba(76, 175, 80, 0.25);
   }
   &.beginner {
-    color: #29B6F6;
-    background: rgba(41,182,246,0.12);
-    border: 1px solid rgba(41,182,246,0.25);
+    color: #29b6f6;
+    background: rgba(41, 182, 246, 0.12);
+    border: 1px solid rgba(41, 182, 246, 0.25);
   }
   &.intermediate {
-    color: #42A5F5;
-    background: rgba(66,165,245,0.12);
-    border: 1px solid rgba(66,165,245,0.25);
+    color: #42a5f5;
+    background: rgba(66, 165, 245, 0.12);
+    border: 1px solid rgba(66, 165, 245, 0.25);
   }
   &.advanced {
-    color: #1565C0;
-    background: rgba(21,101,192,0.15);
-    border: 1px solid rgba(21,101,192,0.3);
+    color: #1565c0;
+    background: rgba(21, 101, 192, 0.15);
+    border: 1px solid rgba(21, 101, 192, 0.3);
   }
   &.add-on {
-    color: #FF9800;
-    background: rgba(255,152,0,0.12);
-    border: 1px solid rgba(255,152,0,0.25);
+    color: #ff9800;
+    background: rgba(255, 152, 0, 0.12);
+    border: 1px solid rgba(255, 152, 0, 0.25);
   }
 `;
 
 const CourseDesc = styled.p`
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: rgba(238,231,249,0.6);
+  color: rgba(238, 231, 249, 0.6);
   line-height: 1.65;
   margin: 0 0 16px;
 `;
@@ -395,9 +437,9 @@ const SectionsList = styled.div`
 const SectionTag = styled.span`
   font-family: ${FONTS.body};
   font-size: 12px;
-  color: rgba(238,231,249,0.45);
-  background: rgba(176,149,227,0.06);
-  border: 1px solid rgba(176,149,227,0.1);
+  color: rgba(238, 231, 249, 0.45);
+  background: rgba(176, 149, 227, 0.06);
+  border: 1px solid rgba(176, 149, 227, 0.1);
   padding: 4px 10px;
   border-radius: 6px;
 `;
@@ -412,13 +454,13 @@ const CardFooter = styled.div`
 const Duration = styled.span`
   font-family: ${FONTS.body};
   font-size: 13px;
-  color: rgba(238,231,249,0.4);
+  color: rgba(238, 231, 249, 0.4);
 `;
 
 const ViewLink = styled.span`
   font-family: ${FONTS.body};
   font-size: 13px;
-  color: #B095E3;
+  color: #b095e3;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -459,14 +501,14 @@ const OtherCard = styled(Link)`
   gap: 16px;
   padding: 20px;
   border-radius: 14px;
-  border: 1px solid rgba(176,149,227,0.12);
-  background: rgba(211,196,239,0.03);
+  border: 1px solid rgba(176, 149, 227, 0.12);
+  background: rgba(211, 196, 239, 0.03);
   text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: rgba(176,149,227,0.35);
-    background: rgba(211,196,239,0.07);
+    border-color: rgba(176, 149, 227, 0.35);
+    background: rgba(211, 196, 239, 0.07);
     transform: translateY(-2px);
   }
 `;
@@ -490,7 +532,7 @@ const OtherName = styled.h3`
 const OtherMeta = styled.span`
   font-family: ${FONTS.body};
   font-size: 12px;
-  color: rgba(238,231,249,0.4);
+  color: rgba(238, 231, 249, 0.4);
 `;
 
 /* ── CTA ── */
@@ -498,26 +540,30 @@ const OtherMeta = styled.span`
 const CTASection = styled.section`
   text-align: center;
   padding: 60px clamp(24px, 7vw, 120px) 80px;
-  background: radial-gradient(500px circle at 50% 50%, rgba(80,19,192,0.12), transparent 60%);
+  background: radial-gradient(
+    500px circle at 50% 50%,
+    rgba(80, 19, 192, 0.12),
+    transparent 60%
+  );
 `;
 
 const CTAButton = styled.a`
   display: inline-block;
   padding: 16px 40px;
   background: #fff;
-  color: #5013C0;
+  color: #5013c0;
   font-family: ${FONTS.body};
   font-size: 18px;
   font-weight: 700;
   border-radius: 14px;
-  border: 1px solid #D3C4EF;
-  box-shadow: 0 4px 24px rgba(176,149,227,0.5);
+  border: 1px solid #d3c4ef;
+  box-shadow: 0 4px 24px rgba(176, 149, 227, 0.5);
   text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
     transform: scale(1.03);
-    box-shadow: 0 6px 32px rgba(176,149,227,0.65);
+    box-shadow: 0 6px 32px rgba(176, 149, 227, 0.65);
   }
 `;
 
@@ -577,9 +623,7 @@ export default function RoadmapDetailPage() {
         <Navbar />
         <HeroSection>
           <H1>Roadmap Not Found</H1>
-          <HeroDesc>
-            The roadmap you're looking for doesn't exist.
-          </HeroDesc>
+          <HeroDesc>The roadmap you're looking for doesn't exist.</HeroDesc>
           <CTAButton href="/roadmaps">Browse All Roadmaps</CTAButton>
         </HeroSection>
         <Footer />
@@ -607,15 +651,9 @@ export default function RoadmapDetailPage() {
         <MetaRow>
           <MetaBadge>⏱ {roadmap.duration}</MetaBadge>
           <MetaBadge>📚 {roadmap.totalCourses} courses</MetaBadge>
-          <MetaBadge>
-            🟢 {roadmap.starterKit.length} Starter-Kit
-          </MetaBadge>
-          <MetaBadge>
-            🔵 {roadmap.levels.length} Levels
-          </MetaBadge>
-          <MetaBadge>
-            🟠 {roadmap.addOns.length} Add-Ons
-          </MetaBadge>
+          <MetaBadge>🟢 {roadmap.starterKit.length} Starter-Kit</MetaBadge>
+          <MetaBadge>🔵 {roadmap.levels.length} Levels</MetaBadge>
+          <MetaBadge>🟠 {roadmap.addOns.length} Add-Ons</MetaBadge>
         </MetaRow>
       </HeroSection>
 
@@ -672,47 +710,51 @@ export default function RoadmapDetailPage() {
         )}
 
         {/* Levels – grouped by beginner → intermediate → advanced */}
-        {showLevels && roadmap.levels.length > 0 && (() => {
-          const grouped = { beginner: [], intermediate: [], advanced: [] };
-          roadmap.levels.forEach((c) => {
-            if (grouped[c.level]) grouped[c.level].push(c);
-          });
-          const LEVEL_META = {
-            beginner:     { label: "Beginner",     color: "#29B6F6" },
-            intermediate: { label: "Intermediate", color: "#42A5F5" },
-            advanced:     { label: "Advanced",     color: "#1565C0" },
-          };
-          return (
-            <CategoryBlock>
-              <CategoryHeader>
-                <CategoryDot className="levels" />
-                <CategoryTitle>Levels</CategoryTitle>
-              </CategoryHeader>
-              <CategoryDesc>
-                Progressive courses from beginner to advanced — each building on
-                the previous one.
-              </CategoryDesc>
-              {Object.entries(LEVEL_META).map(([key, { label, color }]) => {
-                const courses = grouped[key];
-                if (!courses || courses.length === 0) return null;
-                return (
-                  <SubLevel key={key}>
-                    <SubLevelHeader>
-                      <SubLevelDot style={{ background: color }} />
-                      <SubLevelTitle style={{ color }}>{label}</SubLevelTitle>
-                      <SubLevelCount>{courses.length} course{courses.length > 1 ? "s" : ""}</SubLevelCount>
-                    </SubLevelHeader>
-                    <Timeline>
-                      {courses.map((course) => (
-                        <CourseCardItem key={course.id} course={course} />
-                      ))}
-                    </Timeline>
-                  </SubLevel>
-                );
-              })}
-            </CategoryBlock>
-          );
-        })()}
+        {showLevels &&
+          roadmap.levels.length > 0 &&
+          (() => {
+            const grouped = { beginner: [], intermediate: [], advanced: [] };
+            roadmap.levels.forEach((c) => {
+              if (grouped[c.level]) grouped[c.level].push(c);
+            });
+            const LEVEL_META = {
+              beginner: { label: "Beginner", color: "#29B6F6" },
+              intermediate: { label: "Intermediate", color: "#42A5F5" },
+              advanced: { label: "Advanced", color: "#1565C0" },
+            };
+            return (
+              <CategoryBlock>
+                <CategoryHeader>
+                  <CategoryDot className="levels" />
+                  <CategoryTitle>Levels</CategoryTitle>
+                </CategoryHeader>
+                <CategoryDesc>
+                  Progressive courses from beginner to advanced — each building
+                  on the previous one.
+                </CategoryDesc>
+                {Object.entries(LEVEL_META).map(([key, { label, color }]) => {
+                  const courses = grouped[key];
+                  if (!courses || courses.length === 0) return null;
+                  return (
+                    <SubLevel key={key}>
+                      <SubLevelHeader>
+                        <SubLevelDot style={{ background: color }} />
+                        <SubLevelTitle style={{ color }}>{label}</SubLevelTitle>
+                        <SubLevelCount>
+                          {courses.length} course{courses.length > 1 ? "s" : ""}
+                        </SubLevelCount>
+                      </SubLevelHeader>
+                      <Timeline>
+                        {courses.map((course) => (
+                          <CourseCardItem key={course.id} course={course} />
+                        ))}
+                      </Timeline>
+                    </SubLevel>
+                  );
+                })}
+              </CategoryBlock>
+            );
+          })()}
 
         {/* Add-Ons */}
         {showAddOns && roadmap.addOns.length > 0 && (
@@ -742,7 +784,9 @@ export default function RoadmapDetailPage() {
               <OtherIcon>{r.icon}</OtherIcon>
               <OtherInfo>
                 <OtherName>{r.shortName}</OtherName>
-                <OtherMeta>{r.totalCourses} courses · {r.duration}</OtherMeta>
+                <OtherMeta>
+                  {r.totalCourses} courses · {r.duration}
+                </OtherMeta>
               </OtherInfo>
             </OtherCard>
           ))}

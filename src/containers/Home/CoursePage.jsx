@@ -25,8 +25,16 @@ const HeroSection = styled.section`
   padding: 160px var(--pad, clamp(24px, 7vw, 120px)) 80px;
   text-align: center;
   background:
-    radial-gradient(700px circle at 30% 20%, rgba(176,149,227,0.18), transparent 60%),
-    radial-gradient(600px circle at 70% 80%, rgba(80,19,192,0.15), transparent 60%),
+    radial-gradient(
+      700px circle at 30% 20%,
+      rgba(176, 149, 227, 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      600px circle at 70% 80%,
+      rgba(80, 19, 192, 0.15),
+      transparent 60%
+    ),
     linear-gradient(135deg, #0d0217 0%, #090215 50%, #0d0217 100%);
 
   @media (max-width: 768px) {
@@ -44,12 +52,14 @@ const Breadcrumb = styled.nav`
   margin-bottom: 24px;
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: rgba(238,231,249,0.5);
+  color: rgba(238, 231, 249, 0.5);
 
   a {
-    color: #B095E3;
+    color: #b095e3;
     text-decoration: none;
-    &:hover { text-decoration: underline; }
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -66,7 +76,7 @@ const H1 = styled.h1`
 const Subtitle = styled.p`
   font-family: ${FONTS.body};
   font-size: clamp(18px, 2.5vw, 24px);
-  color: #D3C4EF;
+  color: #d3c4ef;
   margin: 0 0 16px;
   font-weight: 400;
 `;
@@ -74,7 +84,7 @@ const Subtitle = styled.p`
 const HeroDesc = styled.p`
   font-family: ${FONTS.body};
   font-size: 16px;
-  color: rgba(238,231,249,0.75);
+  color: rgba(238, 231, 249, 0.75);
   line-height: 1.7;
   margin: 0 0 32px;
   max-width: 720px;
@@ -86,19 +96,19 @@ const CTAButton = styled.a`
   display: inline-block;
   padding: 16px 40px;
   background: #fff;
-  color: #5013C0;
+  color: #5013c0;
   font-family: ${FONTS.body};
   font-size: 18px;
   font-weight: 700;
   border-radius: 14px;
-  border: 1px solid #D3C4EF;
-  box-shadow: 0 4px 24px rgba(176,149,227,0.5);
+  border: 1px solid #d3c4ef;
+  box-shadow: 0 4px 24px rgba(176, 149, 227, 0.5);
   text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
     transform: scale(1.03);
-    box-shadow: 0 6px 32px rgba(176,149,227,0.65);
+    box-shadow: 0 6px 32px rgba(176, 149, 227, 0.65);
   }
 `;
 
@@ -132,7 +142,7 @@ const H2 = styled.h2`
 const Paragraph = styled.p`
   font-family: ${FONTS.body};
   font-size: 16px;
-  color: rgba(238,231,249,0.8);
+  color: rgba(238, 231, 249, 0.8);
   line-height: 1.8;
   margin: 0 0 16px;
   white-space: pre-line;
@@ -146,12 +156,12 @@ const List = styled.ul`
 const ListItem = styled.li`
   font-family: ${FONTS.body};
   font-size: 16px;
-  color: rgba(238,231,249,0.8);
+  color: rgba(238, 231, 249, 0.8);
   line-height: 1.8;
   margin-bottom: 8px;
 
   &::marker {
-    color: #B095E3;
+    color: #b095e3;
   }
 `;
 
@@ -174,16 +184,16 @@ const FAQTitle = styled.h2`
 `;
 
 const FAQItem = styled.details`
-  border: 1px solid rgba(176,149,227,0.2);
+  border: 1px solid rgba(176, 149, 227, 0.2);
   border-radius: 12px;
   margin-bottom: 12px;
-  background: rgba(211,196,239,0.04);
+  background: rgba(211, 196, 239, 0.04);
   overflow: hidden;
   transition: all 0.3s ease;
 
   &[open] {
-    background: rgba(211,196,239,0.08);
-    border-color: rgba(176,149,227,0.35);
+    background: rgba(211, 196, 239, 0.08);
+    border-color: rgba(176, 149, 227, 0.35);
   }
 `;
 
@@ -191,7 +201,7 @@ const FAQQuestion = styled.summary`
   font-family: ${FONTS.body};
   font-size: 17px;
   font-weight: 600;
-  color: #EEE7F9;
+  color: #eee7f9;
   padding: 20px 24px;
   cursor: pointer;
   list-style: none;
@@ -200,12 +210,14 @@ const FAQQuestion = styled.summary`
   justify-content: space-between;
   gap: 16px;
 
-  &::-webkit-details-marker { display: none; }
+  &::-webkit-details-marker {
+    display: none;
+  }
 
   &::after {
     content: "+";
     font-size: 22px;
-    color: #B095E3;
+    color: #b095e3;
     flex-shrink: 0;
     transition: transform 0.2s ease;
   }
@@ -220,7 +232,7 @@ const FAQQuestion = styled.summary`
 const FAQAnswer = styled.div`
   font-family: ${FONTS.body};
   font-size: 15px;
-  color: rgba(238,231,249,0.7);
+  color: rgba(238, 231, 249, 0.7);
   line-height: 1.7;
   padding: 0 24px 20px;
 `;
@@ -252,15 +264,15 @@ const RelatedGrid = styled.div`
 const RelatedCard = styled(Link)`
   display: block;
   padding: 24px;
-  border: 1px solid rgba(176,149,227,0.2);
+  border: 1px solid rgba(176, 149, 227, 0.2);
   border-radius: 16px;
-  background: rgba(211,196,239,0.05);
+  background: rgba(211, 196, 239, 0.05);
   text-decoration: none;
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: rgba(176,149,227,0.5);
-    background: rgba(211,196,239,0.1);
+    border-color: rgba(176, 149, 227, 0.5);
+    background: rgba(211, 196, 239, 0.1);
     transform: translateY(-2px);
   }
 `;
@@ -277,7 +289,7 @@ const RelatedCardTitle = styled.h3`
 const RelatedCardDesc = styled.p`
   font-family: ${FONTS.body};
   font-size: 14px;
-  color: rgba(238,231,249,0.6);
+  color: rgba(238, 231, 249, 0.6);
   line-height: 1.5;
   margin: 0;
 `;
@@ -323,9 +335,7 @@ export default function CoursePage() {
           <H1>{course.heroTitle}</H1>
           <Subtitle>{course.heroSubtitle}</Subtitle>
           <HeroDesc>{course.heroDescription}</HeroDesc>
-          <CTAButton href={`/${course.ctaHash}`}>
-            {course.ctaText}
-          </CTAButton>
+          <CTAButton href={`/${course.ctaHash}`}>{course.ctaText}</CTAButton>
         </HeroInner>
       </HeroSection>
 

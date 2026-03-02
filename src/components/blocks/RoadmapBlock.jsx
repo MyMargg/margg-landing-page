@@ -30,7 +30,14 @@ const RoadmapBlock = () => {
   return (
     <Container>
       <Title>{roadmap.title}</Title>
-      <Image src={Roadmap} alt="Roadmap based learning path on Margg education platform" width={1120} height={608} loading="lazy" decoding="async" />
+      <Image
+        src={Roadmap}
+        alt="Roadmap based learning path on Margg education platform"
+        width={1120}
+        height={608}
+        loading="lazy"
+        decoding="async"
+      />
     </Container>
   );
 };

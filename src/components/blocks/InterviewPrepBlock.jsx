@@ -46,7 +46,14 @@ const InterviewPrepBlock = () => {
   return (
     <Container>
       <Title>{interviewPrep.title}</Title>
-      <Image src={InterviewPrep} alt="Interview preparation materials and mock tests on Margg" width={1500} height={1136} loading="lazy" decoding="async" />
+      <Image
+        src={InterviewPrep}
+        alt="Interview preparation materials and mock tests on Margg"
+        width={1500}
+        height={1136}
+        loading="lazy"
+        decoding="async"
+      />
     </Container>
   );
 };

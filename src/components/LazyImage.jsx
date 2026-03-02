@@ -16,7 +16,15 @@ const Img = styled.img`
   transition: opacity 0.4s ease;
 `;
 
-export default function LazyImage({ src, alt, width, height, style, className, ...rest }) {
+export default function LazyImage({
+  src,
+  alt,
+  width,
+  height,
+  style,
+  className,
+  ...rest
+}) {
   const [loaded, setLoaded] = useState(false);
 
   return (

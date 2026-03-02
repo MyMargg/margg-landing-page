@@ -114,7 +114,14 @@ const GridSection = () => {
   return (
     <SectionContainer ref={viewRef}>
       <PhoneWrapper $inView={inView}>
-        <PhoneImage src={Phone} alt="Margg mobile app screenshot showing learning dashboard" width={1113} height={2340} loading="lazy" decoding="async" />
+        <PhoneImage
+          src={Phone}
+          alt="Margg mobile app screenshot showing learning dashboard"
+          width={1113}
+          height={2340}
+          loading="lazy"
+          decoding="async"
+        />
       </PhoneWrapper>
       <GridWrapper $inView={inView}>
         <Grid />

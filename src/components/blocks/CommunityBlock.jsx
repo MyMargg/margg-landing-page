@@ -25,7 +25,14 @@ const CommunityBlock = () => {
   return (
     <Container>
       <Title>{community.title}</Title>
-      <Image src={Community} alt="Margg peer learning community for collaborative education" width={1236} height={1136} loading="lazy" decoding="async" />
+      <Image
+        src={Community}
+        alt="Margg peer learning community for collaborative education"
+        width={1236}
+        height={1136}
+        loading="lazy"
+        decoding="async"
+      />
     </Container>
   );
 };
