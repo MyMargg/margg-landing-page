@@ -1,5 +1,6 @@
 import React, { useCallback, useState, useEffect, useRef } from "react";
 import styled, { keyframes, css } from "styled-components";
+import { useNavigate, useLocation } from "react-router-dom";
 import MarggLogo from "@assets/Margg.webp";
 import "@styles/NavBar.css";
 import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
@@ -19,13 +20,17 @@ const slideIn = keyframes`
 
 // Styled Components
 const NavbarContainer = styled.div`
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 50;
   isolation: isolate;
   display: flex;
   justify-content: center;
   padding-top: 36px;
+  transform: translateY(${(p) => (p.$hidden ? "-100%" : "0")});
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (max-width: 768px) {
     padding-top: 16px;
@@ -352,7 +357,32 @@ const NAV_ICONS = {
 const Navbar = () => {
   const { logoAlt, links } = useContent("navbar");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const drawerRef = useRef(null);
+  const lastScrollY = useRef(0);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  /* ── scroll direction detection ── */
+  useEffect(() => {
+    const SCROLL_THRESHOLD = 10; // px of scroll before toggling
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+      if (currentY < 80) {
+        // Always show near the top
+        setHidden(false);
+      } else if (currentY - lastScrollY.current > SCROLL_THRESHOLD) {
+        // Scrolling down → hide
+        setHidden(true);
+      } else if (lastScrollY.current - currentY > SCROLL_THRESHOLD) {
+        // Scrolling up → show
+        setHidden(false);
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   /* lock body scroll when drawer is open */
   useEffect(() => {
@@ -376,28 +406,41 @@ const Navbar = () => {
     if (href?.startsWith("#")) {
       e.preventDefault();
       setMenuOpen(false);
-      /* small delay so the drawer closes smoothly before scroll */
-      setTimeout(() => {
-        const el = document.getElementById(href.slice(1));
-        if (el) {
-          const navHeight = document.querySelector("nav")?.offsetHeight || 72;
-          const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
-          window.scrollTo({ top, behavior: "smooth" });
-        }
-      }, 100);
+      if (location.pathname !== "/") {
+        // Navigate home, then scroll
+        navigate("/");
+        setTimeout(() => {
+          const el = document.getElementById(href.slice(1));
+          if (el) {
+            const navHeight = 72;
+            const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+        }, 300);
+      } else {
+        setTimeout(() => {
+          const el = document.getElementById(href.slice(1));
+          if (el) {
+            const navHeight = document.querySelector("nav")?.offsetHeight || 72;
+            const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top, behavior: "smooth" });
+          }
+        }, 100);
+      }
     } else if (href?.startsWith("/")) {
-      // Internal page navigation — let browser navigate
+      e.preventDefault();
       setMenuOpen(false);
+      navigate(href);
     }
-  }, []);
+  }, [navigate, location.pathname]);
 
   return (
     <>
-      <NavbarContainer>
+      <NavbarContainer $hidden={hidden && !menuOpen}>
         <NavbarContent aria-label="Main navigation">
           <NavbarInner>
             {/* Logo */}
-            <LogoSection>
+            <LogoSection onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
               <SkillImage src={MarggLogo} alt={logoAlt} loading="eager" fetchPriority="high" />
             </LogoSection>
 

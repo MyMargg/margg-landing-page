@@ -21,84 +21,61 @@
       "row1": [
         {
           "id": 1,
-          "ariaLabel": "Frontend Developer",
-          "title": "Frontend Developer",
+          "ariaLabel": "Frontend Development",
+          "title": "Frontend Development",
           "description": "Build modern UI with React, component systems, and responsive layouts.",
-          "icon": "ScrollIcon"
+          "icon": "ScrollIcon",
+          "slug": "frontend-development"
         },
         {
           "id": 2,
-          "ariaLabel": "Programming Essentials",
-          "title": "Programming Essentials",
-          "description": "Learn core concepts, clean code, and problem-solving techniques.",
-          "icon": "MessageProgrammingIcon"
+          "ariaLabel": "Backend Engineering",
+          "title": "Backend Engineering",
+          "description": "Server-side logic, APIs, and database management.",
+          "icon": "DriverIcon",
+          "slug": "backend-engineering"
         },
         {
           "id": 3,
-          "ariaLabel": "UI Design Fundamentals",
-          "title": "UI Design Fundamentals",
+          "ariaLabel": "UI/UX Engineering",
+          "title": "UI/UX Engineering",
           "description": "Design trends, spacing systems, and accessible UI patterns.",
-          "icon": "PenToolIcon"
+          "icon": "PenToolIcon",
+          "slug": "ui-ux-engineering"
         }
       ],
       "row2": [
         {
           "id": 4,
-          "ariaLabel": "Backend Development",
-          "title": "Backend Development",
-          "description": "Server-side logic, APIs, and database management.",
-          "icon": "DriverIcon"
+          "ariaLabel": "Data Engineering",
+          "title": "Data Engineering",
+          "description": "Data modeling, pipelines, SQL, and database optimization.",
+          "icon": "FavoriteChartIcon",
+          "slug": "data-engineering"
         },
         {
           "id": 5,
-          "ariaLabel": "Database Design",
-          "title": "Database Design",
-          "description": "Data modeling, SQL, and database optimization.",
-          "icon": "FavoriteChartIcon"
+          "ariaLabel": "Business Analytics",
+          "title": "Business Analytics",
+          "description": "Data-driven decisions, reporting, and business intelligence.",
+          "icon": "MessageProgrammingIcon",
+          "slug": "business-analytics"
         },
         {
           "id": 6,
-          "ariaLabel": "Cloud & DevOps",
-          "title": "Cloud & DevOps",
+          "ariaLabel": "DevOps Engineering",
+          "title": "DevOps Engineering",
           "description": "Deploy apps, understand environments, and ship confidently.",
-          "icon": "CloudConnectionIcon"
+          "icon": "CloudConnectionIcon",
+          "slug": "devops-engineering"
         },
         {
           "id": 7,
-          "ariaLabel": "Testing & QA",
-          "title": "Testing & QA",
-          "description": "Write quality tests and ensure reliable applications.",
-          "icon": "LockIcon"
-        }
-      ],
-      "row3": [
-        {
-          "id": 8,
-          "ariaLabel": "Security",
-          "title": "Security",
-          "description": "Learn safe patterns, auth basics, and secure-by-default UI.",
-          "icon": "MessageProgrammingIcon"
-        },
-        {
-          "id": 9,
-          "ariaLabel": "Algorithms",
-          "title": "Algorithms",
-          "description": "Problem-solving patterns and data structures.",
-          "icon": "PenToolIcon"
-        },
-        {
-          "id": 10,
-          "ariaLabel": "System Design",
-          "title": "System Design",
-          "description": "Architecture, scalability, and distributed systems.",
-          "icon": "FavoriteChartIcon"
-        },
-        {
-          "id": 11,
-          "ariaLabel": "Performance",
-          "title": "Performance",
-          "description": "Optimize load times, rendering, and user experience.",
-          "icon": "DriverIcon"
+          "ariaLabel": "Cyber Security",
+          "title": "Cyber Security",
+          "description": "Learn safe patterns, auth basics, and secure-by-default systems.",
+          "icon": "LockIcon",
+          "slug": "cyber-security"
         }
       ]
     }
@@ -129,23 +106,12 @@
 
   "courses": [
     "Frontend Development",
-    "Backend Development",
-    "Programming Essentials",
-    "UI Design Fundamentals",
-    "Database Design",
-    "Cloud & DevOps",
-    "Testing & QA",
-    "Security",
-    "Algorithms",
-    "System Design",
-    "Performance",
-    "React",
-    "Node.js",
-    "Python",
-    "Java",
-    "Data Structures",
-    "Machine Learning",
-    "Mobile Development"
+    "Backend Engineering",
+    "UI/UX Engineering",
+    "Data Engineering",
+    "Business Analytics",
+    "DevOps Engineering",
+    "Cyber Security"
   ],
 
   "api": {

@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 import {
   CloudConnectionIcon,
@@ -36,7 +37,7 @@ const TilePanel = styled.div`
   /* CSS Grid setup */
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 120px);
+  grid-template-rows: repeat(2, 120px);
   gap: 32px;
 
   align-self: flex-start;
@@ -49,12 +50,12 @@ const TilePanel = styled.div`
     width: 100%;
     flex-basis: 100%;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 96px);
+    grid-template-rows: repeat(2, 96px);
     gap: 14px;
   }
 
   @media (max-width: 480px) {
-    grid-template-rows: repeat(3, 80px);
+    grid-template-rows: repeat(2, 80px);
     gap: 10px;
   }
 `;
@@ -75,6 +76,7 @@ const TileButton = styled.div`
   cursor: pointer;
   overflow: visible;
   position: relative;
+  user-select: none;
 
   /* Fill the grid cell completely - width auto-adjusts based on column span */
   width: 100%;
@@ -244,12 +246,12 @@ export default function HeroTiles({ tileColor }) {
   const AUTO_CYCLE_INTERVAL =
     tilesConfig.autoCycleIntervalMs ?? FALLBACK_CYCLE_INTERVAL;
   const DEFAULT_TILE_ID = tilesConfig.defaultTileId ?? FALLBACK_DEFAULT_TILE_ID;
+  const navigate = useNavigate();
 
   const allTilesData = useMemo(() => {
     const row1 = tilesConfig.row1 ?? [];
     const row2 = tilesConfig.row2 ?? [];
-    const row3 = tilesConfig.row3 ?? [];
-    return [...row1, ...row2, ...row3];
+    return [...row1, ...row2];
   }, [tilesConfig]);
 
   const MIN_TILE_ID = useMemo(
@@ -343,22 +345,29 @@ export default function HeroTiles({ tileColor }) {
     // Auto-cycle will restart via useEffect
   };
 
-  // Handle tap/click for mobile
+  // Handle tap/click — navigate to roadmap on desktop, toggle on mobile
   const handleClick = (tileId) => {
-    if (!isMobile) return; // Desktop uses hover only
+    const tileData = allTilesData.find((t) => t.id === tileId);
+    if (!isMobile) {
+      // Desktop: navigate to roadmap
+      if (tileData?.slug) navigate(`/roadmap/${tileData.slug}`);
+      return;
+    }
+    // Mobile: toggle expand, navigate on second tap
+    if (hoveredId === tileId) {
+      // Already expanded → navigate
+      if (tileData?.slug) navigate(`/roadmap/${tileData.slug}`);
+      return;
+    }
     // Clear any pending timeout
     if (clickTimeoutRef.current) {
       clearTimeout(clickTimeoutRef.current);
     }
-    if (hoveredId === tileId) {
+    setHoveredId(tileId);
+    // Auto-deselect after 4 seconds
+    clickTimeoutRef.current = setTimeout(() => {
       setHoveredId(DEFAULT_TILE_ID);
-    } else {
-      setHoveredId(tileId);
-      // Auto-deselect after 4 seconds
-      clickTimeoutRef.current = setTimeout(() => {
-        setHoveredId(DEFAULT_TILE_ID);
-      }, 4000);
-    }
+    }, 4000);
   };
 
   // Cleanup timeout on unmount

@@ -19,11 +19,6 @@ const fadeInUp = keyframes`
   to   { opacity: 1; transform: translateY(0); }
 `;
 
-const pulseGlow = keyframes`
-  0%, 100% { box-shadow: 0 0 12px rgba(176,149,227,0.3); }
-  50%      { box-shadow: 0 0 24px rgba(176,149,227,0.5); }
-`;
-
 /* ━━━━ Styled Components ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 
 const PageWrap = styled.div`
@@ -218,6 +213,45 @@ const CategoryDesc = styled.p`
   font-size: 14px;
   color: rgba(238,231,249,0.5);
   margin: -20px 0 28px 28px;
+`;
+
+/* ── Sub-Level grouping within Levels ── */
+
+const SubLevel = styled.div`
+  margin-bottom: 32px;
+  &:last-child { margin-bottom: 0; }
+`;
+
+const SubLevelHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-left: 4px;
+`;
+
+const SubLevelDot = styled.span`
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+`;
+
+const SubLevelTitle = styled.h3`
+  font-family: ${FONTS.heading};
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin: 0;
+`;
+
+const SubLevelCount = styled.span`
+  font-family: ${FONTS.body};
+  font-size: 12px;
+  color: rgba(238,231,249,0.35);
+  margin-left: 4px;
 `;
 
 /* ── Timeline Course Cards ── */
@@ -637,24 +671,48 @@ export default function RoadmapDetailPage() {
           </CategoryBlock>
         )}
 
-        {/* Levels */}
-        {showLevels && roadmap.levels.length > 0 && (
-          <CategoryBlock>
-            <CategoryHeader>
-              <CategoryDot className="levels" />
-              <CategoryTitle>Levels</CategoryTitle>
-            </CategoryHeader>
-            <CategoryDesc>
-              Progressive courses from beginner to advanced — each building on
-              the previous one.
-            </CategoryDesc>
-            <Timeline>
-              {roadmap.levels.map((course) => (
-                <CourseCardItem key={course.id} course={course} />
-              ))}
-            </Timeline>
-          </CategoryBlock>
-        )}
+        {/* Levels – grouped by beginner → intermediate → advanced */}
+        {showLevels && roadmap.levels.length > 0 && (() => {
+          const grouped = { beginner: [], intermediate: [], advanced: [] };
+          roadmap.levels.forEach((c) => {
+            if (grouped[c.level]) grouped[c.level].push(c);
+          });
+          const LEVEL_META = {
+            beginner:     { label: "Beginner",     color: "#29B6F6" },
+            intermediate: { label: "Intermediate", color: "#42A5F5" },
+            advanced:     { label: "Advanced",     color: "#1565C0" },
+          };
+          return (
+            <CategoryBlock>
+              <CategoryHeader>
+                <CategoryDot className="levels" />
+                <CategoryTitle>Levels</CategoryTitle>
+              </CategoryHeader>
+              <CategoryDesc>
+                Progressive courses from beginner to advanced — each building on
+                the previous one.
+              </CategoryDesc>
+              {Object.entries(LEVEL_META).map(([key, { label, color }]) => {
+                const courses = grouped[key];
+                if (!courses || courses.length === 0) return null;
+                return (
+                  <SubLevel key={key}>
+                    <SubLevelHeader>
+                      <SubLevelDot style={{ background: color }} />
+                      <SubLevelTitle style={{ color }}>{label}</SubLevelTitle>
+                      <SubLevelCount>{courses.length} course{courses.length > 1 ? "s" : ""}</SubLevelCount>
+                    </SubLevelHeader>
+                    <Timeline>
+                      {courses.map((course) => (
+                        <CourseCardItem key={course.id} course={course} />
+                      ))}
+                    </Timeline>
+                  </SubLevel>
+                );
+              })}
+            </CategoryBlock>
+          );
+        })()}
 
         {/* Add-Ons */}
         {showAddOns && roadmap.addOns.length > 0 && (
