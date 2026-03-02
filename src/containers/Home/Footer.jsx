@@ -41,7 +41,7 @@ function useInView(threshold = 0.1) {
 }
 
 // images
-import MarggLogo from "@assets/Margg.png";
+import MarggLogo from "@assets/Margg.webp";
 import FacebookIcon from "@assets/footer/FacebookIcon";
 import TwitterIcon from "@assets/footer/TwitterIcon";
 import YoutubeIcon from "@assets/footer/YoutubeIcon";
@@ -395,7 +395,7 @@ const Footer = ({ id }) => {
             </ContactLinksRow>
           </LeftColumn>
           <RightColumn>
-            <Logo src={MarggLogo} alt={logoAlt} />
+            <Logo src={MarggLogo} alt={logoAlt} loading="lazy" decoding="async" />
             <Tagline>{tagline}</Tagline>
           </RightColumn>
         </Box>

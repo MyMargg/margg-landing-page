@@ -31,6 +31,19 @@ export default defineConfig(({ isSsrBuild }) => ({
     outDir: isSsrBuild ? "dist/server" : "dist/client",
     // Emit manifest so the server can reference hashed asset filenames if needed
     ssrManifest: !isSsrBuild,
+    // Minification
+    minify: "esbuild",
+    cssMinify: true,
+    // Optimize chunk splitting
+    rollupOptions: isSsrBuild ? {} : {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          redux: ["@reduxjs/toolkit", "react-redux"],
+          styles: ["styled-components"],
+        },
+      },
+    },
   },
   ssr: {
     // styled-components ships CJS; force Vite to bundle + ESM-ify it in SSR

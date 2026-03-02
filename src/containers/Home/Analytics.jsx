@@ -466,6 +466,12 @@ const TitleRow = styled.div`
   width: 100%;
 `;
 
+const TitleH2 = styled.h2`
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+`;
+
 const Letter = styled.span`
   display: inline-block;
   font-family: ${FONTS.heading};
@@ -819,7 +825,8 @@ export default function Analytics() {
                   <Corner $pos="bl" />
                   <Corner $pos="br" />
 
-                  {/* "WE ARE" */}
+                  {/* "WE ARE COMING SOON" — semantic heading */}
+                  <TitleH2>
                   <TitleRow>
                     <StaggeredWord
                       text="WE"
@@ -851,6 +858,7 @@ export default function Analytics() {
                       animate={inView}
                     />
                   </TitleRow>
+                  </TitleH2>
 
                   <Subtitle>Something extraordinary is on its way</Subtitle>
 

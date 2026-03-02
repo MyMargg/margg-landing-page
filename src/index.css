@@ -21,13 +21,15 @@ body {
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   min-height: 100vh;
   background: #090215;
+}
+
+/* Global focus indicator for keyboard navigation */
+:focus-visible {
+  outline: 2px solid #B095E3;
+  outline-offset: 2px;
 }
 
 #root {

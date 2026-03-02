@@ -5,8 +5,8 @@ import styled from "styled-components";
 import { Title as _Title } from "./style";
 import { useContent } from "@content/ContentContext";
 
-import Flame from "@assets/grid/flame.png";
-import Streak from "@assets/grid/streak.png";
+import Flame from "@assets/grid/flame.webp";
+import Streak from "@assets/grid/streak.webp";
 
 const Container = styled.div`
   display: flex;
@@ -65,7 +65,7 @@ const StreaksBlock = () => {
   return (
     <Container>
       <Title>{streaks.title}</Title>
-      <Image2 src={Streak} alt="streak" />
+      <Image2 src={Streak} alt="Learning streak tracking and consistency feature" width={1108} height={412} loading="lazy" decoding="async" />
     </Container>
   );
 };

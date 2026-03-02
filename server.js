@@ -77,7 +77,20 @@ async function createApp() {
       }),
     );
     app.use(
-      express.static(resolve(__dirname, "dist/client"), { index: false }),
+      express.static(resolve(__dirname, "dist/client"), {
+        index: false,
+        maxAge: "7d",
+        setHeaders(res, filePath) {
+          // HTML should not be cached aggressively
+          if (filePath.endsWith(".html")) {
+            res.setHeader("Cache-Control", "no-cache");
+          }
+          // Images get long cache
+          if (/\.(png|jpg|jpeg|webp|avif|svg|ico|gif)$/i.test(filePath)) {
+            res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
+          }
+        },
+      }),
     );
 
     // Cache the server render module and HTML template at startup
@@ -114,7 +127,7 @@ async function createApp() {
       const { html: appHtml, styleTags, state } = await render(url, content);
 
       // 4. Build <head> injection (meta, OG, JSON-LD, styled-components styles)
-      const headInjection = buildHead(content, styleTags);
+      const headInjection = buildHead(content, styleTags, { url });
 
       // 5. Assemble final HTML
       const html = template
@@ -125,7 +138,16 @@ async function createApp() {
           `<script>window.__PRELOADED_STATE__=${serializeState(state)}</script>`,
         );
 
-      res.status(200).set({ "Content-Type": "text/html" }).end(html);
+      // Detect 404 pages (CoursePage renders "Course Not Found" for unknown slugs)
+      const is404 = appHtml.includes("Course Not Found");
+
+      res.status(is404 ? 404 : 200).set({
+        "Content-Type": "text/html",
+        "Cache-Control": is404
+          ? "no-cache"
+          : "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+        "X-Content-Type-Options": "nosniff",
+      }).end(html);
     } catch (err) {
       if (!isProduction && vite) {
         vite.ssrFixStacktrace(err);

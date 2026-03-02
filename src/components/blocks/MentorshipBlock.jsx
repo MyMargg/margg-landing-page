@@ -3,7 +3,7 @@ import { Title } from "./style";
 import styled from "styled-components";
 import { useContent } from "@content/ContentContext";
 
-import Mentorship from "@assets/grid/mentor.png";
+import Mentorship from "@assets/grid/mentor.webp";
 
 const Container = styled.div`
   display: flex;
@@ -26,7 +26,7 @@ const MentorshipBlock = () => {
   return (
     <Container>
       <Title>{mentorship.title}</Title>
-      <Image src={Mentorship} alt="mentorship" />
+      <Image src={Mentorship} alt="One-on-one mentorship sessions on Margg LMS platform" width={457} height={539} loading="lazy" decoding="async" />
     </Container>
   );
 };

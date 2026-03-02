@@ -12,6 +12,21 @@
  * so they can be updated remotely without a redeploy.
  */
 
+import { readFileSync } from "fs";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Load course data once at module level (tiny JSON, never changes at runtime)
+let coursesAll = {};
+try {
+  const raw = readFileSync(resolve(__dirname, "../src/content/courses.json"), "utf-8");
+  coursesAll = JSON.parse(raw);
+} catch {
+  // courses.json may not exist in some environments — continue without it
+}
+
 // Escape HTML attribute values to prevent XSS
 function esc(val) {
   return String(val ?? "")
@@ -32,21 +47,90 @@ function escJson(obj) {
 export function buildHead(
   { seo = {}, footer = {}, blocks = {}, analytics = {} },
   styleTags = "",
+  { url: reqUrl = "/" } = {},
 ) {
   const {
-    title = "Margg \u2013 Curated Routes for Curious Minds",
-    description = "",
-    keywords = "",
+    title: defaultTitle = "Margg \u2013 Curated Routes for Curious Minds",
+    description: defaultDescription = "",
+    keywords: defaultKeywords = "",
     author = "Margg Private Limited",
     robots = "index, follow",
     locale = "en_IN",
-    url = "https://margg.in",
-    ogImage = `${url}/og-cover.png`,
+    url: siteUrl = "https://margg.in",
+    ogImage: defaultOgImage = `${siteUrl}/og-cover.png`,
     twitterHandle = "@margg",
     themeColor = "#090215",
     foundingYear = "2023",
     appCategory = "EducationApplication",
   } = seo;
+
+  // ── Per-page overrides for course pages ─────────────────────────────────────
+  let title = defaultTitle;
+  let description = defaultDescription;
+  let keywords = defaultKeywords;
+  let ogImage = defaultOgImage;
+  let canonicalUrl = siteUrl;
+  let extraSchemas = "";
+
+  const slug = reqUrl.replace(/^\//, "").replace(/\/$/, "");
+  const courseData = coursesAll[slug] ?? null;
+  const isHomePage = slug === "" || slug === "/";
+  // Unknown slugs (not home, not a valid course) get noindex
+  const effectiveRobots = (!isHomePage && !courseData) ? "noindex, nofollow" : robots;
+
+  if (courseData) {
+    title = courseData.title;
+    description = courseData.metaDescription;
+    keywords = courseData.keywords;
+    canonicalUrl = `${siteUrl}/${slug}`;
+
+    // FAQ Page schema for rich snippets
+    const faqSchema = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: (courseData.faqs ?? []).map((faq) => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    };
+
+    // Course schema
+    const courseSchema = {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      name: courseData.heroTitle,
+      description: courseData.metaDescription,
+      provider: {
+        "@type": "Organization",
+        name: "Margg",
+        url: siteUrl,
+      },
+      url: canonicalUrl,
+      educationalLevel: "Beginner to Advanced",
+      inLanguage: "en",
+      isAccessibleForFree: false,
+    };
+
+    extraSchemas = `
+    <script type="application/ld+json">${escJson(faqSchema)}</script>
+    <script type="application/ld+json">${escJson(courseSchema)}</script>`;
+
+    // BreadcrumbList for enhanced SERP display
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: courseData.heroTitle, item: canonicalUrl },
+      ],
+    };
+    extraSchemas += `\n    <script type="application/ld+json">${escJson(breadcrumbSchema)}</script>`;
+  } else {
+    canonicalUrl = siteUrl;
+  }
+
+  const url = siteUrl;
 
   // ── JSON-LD: Organization + EducationalOrganization ───────────────────────
   const orgSchema = {
@@ -177,9 +261,9 @@ export function buildHead(
     <meta name="description"        content="${esc(description)}" />
     <meta name="keywords"           content="${esc(keywords)}" />
     <meta name="author"             content="${esc(author)}" />
-    <meta name="robots"             content="${esc(robots)}" />
+    <meta name="robots"             content="${esc(effectiveRobots)}" />
     <meta name="theme-color"        content="${esc(themeColor)}" />
-    <link rel="canonical"           href="${esc(url)}" />
+    <link rel="canonical"           href="${esc(canonicalUrl)}" />
 
     <!-- Geo targeting for South India -->
     <meta name="geo.region"         content="IN-KA" />
@@ -191,10 +275,14 @@ export function buildHead(
     <meta name="rating"             content="general" />
     <meta name="revisit-after"      content="7 days" />
 
+    <!-- Locale targeting -->
+    <link rel="alternate" hreflang="en-IN" href="${esc(canonicalUrl)}" />
+    <link rel="alternate" hreflang="x-default" href="${esc(canonicalUrl)}" />
+
     <!-- Open Graph -->
-    <meta property="og:type"        content="website" />
+    <meta property="og:type"        content="${courseData ? 'article' : 'website'}" />
     <meta property="og:locale"      content="${esc(locale)}" />
-    <meta property="og:url"         content="${esc(url)}" />
+    <meta property="og:url"         content="${esc(canonicalUrl)}" />
     <meta property="og:site_name"   content="Margg" />
     <meta property="og:title"       content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
@@ -216,7 +304,7 @@ export function buildHead(
     <script type="application/ld+json">${escJson(orgSchema)}</script>
     <script type="application/ld+json">${escJson(websiteSchema)}</script>
     <script type="application/ld+json">${escJson(appSchema)}</script>
-    <script type="application/ld+json">${escJson(itemListSchema)}</script>
+    <script type="application/ld+json">${escJson(itemListSchema)}</script>${extraSchemas}
 
     <!-- styled-components SSR styles -->
     ${styleTags}

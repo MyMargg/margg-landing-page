@@ -1,6 +1,6 @@
 import React, { useCallback, useState, useEffect, useRef } from "react";
 import styled, { keyframes, css } from "styled-components";
-import MarggLogo from "@assets/Margg.png";
+import MarggLogo from "@assets/Margg.webp";
 import "@styles/NavBar.css";
 import { MAX_CONTENT_WIDTH, FONTS } from "@constants";
 import { useContent } from "@content/ContentContext";
@@ -144,12 +144,12 @@ const MenuLink = styled.a`
   color: white;
   font-family: ${FONTS.body};
   font-size: 16px;
-  font-weight: ${(props) => (props.primary ? "600" : "300")};
+  font-weight: ${(props) => (props.$primary ? "600" : "300")};
   line-height: normal;
   text-decoration: none;
   border-radius: 0.375rem;
   transition: all 0.5s ease-in-out;
-  opacity: ${(props) => (props.primary ? "1" : "0.5")};
+  opacity: ${(props) => (props.$primary ? "1" : "0.5")};
 
   &:hover {
     text-shadow: 0 0 1px currentColor;
@@ -386,11 +386,11 @@ const Navbar = () => {
   return (
     <>
       <NavbarContainer>
-        <NavbarContent>
+        <NavbarContent aria-label="Main navigation">
           <NavbarInner>
             {/* Logo */}
             <LogoSection>
-              <SkillImage src={MarggLogo} alt={logoAlt} />
+              <SkillImage src={MarggLogo} alt={logoAlt} loading="eager" fetchPriority="high" />
             </LogoSection>
 
             {/* Desktop nav */}
@@ -400,7 +400,7 @@ const Navbar = () => {
                   <MenuLink
                     key={link.label}
                     href={link.href}
-                    primary={link.primary ? true : undefined}
+                    $primary={link.primary ? true : undefined}
                     onClick={handleClick}
                   >
                     {link.label}

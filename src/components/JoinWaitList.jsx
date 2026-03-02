@@ -45,7 +45,7 @@ import Input1 from "./Input1";
 import { submitWaitlist } from "@services/contactApi";
 
 // images
-import PhoneScreenImg from "@assets/figma/phone-screen.png";
+import PhoneScreenImg from "@assets/figma/phone-screen.webp";
 
 const WaitlistContainer = styled.div`
   width: 960px;
@@ -186,7 +186,7 @@ const JoinWaitList = ({ onSubmit, id }) => {
       </LeftColumn>
       <RightColumn>
         <PhoneScreenWrapper>
-          <PhoneImage src={PhoneScreenImg} alt="Phone Screen" />
+          <PhoneImage src={PhoneScreenImg} alt="Margg app interface showing roadmap-based learning features" width={1036} height={1248} loading="lazy" decoding="async" />
         </PhoneScreenWrapper>
       </RightColumn>
     </WaitlistContainer>

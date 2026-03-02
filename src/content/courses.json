@@ -1,0 +1,388 @@
+{
+  "frontend-development-course": {
+    "slug": "frontend-development-course",
+    "title": "Frontend Development Course – Learn React, HTML, CSS & JavaScript | Margg",
+    "metaDescription": "Master frontend development with Margg's roadmap-based course. Learn React, HTML, CSS, JavaScript, responsive design, and build real-world projects with expert mentorship. Enroll now.",
+    "keywords": "frontend development course, learn React, HTML CSS JavaScript course, frontend developer roadmap course, best frontend course India, web development course, UI development, responsive web design course, React course with projects, frontend bootcamp India",
+    "heroTitle": "Frontend Development Course",
+    "heroSubtitle": "Master Modern Web Development with a Structured Roadmap",
+    "heroDescription": "Learn to build beautiful, responsive, and production-ready web applications from scratch. Our roadmap-based frontend development course takes you from HTML basics to advanced React patterns — with real projects, one-on-one mentorship, and interview preparation.",
+    "ctaText": "Join the Waitlist",
+    "ctaHash": "#contact-learner",
+    "sections": [
+      {
+        "heading": "Why Choose Margg's Frontend Development Course?",
+        "content": "The demand for skilled frontend developers has never been higher. Companies across India and the world are looking for developers who can build fast, accessible, and visually stunning web applications. But most online courses teach isolated topics without connecting them into a career-ready skill set.\n\nMargg's frontend development course is different. We use a roadmap-based learning approach that mirrors how real engineering teams work. Every module builds on the previous one, giving you a clear path from beginner to job-ready developer. You won't just learn syntax — you'll understand architecture, component design, state management, and deployment.\n\nOur course is designed for college students and early-career professionals in India who want to break into the tech industry. Whether you're in Bangalore, Tirupati, Chennai, or anywhere in South India, you can access world-class frontend education with structured learning paths and personalised mentorship."
+      },
+      {
+        "heading": "What You'll Learn",
+        "content": "Our comprehensive frontend development curriculum covers everything you need to become a professional web developer:",
+        "list": [
+          "HTML5 & Semantic Markup – Build accessible, SEO-friendly page structures from day one",
+          "CSS3 & Modern Layouts – Master Flexbox, Grid, animations, and responsive design",
+          "JavaScript ES6+ – Variables, functions, closures, promises, async/await, and DOM manipulation",
+          "React.js – Components, hooks, context, routing, state management with Redux Toolkit",
+          "TypeScript Fundamentals – Add type safety to your JavaScript projects",
+          "Version Control with Git – Branching, merging, pull requests, and collaborative workflows",
+          "API Integration – Fetch data from REST APIs, handle loading and error states",
+          "Testing – Unit tests with Jest, component tests with React Testing Library",
+          "Performance Optimization – Code splitting, lazy loading, lighthouse audits, Core Web Vitals",
+          "Deployment – Ship to Vercel, Netlify, and AWS with CI/CD pipelines",
+          "UI/UX Principles – Design systems, accessibility (WCAG), and user-centered design"
+        ]
+      },
+      {
+        "heading": "Roadmap-Based Learning Approach",
+        "content": "Unlike traditional courses that dump video lectures on you, Margg uses visual roadmaps to guide your learning journey. Each roadmap shows you exactly what to learn, in what order, and why it matters.\n\nYou start with the fundamentals — HTML structure, CSS styling, JavaScript logic. Then the roadmap branches into intermediate topics like responsive design, component architecture, and state management. Finally, you tackle advanced concepts like server-side rendering, performance optimization, and system design for frontend applications.\n\nEvery milestone on the roadmap includes hands-on projects, quizzes, and mentor check-ins. You can track your streaks, earn certifications, and build a portfolio that impresses hiring managers. This is not passive learning — it's structured, intentional skill building designed to make you job-ready in 16 weeks."
+      },
+      {
+        "heading": "Real-World Projects You'll Build",
+        "content": "Theory without practice is useless. That's why every module in our frontend development course includes real-world projects that you can add to your portfolio:",
+        "list": [
+          "Personal Portfolio Website – Responsive, animated, deployed to a custom domain",
+          "E-Commerce Product Page – Dynamic product listings, cart functionality, API integration",
+          "Social Media Dashboard – Real-time data visualization, infinite scroll, state management",
+          "Collaborative Task Manager – Multi-user app with authentication, CRUD operations, and real-time updates",
+          "Component Library – Build and publish your own reusable React component library to npm"
+        ]
+      },
+      {
+        "heading": "One-on-One Mentorship & Interview Prep",
+        "content": "Margg's mentorship program pairs you with experienced frontend developers from top companies. Your mentor reviews your code, provides feedback on your projects, and helps you navigate your career path.\n\nAs part of the course, you also get access to our interview preparation module. This includes mock technical interviews, common frontend interview questions (React lifecycle, closures, event delegation, CSS specificity), system design discussions, and behavioral interview coaching.\n\nOur students have landed roles at startups, mid-size companies, and MNCs across Bangalore, Hyderabad, Chennai, and Pune. With Margg's structured preparation, you'll walk into interviews with confidence."
+      },
+      {
+        "heading": "Who Is This Course For?",
+        "content": "This frontend development course is ideal for:",
+        "list": [
+          "College students (2nd to 4th year) in CS, IT, or related branches looking to build practical skills alongside their degree",
+          "Fresh graduates who want to become job-ready frontend developers within 4 months",
+          "Career switchers from non-tech backgrounds who want to enter the software industry",
+          "Self-taught developers who need structure, mentorship, and portfolio projects to level up",
+          "Anyone in India looking for the best frontend development course with placement support"
+        ]
+      },
+      {
+        "heading": "Course Structure & Duration",
+        "content": "The frontend development course runs for 16 weeks, with 3 live sessions per week and self-paced assignments:\n\n• Weeks 1–4: HTML, CSS, JavaScript Fundamentals\n• Weeks 5–8: Advanced CSS, Responsive Design, Git & Collaboration\n• Weeks 9–12: React.js, State Management, API Integration\n• Weeks 13–14: Testing, Performance, Deployment\n• Weeks 15–16: Capstone Project, Interview Prep, Portfolio Polish\n\nEach week includes 2 hours of live instruction, 1 mentor session, and 5–8 hours of hands-on practice. All sessions are recorded and available on-demand."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do I need prior programming experience for this frontend development course?",
+        "answer": "No prior experience is required. Our roadmap starts from the absolute basics — HTML structure and CSS styling. However, basic computer literacy and a willingness to practice daily will help you progress faster."
+      },
+      {
+        "question": "What is the duration of the frontend development course?",
+        "answer": "The full course runs for 16 weeks (4 months) with a commitment of approximately 12-15 hours per week including live sessions, self-paced learning, and project work."
+      },
+      {
+        "question": "Will I get a certificate after completing the course?",
+        "answer": "Yes. Upon completing all modules and the capstone project, you receive a Margg Frontend Development Certificate that you can add to your LinkedIn profile and resume."
+      },
+      {
+        "question": "Is this course suitable for college students?",
+        "answer": "Absolutely. The course is specifically designed for college students in India. The schedule is flexible, and all live sessions are recorded so you can watch them at your convenience."
+      },
+      {
+        "question": "Do you provide placement support?",
+        "answer": "Yes. Our program includes resume reviews, portfolio building, mock interviews, and connections to our hiring partner network. We also have a dedicated Job Board within the Margg platform."
+      },
+      {
+        "question": "What technologies will I learn?",
+        "answer": "You'll master HTML5, CSS3, JavaScript (ES6+), React.js, Redux Toolkit, TypeScript basics, Git, and deployment tools like Vercel and Netlify. You'll also learn testing with Jest and React Testing Library."
+      },
+      {
+        "question": "How is this different from free YouTube tutorials?",
+        "answer": "Free tutorials are fragmented and lack structure. Margg provides a complete learning roadmap, real projects, mentor feedback, peer community, streak tracking, and interview preparation — everything you need in one platform."
+      },
+      {
+        "question": "Can I access the course from anywhere in India?",
+        "answer": "Yes. All live sessions are online and recorded. Whether you're in Bangalore, Chennai, Tirupati, Hyderabad, or any other city, you can access the full course and mentorship remotely."
+      }
+    ]
+  },
+
+  "backend-development-course": {
+    "slug": "backend-development-course",
+    "title": "Backend Development Course – Learn Node.js, APIs, Databases & System Design | Margg",
+    "metaDescription": "Master backend development with Margg's structured roadmap. Learn Node.js, Express, MongoDB, PostgreSQL, REST APIs, authentication, and system design with real-world projects and mentorship.",
+    "keywords": "backend development course, learn Node.js, API development course, backend developer roadmap, best backend course India, server-side programming, database design course, system design course, backend bootcamp India, job ready software courses",
+    "heroTitle": "Backend Development Course",
+    "heroSubtitle": "Build Scalable Server-Side Applications with Expert Guidance",
+    "heroDescription": "Learn to architect and build robust backends that power real applications. From RESTful APIs and database design to authentication, caching, and deployment — our roadmap-based course prepares you for production-grade backend engineering.",
+    "ctaText": "Join the Waitlist",
+    "ctaHash": "#contact-learner",
+    "sections": [
+      {
+        "heading": "Why Backend Development Matters",
+        "content": "Every application you use — from food delivery apps to banking platforms — depends on a well-architected backend. Backend developers build the APIs, manage databases, handle authentication, process payments, and ensure applications scale to millions of users.\n\nThe demand for backend developers in India is growing rapidly. Companies need engineers who understand not just how to write server-side code, but how to design systems that are secure, performant, and maintainable. Margg's backend development course gives you exactly these skills through structured, roadmap-based learning.\n\nWhether you want to work at a startup shipping features fast or an enterprise building distributed systems, this course prepares you for the real challenges of backend engineering."
+      },
+      {
+        "heading": "What You'll Learn",
+        "content": "Our backend development curriculum is comprehensive and industry-aligned:",
+        "list": [
+          "JavaScript/TypeScript on the Server – Node.js runtime, event loop, async patterns",
+          "Express.js Framework – Routing, middleware, error handling, request validation",
+          "RESTful API Design – Resource modeling, HTTP methods, status codes, versioning, pagination",
+          "Database Design – Relational (PostgreSQL) and NoSQL (MongoDB) modeling, migrations, indexing",
+          "Authentication & Authorization – JWT, OAuth 2.0, session management, role-based access control",
+          "Data Validation & Security – Input sanitization, SQL injection prevention, rate limiting, CORS",
+          "Caching & Performance – Redis caching strategies, query optimization, connection pooling",
+          "Testing – Unit tests, integration tests, API testing with Supertest and Jest",
+          "System Design Fundamentals – Load balancing, horizontal scaling, message queues, microservices patterns",
+          "DevOps & Deployment – Docker containers, CI/CD pipelines, AWS/GCP basics, monitoring and logging",
+          "Real-time Features – WebSockets, Server-Sent Events, pub/sub patterns"
+        ]
+      },
+      {
+        "heading": "Structured Roadmap for Backend Mastery",
+        "content": "Backend development can feel overwhelming — databases, servers, APIs, security, deployment. Without a clear path, most learners get stuck jumping between topics.\n\nMargg's roadmap solves this. We've mapped out the optimal learning sequence based on how concepts build on each other. You start with Node.js fundamentals and basic API creation. Then you progressively add database integration, authentication, error handling, and testing. By the final weeks, you're building complete backend systems with caching, real-time features, and cloud deployment.\n\nEvery step on the roadmap includes hands-on coding exercises, mentor-reviewed assignments, and a project milestone. You always know where you are, what's next, and why it matters. This is structured learning designed for results, not random tutorial hopping."
+      },
+      {
+        "heading": "Projects That Prove Your Skills",
+        "content": "Employers don't care about course certificates — they care about what you can build. Our backend course includes portfolio-worthy projects:",
+        "list": [
+          "RESTful Blog API – CRUD operations, authentication, pagination, search, file uploads",
+          "E-Commerce Backend – Product catalog, shopping cart, order processing, payment integration",
+          "Real-Time Chat Server – WebSocket-based messaging, user presence, message persistence",
+          "URL Shortener Service – High-throughput link shortening with analytics and rate limiting",
+          "Capstone: Full-Stack Application Backend – Complete production-grade API with documentation, tests, monitoring, and deployment"
+        ]
+      },
+      {
+        "heading": "Mentorship & Career Support",
+        "content": "Your Margg mentor is a working backend engineer who understands what it takes to succeed in the industry. They review your code architecture, discuss trade-offs in system design, and help you prepare for technical interviews.\n\nThe interview preparation module covers the most common backend interview topics: database normalization, indexing strategies, REST vs GraphQL, scaling patterns, and the classic system design questions (design a URL shortener, design Twitter's feed, design a rate limiter).\n\nOur graduates have secured backend engineering roles at companies across India, including in Bangalore, Hyderabad, Pune, and Delhi NCR. Whether you're targeting product companies, service companies, or startups, we prepare you to clear the interviews."
+      },
+      {
+        "heading": "Who Should Enroll?",
+        "content": "This backend development course is designed for:",
+        "list": [
+          "College students wanting to add backend engineering skills to complement their frontend knowledge",
+          "Frontend developers looking to become full-stack engineers",
+          "Fresh graduates aiming for backend developer roles in top companies",
+          "Self-taught programmers who need structured learning and mentorship",
+          "Anyone in India seeking the best backend development course with job placement support"
+        ]
+      },
+      {
+        "heading": "Course Structure & Timeline",
+        "content": "The backend development course spans 16 weeks:\n\n• Weeks 1–3: JavaScript Deep Dive, Node.js Fundamentals, Express.js\n• Weeks 4–6: Database Design (PostgreSQL + MongoDB), ORM/ODM\n• Weeks 7–9: Authentication, Security, API Design Patterns\n• Weeks 10–12: Caching, Real-time Features, Testing\n• Weeks 13–14: System Design, Docker, Deployment, Monitoring\n• Weeks 15–16: Capstone Project, Interview Prep, Resume Building\n\nCommitment: ~12-15 hours per week. All sessions are live and recorded."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do I need to know frontend development before taking this backend course?",
+        "answer": "No. This course focuses entirely on backend skills. However, basic JavaScript knowledge is recommended. We cover Node.js from the ground up, but familiarity with variables, functions, and basic syntax will help you start faster."
+      },
+      {
+        "question": "Which programming language is used in this course?",
+        "answer": "The primary language is JavaScript/TypeScript running on Node.js with Express.js. We chose this stack because it's the most in-demand for full-stack roles in India, and it allows frontend developers to transition to backend smoothly."
+      },
+      {
+        "question": "Will I learn both SQL and NoSQL databases?",
+        "answer": "Yes. You'll work with PostgreSQL (relational) and MongoDB (document-based). You'll understand when to use each, how to model data effectively, write queries, handle migrations, and optimize performance."
+      },
+      {
+        "question": "Is system design covered in this course?",
+        "answer": "Yes. The final weeks cover system design fundamentals — load balancing, horizontal scaling, caching strategies, message queues, and common interview design problems. This prepares you for mid-level backend interviews."
+      },
+      {
+        "question": "Can I take this course alongside my college studies?",
+        "answer": "Absolutely. The schedule is flexible with 3 live sessions per week plus self-paced work. All sessions are recorded, so you can watch them at your own pace."
+      },
+      {
+        "question": "What career support do you provide?",
+        "answer": "You receive resume reviews, mock technical interviews, system design practice sessions, and access to our hiring partner network through the Margg Job Board."
+      }
+    ]
+  },
+
+  "ui-ux-course": {
+    "slug": "ui-ux-course",
+    "title": "UI/UX Design Course with Projects – Learn User Interface & Experience Design | Margg",
+    "metaDescription": "Master UI/UX design with Margg's project-based course. Learn Figma, design systems, user research, wireframing, prototyping, and build a professional portfolio. Best UI UX course in India.",
+    "keywords": "UI UX course with projects, UI UX design course, learn Figma, user experience design course, UI design fundamentals, best UX course India, design thinking course, wireframing, prototyping course, UI UX bootcamp India",
+    "heroTitle": "UI/UX Design Course",
+    "heroSubtitle": "Design Beautiful, User-Centered Digital Experiences",
+    "heroDescription": "Learn to create interfaces that users love. From user research and wireframing to high-fidelity prototypes and design systems — our project-based UI/UX course equips you with the skills that product teams are hiring for.",
+    "ctaText": "Join the Waitlist",
+    "ctaHash": "#contact-learner",
+    "sections": [
+      {
+        "heading": "Why UI/UX Design Is the Most In-Demand Skill",
+        "content": "Every digital product — from mobile apps to enterprise software — needs thoughtful design. Companies have realized that good UI/UX isn't a luxury; it's the difference between a product users love and one they abandon. The demand for UI/UX designers in India has grown by over 200% in the last three years.\n\nBut becoming a great designer isn't just about making things look pretty. It's about understanding users, solving problems, and creating experiences that are intuitive, accessible, and delightful. Margg's UI/UX design course teaches you the complete design process — from research to final hand-off to developers.\n\nWhether you want to work as a product designer at a startup, a UX researcher at a large company, or a freelance UI designer, this course gives you the portfolio and skills to get there."
+      },
+      {
+        "heading": "Course Curriculum",
+        "content": "Our UI/UX curriculum covers the entire design lifecycle:",
+        "list": [
+          "Design Thinking & User Research – User interviews, surveys, persona creation, journey mapping",
+          "Information Architecture – Content hierarchy, navigation patterns, card sorting, site maps",
+          "Wireframing & Low-Fidelity Prototyping – Rapid sketching, Figma wireframes, user flow diagrams",
+          "Visual Design Fundamentals – Typography, color theory, spacing systems, visual hierarchy, grids",
+          "Figma Mastery – Components, auto-layout, variants, design tokens, prototyping, collaboration",
+          "Design Systems – Building component libraries, documentation, design tokens, atomic design methodology",
+          "High-Fidelity Prototyping – Interactive prototypes, micro-animations, transitions, user testing",
+          "Accessibility (WCAG) – Inclusive design principles, color contrast, screen reader compatibility",
+          "Responsive & Mobile-First Design – Breakpoints, adaptive layouts, touch targets, mobile UX patterns",
+          "Usability Testing – A/B testing, heuristic evaluation, user testing sessions, analyzing feedback",
+          "Developer Handoff – Design specs, asset export, design-to-code workflows, design QA"
+        ]
+      },
+      {
+        "heading": "Learn by Building Real Projects",
+        "content": "Design is a craft that improves with practice. Our course is built around real-world projects that become your professional portfolio:\n\nEvery project follows the full design process — research, wireframe, design, prototype, test, and iterate. You'll receive feedback from your mentor at each stage, learning to defend your design decisions and incorporate user feedback. By the end of the course, you'll have 4-5 polished case studies in your portfolio.",
+        "list": [
+          "Mobile App Redesign – Take an existing app and improve its UX through user research and iterative design",
+          "E-Commerce Website Design – Complete responsive design with product pages, cart, checkout flow",
+          "SaaS Dashboard – Data visualization, complex forms, multi-step workflows, empty states",
+          "Design System – Build a production-ready component library with documentation and usage guidelines",
+          "Capstone: End-to-End Product Design – From user research to final prototype for a real product brief"
+        ]
+      },
+      {
+        "heading": "Tools You'll Master",
+        "content": "We focus on industry-standard tools that hiring managers expect you to know:\n\n• Figma – The primary design tool used by most product teams. You'll learn components, auto-layout, variants, prototyping, and collaboration features.\n• FigJam – For brainstorming, user flow mapping, and workshop facilitation.\n• Maze / Useberry – For unmoderated usability testing and gathering quantitative UX data.\n\nYou don't need any prior design tool experience. We start from scratch and build expertise through daily practice."
+      },
+      {
+        "heading": "Mentorship from Working Designers",
+        "content": "Your Margg mentor is a practising product designer or UX designer who reviews your work, provides portfolio feedback, and shares real-world insights about the design industry.\n\nMentor sessions include design critiques (reviewing your work with actionable feedback), portfolio reviews (ensuring your case studies tell compelling stories), and interview coaching (whiteboard design challenges, portfolio presentations, and behavioral questions).\n\nOur design graduates have secured roles at product companies, design agencies, and startups across India. The mentorship component is what transforms a course into a career launchpad."
+      },
+      {
+        "heading": "Who Is This Course For?",
+        "content": "This UI/UX course is perfect for:",
+        "list": [
+          "College students interested in product design, visual design, or UX research careers",
+          "Frontend developers who want to understand design principles and collaborate better with designers",
+          "Graphic designers transitioning to digital product design",
+          "Marketing professionals who want to understand UX for better conversion optimization",
+          "Anyone in India looking for the best UI/UX design course with real projects and mentorship"
+        ]
+      },
+      {
+        "heading": "Course Duration & Format",
+        "content": "The UI/UX design course runs for 12 weeks:\n\n• Weeks 1–3: Design Thinking, User Research, Information Architecture\n• Weeks 4–6: Visual Design, Typography, Figma Fundamentals\n• Weeks 7–9: Component Design, Design Systems, High-Fidelity Prototyping\n• Weeks 10–11: Usability Testing, Accessibility, Responsive Design\n• Week 12: Capstone Project, Portfolio Polish, Interview Prep\n\nCommitment: ~10-12 hours per week with live sessions and self-paced design projects."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do I need to know how to code to take this UI/UX course?",
+        "answer": "No coding skills are required. This course focuses on design thinking, visual design, and Figma. However, understanding basic HTML/CSS concepts can help you design more implementable interfaces."
+      },
+      {
+        "question": "What tool is used in this course?",
+        "answer": "Figma is our primary design tool. It's free to use, works in the browser, and is the industry standard for product design. You'll also use FigJam for brainstorming and user flow mapping."
+      },
+      {
+        "question": "Will I have a portfolio at the end of the course?",
+        "answer": "Yes. You'll build 4-5 complete case studies throughout the course, each following the full design process from research to final prototype. Your mentor helps you polish these into portfolio-ready presentations."
+      },
+      {
+        "question": "Is this course suitable for someone with no design background?",
+        "answer": "Absolutely. We start with design fundamentals and progressively build your skills. Many of our successful graduates had zero design experience when they started."
+      },
+      {
+        "question": "What job roles can I apply for after this course?",
+        "answer": "Graduates typically apply for UI Designer, UX Designer, Product Designer, UX Researcher, Interaction Designer, and Visual Designer roles. Some also pursue freelance design work."
+      },
+      {
+        "question": "How is this different from YouTube design tutorials?",
+        "answer": "YouTube teaches scattered skills. Margg provides a structured roadmap, real projects with mentor feedback, portfolio building, usability testing practice, and interview preparation — the full package to become employable."
+      }
+    ]
+  },
+
+  "data-analysis-course": {
+    "slug": "data-analysis-course",
+    "title": "Data Analysis Course – Learn Python, SQL, Excel & Data Visualization | Margg",
+    "metaDescription": "Master data analysis with Margg's roadmap-based course. Learn Python, SQL, Excel, Pandas, data visualization with real datasets, and prepare for analyst roles at top companies in India.",
+    "keywords": "data analysis course, learn Python for data analysis, SQL course India, data visualization course, best data analysis course India, Excel analytics course, Pandas course, learn programming roadmap India, data analyst bootcamp, business analytics course",
+    "heroTitle": "Data Analysis Course",
+    "heroSubtitle": "Turn Raw Data into Actionable Insights",
+    "heroDescription": "Learn to clean, analyze, and visualize data using Python, SQL, and modern analytics tools. Our roadmap-based course takes you from spreadsheet basics to building dashboards that drive business decisions — with real datasets and industry mentorship.",
+    "ctaText": "Join the Waitlist",
+    "ctaHash": "#contact-learner",
+    "sections": [
+      {
+        "heading": "Why Data Analysis Is a Career Superpower",
+        "content": "Data is the new oil, and every company — from startups to Fortune 500s — needs people who can extract meaning from it. Data analysts are among the most in-demand professionals in India, with salaries growing year over year and opportunities across every industry.\n\nBut data analysis isn't just about running SQL queries or making charts. It's about asking the right questions, cleaning messy real-world data, finding patterns that matter, and communicating insights that drive decisions. Margg's data analysis course teaches you the complete analyst toolkit.\n\nWhether you want to work in tech, finance, healthcare, or e-commerce, data analysis skills open doors across every sector. Our roadmap-based approach ensures you learn the right skills in the right order, building from fundamentals to advanced analytics."
+      },
+      {
+        "heading": "What You'll Learn",
+        "content": "Our data analysis curriculum covers everything from spreadsheet fundamentals to Python-powered analytics:",
+        "list": [
+          "Excel & Google Sheets – Pivot tables, VLOOKUP, conditional formatting, data cleaning, dashboards",
+          "SQL for Analytics – SELECT, JOIN, GROUP BY, window functions, subqueries, query optimization",
+          "Python Fundamentals – Variables, data types, loops, functions, file I/O, error handling",
+          "Pandas & NumPy – DataFrames, data cleaning, transformation, aggregation, merging datasets",
+          "Data Visualization – Matplotlib, Seaborn, Plotly for charts, graphs, and interactive visualizations",
+          "Statistics for Analysts – Descriptive statistics, probability, distributions, hypothesis testing, correlation",
+          "Data Cleaning & Wrangling – Handling missing values, outliers, data types, normalization, feature engineering",
+          "Dashboard Building – Create interactive dashboards that tell compelling data stories",
+          "Business Analytics – KPIs, metrics, funnel analysis, cohort analysis, A/B test interpretation",
+          "Reporting & Communication – Structuring findings, presenting to stakeholders, data storytelling"
+        ]
+      },
+      {
+        "heading": "Roadmap-Based Learning for Data Skills",
+        "content": "Data analysis combines multiple disciplines — statistics, programming, domain knowledge, and communication. Without a clear learning path, it's easy to feel overwhelmed. Should you learn Python first or SQL? When do you need statistics?\n\nMargg's roadmap answers these questions. We've designed the optimal learning sequence based on how concepts build on each other. You start with Excel and basic data manipulation (skills you'll use daily). Then you add SQL for querying databases. Python comes next, with Pandas for powerful data transformation. Statistics weave through every module with practical applications.\n\nEvery milestone has hands-on exercises with real datasets — not toy examples. You'll work with e-commerce transaction data, social media metrics, financial datasets, and public health data. By the end, you can tackle any dataset your future employer throws at you."
+      },
+      {
+        "heading": "Real-World Projects",
+        "content": "Your portfolio as a data analyst matters more than any certificate. Our projects use real-world datasets and business scenarios:",
+        "list": [
+          "Sales Performance Dashboard – Analyze retail sales data, build KPI dashboards, identify trends and seasonality",
+          "Customer Segmentation Analysis – Use clustering techniques to segment customers by behavior and value",
+          "A/B Test Analysis – Analyze experiment results, calculate statistical significance, make data-driven recommendations",
+          "Social Media Analytics – Track engagement metrics, sentiment patterns, and content performance across platforms",
+          "Capstone: End-to-End Analytics Project – From data collection to executive presentation for a real business problem"
+        ]
+      },
+      {
+        "heading": "Mentorship & Career Preparation",
+        "content": "Your Margg mentor is a working data analyst or data scientist who guides your learning and career preparation. They review your analysis methodology, challenge your assumptions, and teach you to think like an analyst.\n\nThe interview preparation module covers SQL query challenges, Python data manipulation problems, case study presentations, and behavioral questions specific to analyst roles. You'll also learn how to build a compelling GitHub portfolio of data projects.\n\nData analyst roles are available across India — in Bangalore, Hyderabad, Mumbai, Delhi NCR, and Pune. Our graduates have secured positions at product companies, consulting firms, analytics startups, and established enterprises."
+      },
+      {
+        "heading": "Who Should Take This Course?",
+        "content": "This data analysis course is designed for:",
+        "list": [
+          "College students in any branch who want to add data skills to their resume",
+          "Business and commerce graduates looking to enter the analytics industry",
+          "Marketing and operations professionals who want to become data-driven decision makers",
+          "Software developers interested in transitioning to data engineering or data science roles",
+          "Anyone in India looking for a structured, project-based data analysis course with mentorship"
+        ]
+      },
+      {
+        "heading": "Course Structure",
+        "content": "The data analysis course runs for 14 weeks:\n\n• Weeks 1–2: Excel Mastery, Data Fundamentals, Basic Statistics\n• Weeks 3–5: SQL for Analytics, Database Querying, Data Modeling\n• Weeks 6–8: Python Fundamentals, Pandas, NumPy\n• Weeks 9–11: Data Visualization, Dashboard Building, Advanced Analytics\n• Weeks 12–13: Business Analytics, Case Studies, Statistical Analysis\n• Week 14: Capstone Project, Portfolio Polish, Interview Preparation\n\nCommitment: ~12-15 hours per week including live sessions, exercises, and project work."
+      }
+    ],
+    "faqs": [
+      {
+        "question": "Do I need a technical background for this data analysis course?",
+        "answer": "No. We start with Excel and basic data concepts, then progressively introduce SQL and Python. Students from commerce, arts, science, and engineering backgrounds have all succeeded in this course."
+      },
+      {
+        "question": "Which programming language is taught?",
+        "answer": "Python, which is the most popular language for data analysis. You'll specifically learn Pandas, NumPy, Matplotlib, and Seaborn — the core data analysis stack. We also teach SQL extensively for database querying."
+      },
+      {
+        "question": "Will I learn data visualization and dashboards?",
+        "answer": "Yes. Data visualization is a major focus. You'll learn to create charts, graphs, and interactive dashboards using Python libraries and understand principles of effective data storytelling."
+      },
+      {
+        "question": "Can this course help me get into data science?",
+        "answer": "Absolutely. Data analysis is the foundation of data science. After completing this course, you'll have the programming, statistics, and data manipulation skills needed to pursue machine learning and advanced data science topics."
+      },
+      {
+        "question": "What kind of job roles can I target after this course?",
+        "answer": "Common roles include Data Analyst, Business Analyst, Operations Analyst, Marketing Analyst, and Junior Data Scientist. These roles are available across industries including tech, finance, healthcare, and e-commerce."
+      },
+      {
+        "question": "Are there real datasets used in the course?",
+        "answer": "Yes. Every project uses real-world datasets — not toy examples. You'll work with actual e-commerce transaction data, social media metrics, financial data, and public datasets from government and research sources."
+      }
+    ]
+  }
+}
