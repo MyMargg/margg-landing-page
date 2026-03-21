@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import styled, { keyframes, css } from "styled-components";
 
 // images
-import Phone from "@assets/figma/phone-screen-2.webp";
+import Phone from "@assets/figma/phone-screen-2.png";
 
 // components
 import Grid from "./Grid";
@@ -114,14 +114,7 @@ const GridSection = () => {
   return (
     <SectionContainer ref={viewRef}>
       <PhoneWrapper $inView={inView}>
-        <PhoneImage
-          src={Phone}
-          alt="Margg mobile app screenshot showing learning dashboard"
-          width={1113}
-          height={2340}
-          loading="lazy"
-          decoding="async"
-        />
+        <PhoneImage src={Phone} alt="Phone Screen" loading="lazy" decoding="async" />
       </PhoneWrapper>
       <GridWrapper $inView={inView}>
         <Grid />

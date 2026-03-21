@@ -41,7 +41,7 @@ function useInView(threshold = 0.1) {
 }
 
 // images
-import MarggLogo from "@assets/Margg.webp";
+import MarggLogo from "@assets/Margg.png";
 import FacebookIcon from "@assets/footer/FacebookIcon";
 import TwitterIcon from "@assets/footer/TwitterIcon";
 import YoutubeIcon from "@assets/footer/YoutubeIcon";
@@ -334,7 +334,7 @@ const ContactRoleLink = styled.a`
   font-family: ${FONTS.body};
   font-size: 14px;
   font-weight: 500;
-  color: #b095e3;
+  color: #B095E3;
   text-decoration: none;
   transition: all 0.25s ease;
   display: flex;
@@ -342,7 +342,7 @@ const ContactRoleLink = styled.a`
   gap: 6px;
 
   &:hover {
-    color: #d3c4ef;
+    color: #D3C4EF;
     text-decoration: underline;
   }
 `;
@@ -389,24 +389,13 @@ const Footer = ({ id }) => {
               </ContactItem>
             </ContactInfo>
             <ContactLinksRow>
-              <ContactRoleLink href="#contact-learner">
-                Learner Form &rarr;
-              </ContactRoleLink>
-              <ContactRoleLink href="#contact-instructor">
-                Instructor Form &rarr;
-              </ContactRoleLink>
-              <ContactRoleLink href="#contact-partner">
-                Partner Form &rarr;
-              </ContactRoleLink>
+              <ContactRoleLink href="#contact-learner">Learner Form &rarr;</ContactRoleLink>
+              <ContactRoleLink href="#contact-instructor">Instructor Form &rarr;</ContactRoleLink>
+              <ContactRoleLink href="#contact-partner">Partner Form &rarr;</ContactRoleLink>
             </ContactLinksRow>
           </LeftColumn>
           <RightColumn>
-            <Logo
-              src={MarggLogo}
-              alt={logoAlt}
-              loading="lazy"
-              decoding="async"
-            />
+            <Logo src={MarggLogo} alt={logoAlt} loading="lazy" decoding="async" />
             <Tagline>{tagline}</Tagline>
           </RightColumn>
         </Box>

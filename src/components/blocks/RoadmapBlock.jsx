@@ -6,7 +6,7 @@ import { Title, Subtext } from "./style";
 import { useContent } from "@content/ContentContext";
 
 // images
-import Roadmap from "@assets/grid/roadmap.webp";
+import Roadmap from "@assets/grid/roadmap.png";
 
 const Container = styled.div`
   display: flex;
@@ -30,14 +30,7 @@ const RoadmapBlock = () => {
   return (
     <Container>
       <Title>{roadmap.title}</Title>
-      <Image
-        src={Roadmap}
-        alt="Roadmap based learning path on Margg education platform"
-        width={1120}
-        height={608}
-        loading="lazy"
-        decoding="async"
-      />
+      <Image src={Roadmap} alt="roadmap" loading="lazy" decoding="async" />
     </Container>
   );
 };

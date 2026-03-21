@@ -3,7 +3,6 @@
     "logoAlt": "Margg",
     "links": [
       { "label": "Home", "href": "#home", "primary": true },
-      { "label": "Roadmaps", "href": "/roadmaps" },
       { "label": "Our Products", "href": "#products" },
       { "label": "Contact Us", "href": "#contact-us" }
     ]
@@ -21,61 +20,84 @@
       "row1": [
         {
           "id": 1,
-          "ariaLabel": "Frontend Development",
-          "title": "Frontend Development",
+          "ariaLabel": "Frontend Developer",
+          "title": "Frontend Developer",
           "description": "Build modern UI with React, component systems, and responsive layouts.",
-          "icon": "ScrollIcon",
-          "slug": "frontend-development"
+          "icon": "ScrollIcon"
         },
         {
           "id": 2,
-          "ariaLabel": "Backend Engineering",
-          "title": "Backend Engineering",
-          "description": "Server-side logic, APIs, and database management.",
-          "icon": "DriverIcon",
-          "slug": "backend-engineering"
+          "ariaLabel": "Programming Essentials",
+          "title": "Programming Essentials",
+          "description": "Learn core concepts, clean code, and problem-solving techniques.",
+          "icon": "MessageProgrammingIcon"
         },
         {
           "id": 3,
-          "ariaLabel": "UI/UX Engineering",
-          "title": "UI/UX Engineering",
+          "ariaLabel": "UI Design Fundamentals",
+          "title": "UI Design Fundamentals",
           "description": "Design trends, spacing systems, and accessible UI patterns.",
-          "icon": "PenToolIcon",
-          "slug": "ui-ux-engineering"
+          "icon": "PenToolIcon"
         }
       ],
       "row2": [
         {
           "id": 4,
-          "ariaLabel": "Data Engineering",
-          "title": "Data Engineering",
-          "description": "Data modeling, pipelines, SQL, and database optimization.",
-          "icon": "FavoriteChartIcon",
-          "slug": "data-engineering"
+          "ariaLabel": "Backend Development",
+          "title": "Backend Development",
+          "description": "Server-side logic, APIs, and database management.",
+          "icon": "DriverIcon"
         },
         {
           "id": 5,
-          "ariaLabel": "Business Analytics",
-          "title": "Business Analytics",
-          "description": "Data-driven decisions, reporting, and business intelligence.",
-          "icon": "MessageProgrammingIcon",
-          "slug": "business-analytics"
+          "ariaLabel": "Database Design",
+          "title": "Database Design",
+          "description": "Data modeling, SQL, and database optimization.",
+          "icon": "FavoriteChartIcon"
         },
         {
           "id": 6,
-          "ariaLabel": "DevOps Engineering",
-          "title": "DevOps Engineering",
+          "ariaLabel": "Cloud & DevOps",
+          "title": "Cloud & DevOps",
           "description": "Deploy apps, understand environments, and ship confidently.",
-          "icon": "CloudConnectionIcon",
-          "slug": "devops-engineering"
+          "icon": "CloudConnectionIcon"
         },
         {
           "id": 7,
-          "ariaLabel": "Cyber Security",
-          "title": "Cyber Security",
-          "description": "Learn safe patterns, auth basics, and secure-by-default systems.",
-          "icon": "LockIcon",
-          "slug": "cyber-security"
+          "ariaLabel": "Testing & QA",
+          "title": "Testing & QA",
+          "description": "Write quality tests and ensure reliable applications.",
+          "icon": "LockIcon"
+        }
+      ],
+      "row3": [
+        {
+          "id": 8,
+          "ariaLabel": "Security",
+          "title": "Security",
+          "description": "Learn safe patterns, auth basics, and secure-by-default UI.",
+          "icon": "MessageProgrammingIcon"
+        },
+        {
+          "id": 9,
+          "ariaLabel": "Algorithms",
+          "title": "Algorithms",
+          "description": "Problem-solving patterns and data structures.",
+          "icon": "PenToolIcon"
+        },
+        {
+          "id": 10,
+          "ariaLabel": "System Design",
+          "title": "System Design",
+          "description": "Architecture, scalability, and distributed systems.",
+          "icon": "FavoriteChartIcon"
+        },
+        {
+          "id": 11,
+          "ariaLabel": "Performance",
+          "title": "Performance",
+          "description": "Optimize load times, rendering, and user experience.",
+          "icon": "DriverIcon"
         }
       ]
     }
@@ -106,12 +128,23 @@
 
   "courses": [
     "Frontend Development",
-    "Backend Engineering",
-    "UI/UX Engineering",
-    "Data Engineering",
-    "Business Analytics",
-    "DevOps Engineering",
-    "Cyber Security"
+    "Backend Development",
+    "Programming Essentials",
+    "UI Design Fundamentals",
+    "Database Design",
+    "Cloud & DevOps",
+    "Testing & QA",
+    "Security",
+    "Algorithms",
+    "System Design",
+    "Performance",
+    "React",
+    "Node.js",
+    "Python",
+    "Java",
+    "Data Structures",
+    "Machine Learning",
+    "Mobile Development"
   ],
 
   "api": {
@@ -139,13 +172,10 @@
         }
       },
       "templates": {
-        "waitlist": { "templateId": "template_ob8hs05", "account": "account1" },
-        "learner": { "templateId": "template_n8yn8zn", "account": "account1" },
-        "instructor": {
-          "templateId": "template_a5ox0x9",
-          "account": "account2"
-        },
-        "partner": { "templateId": "template_qxq0lla", "account": "account2" }
+        "waitlist":    { "templateId": "template_ob8hs05", "account": "account1" },
+        "learner":     { "templateId": "template_n8yn8zn", "account": "account1" },
+        "instructor":  { "templateId": "template_a5ox0x9", "account": "account2" },
+        "partner":     { "templateId": "template_qxq0lla", "account": "account2" }
       }
     }
   },
@@ -197,7 +227,7 @@
   },
 
   "seo": {
-    "title": "Margg - Roadmap Based Courses & Best LMS Platform in South India",
+    "title": "Margg – Roadmap Based Courses & Best LMS Platform in South India | Gagan's Application",
     "description": "Margg is the best LMS application in South India offering roadmap based courses, structured learning paths, one-on-one mentorship, interview prep, resume building, certifications & career placement support for college students. Built by Gagan — curated routes for curious minds.",
     "keywords": "roadmap based courses, best LMS application in south india, Gagan's application, Margg, LMS for college students, learning management system India, mentorship platform, interview prep, career placement, roadmap learning, college learning app, online education India, skill development, structured learning paths, best online courses India, South India LMS, Bangalore LMS, Tirupati education platform, curated learning roadmaps, coding bootcamp India, one-on-one mentorship India, resume builder for students, job placement LMS, streaks based learning, certification courses India, Margg Private Limited, MarggLive, best e-learning platform India",
     "author": "Margg Private Limited",

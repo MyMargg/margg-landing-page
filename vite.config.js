@@ -35,17 +35,15 @@ export default defineConfig(({ isSsrBuild }) => ({
     minify: "esbuild",
     cssMinify: true,
     // Optimize chunk splitting
-    rollupOptions: isSsrBuild
-      ? {}
-      : {
-          output: {
-            manualChunks: {
-              vendor: ["react", "react-dom", "react-router-dom"],
-              redux: ["@reduxjs/toolkit", "react-redux"],
-              styles: ["styled-components"],
-            },
-          },
+    rollupOptions: isSsrBuild ? {} : {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          redux: ["@reduxjs/toolkit", "react-redux"],
+          styles: ["styled-components"],
         },
+      },
+    },
   },
   ssr: {
     // styled-components ships CJS; force Vite to bundle + ESM-ify it in SSR

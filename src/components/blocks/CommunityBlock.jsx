@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Title } from "./style";
 import { useContent } from "@content/ContentContext";
-import Community from "@assets/grid/community.webp";
+import Community from "@assets/grid/community.png";
 
 const Container = styled.div`
   display: flex;
@@ -25,14 +25,7 @@ const CommunityBlock = () => {
   return (
     <Container>
       <Title>{community.title}</Title>
-      <Image
-        src={Community}
-        alt="Margg peer learning community for collaborative education"
-        width={1236}
-        height={1136}
-        loading="lazy"
-        decoding="async"
-      />
+      <Image src={Community} alt="community" loading="lazy" decoding="async" />
     </Container>
   );
 };

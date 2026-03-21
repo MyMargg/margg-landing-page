@@ -66,7 +66,8 @@ async function post(url, body) {
   let serverMsg = "";
   try {
     const json = await res.json();
-    serverMsg = json?.data?.message || json?.message || json?.error || "";
+    serverMsg =
+      json?.data?.message || json?.message || json?.error || "";
   } catch {
     /* ignore parse errors */
   }
@@ -83,7 +84,9 @@ async function post(url, body) {
     );
   }
   if (res.status === 429) {
-    throw new Error("Too many requests. Please wait a moment and try again.");
+    throw new Error(
+      "Too many requests. Please wait a moment and try again.",
+    );
   }
   if (res.status >= 500) {
     throw new Error(
@@ -91,7 +94,9 @@ async function post(url, body) {
     );
   }
 
-  throw new Error(serverMsg || "Something went wrong. Please try again.");
+  throw new Error(
+    serverMsg || "Something went wrong. Please try again.",
+  );
 }
 
 // ─── Mode check ─────────────────────────────────────────────────────────────
@@ -126,8 +131,7 @@ export async function submitWaitlist(apiConfig, rawEmail) {
  */
 export async function submitLearner(apiConfig, form) {
   const firstName = required(form.fullName, "Full name").split(" ")[0];
-  const lastName =
-    required(form.fullName, "Full name").split(" ").slice(1).join(" ") || "";
+  const lastName = required(form.fullName, "Full name").split(" ").slice(1).join(" ") || "";
   const phone = phoneOk(form.phone);
   const email = emailOk(form.email);
   const collegeName = required(form.college, "College name");
@@ -136,40 +140,17 @@ export async function submitLearner(apiConfig, form) {
   const query = form.query || "";
 
   if (useSheets(apiConfig)) {
-    const row = {
-      firstName,
-      lastName,
-      phone,
-      email,
-      collegeName,
-      branch,
-      year,
-      query,
-    };
+    const row = { firstName, lastName, phone, email, collegeName, branch, year, query };
     await postToSheet(apiConfig.googleSheets?.scriptUrl, "Learners", row);
     await sendNotification(apiConfig.emailjs, "learner", {
       form_type: "Learner Enquiry",
       full_name: `${firstName} ${lastName}`.trim(),
-      phone,
-      email,
-      college_name: collegeName,
-      branch,
-      year,
-      query,
+      phone, email, college_name: collegeName, branch, year, query,
     });
     return { ok: true };
   }
 
-  const body = {
-    firstName,
-    lastName,
-    phone,
-    email,
-    collegeName,
-    branch,
-    year,
-    query,
-  };
+  const body = { firstName, lastName, phone, email, collegeName, branch, year, query };
   const url = `${apiConfig.baseUrl}${apiConfig.endpoints.learner}`;
   return post(url, body);
 }
@@ -183,19 +164,14 @@ export async function submitInstructor(apiConfig, form) {
   const email = emailOk(form.email);
   const topics = form.topics?.length
     ? form.topics
-    : (() => {
-        throw new Error("Add at least one topic");
-      })();
+    : (() => { throw new Error("Add at least one topic"); })();
 
   if (useSheets(apiConfig)) {
     const row = { fullName, phone, email, topics: topics.join(", ") };
     await postToSheet(apiConfig.googleSheets?.scriptUrl, "Instructors", row);
     await sendNotification(apiConfig.emailjs, "instructor", {
       form_type: "Instructor Enquiry",
-      full_name: fullName,
-      phone,
-      email,
-      topics: topics.join(", "),
+      full_name: fullName, phone, email, topics: topics.join(", "),
     });
     return { ok: true };
   }
@@ -211,38 +187,24 @@ export async function submitInstructor(apiConfig, form) {
 export async function submitPartner(apiConfig, form) {
   const organisationType = required(form.orgType, "Organisation type");
   const organisationName = required(form.orgName, "Organisation name");
-  const numberOfStudents =
-    Number(required(form.students, "Number of students")) || 0;
+  const numberOfStudents = Number(required(form.students, "Number of students")) || 0;
   const phone = phoneOk(form.phone);
   const email = emailOk(form.email);
 
   if (useSheets(apiConfig)) {
-    const row = {
-      organisationType,
-      organisationName,
-      numberOfStudents,
-      phone,
-      email,
-    };
+    const row = { organisationType, organisationName, numberOfStudents, phone, email };
     await postToSheet(apiConfig.googleSheets?.scriptUrl, "Partners", row);
     await sendNotification(apiConfig.emailjs, "partner", {
       form_type: "Partner / Organisation Enquiry",
       organisation_type: organisationType,
       organisation_name: organisationName,
       number_of_students: numberOfStudents,
-      phone,
-      email,
+      phone, email,
     });
     return { ok: true };
   }
 
-  const body = {
-    organisationType,
-    organisationName,
-    numberOfStudents,
-    phone,
-    email,
-  };
+  const body = { organisationType, organisationName, numberOfStudents, phone, email };
   const url = `${apiConfig.baseUrl}${apiConfig.endpoints.partner}`;
   return post(url, body);
 }

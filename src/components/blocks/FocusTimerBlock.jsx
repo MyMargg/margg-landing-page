@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Subtext as _Subtext, Title as _Title } from "./style";
 import { useContent } from "@content/ContentContext";
 
-import FocusTimer from "@assets/grid/focus-timer.webp";
+import FocusTimer from "@assets/grid/focus-timer.png";
 
 const Container = styled.div`
   display: flex;
@@ -45,14 +45,7 @@ const FocusTimerBlock = () => {
       <TextContainer>
         <Title>{focusTimer.title}</Title>
       </TextContainer>
-      <Image
-        src={FocusTimer}
-        alt="Focus timer for productive study sessions on Margg"
-        width={479}
-        height={648}
-        loading="lazy"
-        decoding="async"
-      />
+      <Image src={FocusTimer} alt="focus timer" loading="lazy" decoding="async" />
     </Container>
   );
 };

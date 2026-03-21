@@ -6,7 +6,7 @@ import { Title } from "./style";
 import { useContent } from "@content/ContentContext";
 
 // images
-import InterviewPrep from "@assets/grid/interview-prep.webp";
+import InterviewPrep from "@assets/grid/interview-prep.png";
 
 const Container = styled.div`
   display: flex;
@@ -46,14 +46,7 @@ const InterviewPrepBlock = () => {
   return (
     <Container>
       <Title>{interviewPrep.title}</Title>
-      <Image
-        src={InterviewPrep}
-        alt="Interview preparation materials and mock tests on Margg"
-        width={1500}
-        height={1136}
-        loading="lazy"
-        decoding="async"
-      />
+      <Image src={InterviewPrep} alt="screen left" loading="lazy" decoding="async" />
     </Container>
   );
 };

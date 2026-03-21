@@ -5,52 +5,6 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Roadmaps listing -->
-  <url>
-    <loc>https://margg.in/roadmaps</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- Roadmap detail pages -->
-  <url>
-    <loc>https://margg.in/roadmap/frontend-development</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://margg.in/roadmap/backend-engineering</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://margg.in/roadmap/ui-ux-engineering</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://margg.in/roadmap/data-engineering</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://margg.in/roadmap/business-analytics</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://margg.in/roadmap/devops-engineering</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://margg.in/roadmap/cyber-security</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-
-  <!-- Legacy course pages (detailed marketing content) -->
   <url>
     <loc>https://margg.in/frontend-development-course</loc>
     <changefreq>monthly</changefreq>
@@ -71,56 +25,4 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
-  <!-- Individual course pages from roadmaps -->
-  <url><loc>https://margg.in/course/communication-skills-for-developers</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/javascript-fundamentals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/git-and-github-mastery</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/html5-css3-deep-dive</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/dom-and-event-handling</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/typescript-fundamentals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/responsive-design-mastery</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/advanced-javascript-es6-plus</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/react-js-mastery</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/redux-and-state-management</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/testing-react-applications</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/nodejs-fundamentals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/expressjs-and-api-development</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/database-design-and-integration</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/microservices-architecture</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/backend-security-and-devops</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/design-thinking-fundamentals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/ui-design-and-prototyping</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/user-experience-research</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/design-systems-and-frontend-collaboration</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/advanced-ux-strategy-and-business-impact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/python-for-data-engineering</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/sql-and-database-systems</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/big-data-and-distributed-systems</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/data-pipeline-and-etl-engineering</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/cloud-data-engineering-and-mlops</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/data-analysis-fundamentals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/business-intelligence-basics</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/sql-for-business-analytics</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/business-analysis-fundamentals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/requirements-engineering-and-management</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/advanced-process-modeling-and-optimization</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/data-analytics-for-business-analysis</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/digital-transformation-and-agile-ba</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/linux-fundamentals-for-devops</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/version-control-and-collaboration</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/infrastructure-as-code-basics</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/linux-and-system-administration</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/cicd-and-automation</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/container-orchestration-and-kubernetes</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/cloud-infrastructure-and-iac</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/monitoring-and-site-reliability-engineering</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/information-security-fundamentals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/network-security-basics</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/ethical-hacking-introduction</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/network-security-fundamentals</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/application-security-and-penetration-testing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/advanced-threat-detection-and-response</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/cloud-security-and-devsecops</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://margg.in/course/compliance-and-risk-management</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

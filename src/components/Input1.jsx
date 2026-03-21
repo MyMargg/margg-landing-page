@@ -188,10 +188,7 @@ const TickCircle = styled.div`
   @media (max-width: 640px) {
     width: 36px;
     height: 36px;
-    svg {
-      width: 18px;
-      height: 18px;
-    }
+    svg { width: 18px; height: 18px; }
   }
 `;
 
@@ -223,15 +220,10 @@ const Input1 = ({
   /* Read localStorage flag on mount */
   useEffect(() => {
     try {
-      if (
-        typeof window !== "undefined" &&
-        localStorage.getItem(WAITLIST_KEY) === "true"
-      ) {
+      if (typeof window !== "undefined" && localStorage.getItem(WAITLIST_KEY) === "true") {
         setJoined(true);
       }
-    } catch {
-      /* SSR / private-browsing guard */
-    }
+    } catch { /* SSR / private-browsing guard */ }
   }, []);
 
   /* Listen for cross-instance sync event */
@@ -287,11 +279,7 @@ const Input1 = ({
       try {
         await onSubmit(email);
         // Success — persist flag, broadcast to other instances, show success
-        try {
-          localStorage.setItem(WAITLIST_KEY, "true");
-        } catch {
-          /* ignore */
-        }
+        try { localStorage.setItem(WAITLIST_KEY, "true"); } catch { /* ignore */ }
         window.dispatchEvent(new Event(WAITLIST_EVENT));
         setJoined(true);
       } catch (err) {
@@ -323,13 +311,7 @@ const Input1 = ({
         <SuccessWrap>
           <TickCircle>
             <svg viewBox="0 0 24 24" fill="none">
-              <path
-                d="M5 13l4 4L19 7"
-                stroke="#B095E3"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
+              <path d="M5 13l4 4L19 7" stroke="#B095E3" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </TickCircle>
           <SuccessLabel>You have already joined the waitlist</SuccessLabel>
@@ -354,11 +336,7 @@ const Input1 = ({
             ref={btnRef}
             type="submit"
             disabled={loading}
-            style={
-              loading && btnWidthRef.current
-                ? { width: btnWidthRef.current }
-                : undefined
-            }
+            style={loading && btnWidthRef.current ? { width: btnWidthRef.current } : undefined}
           >
             {loading ? <Spinner /> : buttonText}
           </StyledButton>

@@ -57,7 +57,7 @@ export async function postToSheet(scriptUrl, sheetTab, data) {
   try {
     res = await fetch(scriptUrl, {
       method: "POST",
-      mode: "no-cors", // Apps Script doesn't return CORS headers
+      mode: "no-cors",            // Apps Script doesn't return CORS headers
       headers: { "Content-Type": "text/plain" }, // avoid preflight
       body: JSON.stringify(payload),
       signal: AbortSignal.timeout(15_000),

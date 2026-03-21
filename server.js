@@ -87,10 +87,7 @@ async function createApp() {
           }
           // Images get long cache
           if (/\.(png|jpg|jpeg|webp|avif|svg|ico|gif)$/i.test(filePath)) {
-            res.setHeader(
-              "Cache-Control",
-              "public, max-age=31536000, immutable",
-            );
+            res.setHeader("Cache-Control", "public, max-age=31536000, immutable");
           }
         },
       }),
@@ -141,21 +138,11 @@ async function createApp() {
           `<script>window.__PRELOADED_STATE__=${serializeState(state)}</script>`,
         );
 
-      // Detect 404 pages (renders "Not Found" for unknown slugs/roadmaps/courses)
-      const is404 =
-        appHtml.includes("Course Not Found") ||
-        appHtml.includes("Roadmap Not Found");
-
-      res
-        .status(is404 ? 404 : 200)
-        .set({
-          "Content-Type": "text/html",
-          "Cache-Control": is404
-            ? "no-cache"
-            : "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
-          "X-Content-Type-Options": "nosniff",
-        })
-        .end(html);
+      res.status(200).set({
+        "Content-Type": "text/html",
+        "Cache-Control": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400",
+        "X-Content-Type-Options": "nosniff",
+      }).end(html);
     } catch (err) {
       if (!isProduction && vite) {
         vite.ssrFixStacktrace(err);
